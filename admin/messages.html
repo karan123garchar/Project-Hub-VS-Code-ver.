@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Messages &amp; Communications | ProjectHub Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-portal-bar">
+    <div class="portal-tag">
+      <span class="material-symbols-outlined">forum</span>
+      PLATFORM MESSAGING &amp; MODERATION CHATS
+    </div>
+    <div class="portal-links">
+      <a href="index.html">&larr; Dashboard</a>
+      <a href="inquiries.html">Inquiries &rarr;</a>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand-block">
+        <a href="index.html" class="sidebar-logo">ProjectHub</a>
+        <div class="sidebar-user-card">
+          <div class="sidebar-avatar">
+            <span class="material-symbols-outlined" style="font-size:22px;">account_circle</span>
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name">Karan Garchar</span>
+            <span class="sidebar-user-role">ADMIN</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a href="projects.html" class="nav-link">
+          <span class="material-symbols-outlined">inventory_2</span>
+          My Projects
+          <span class="nav-badge-count">24</span>
+        </a>
+        <a href="users.html" class="nav-link">
+          <span class="material-symbols-outlined">group</span>
+          User Management
+        </a>
+        <a href="inquiries.html" class="nav-link">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          Inquiries
+        </a>
+        <a href="messages.html" class="nav-link active">
+          <span class="material-symbols-outlined">forum</span>
+          Messages
+        </a>
+        <a href="logs.html" class="nav-link">
+          <span class="material-symbols-outlined">analytics</span>
+          Analytics
+        </a>
+        <a href="categories.html" class="nav-link">
+          <span class="material-symbols-outlined">category</span>
+          Categories &amp; Tech
+        </a>
+        <a href="settings.html" class="nav-link">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </nav>
+
+      <button class="sidebar-cta-btn" onclick="openNewProjectModal()">
+        <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+        Post New Project
+      </button>
+
+      <div class="sidebar-bottom">
+        <a href="#help" class="bottom-link" onclick="showAdminToast('Help Center docs loaded')">
+          <span class="material-symbols-outlined">help_outline</span>
+          Help Center
+        </a>
+        <a href="../auth/login.html" class="bottom-link link-logout">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Direct Messages &amp; Support</h1>
+          <p class="admin-page-subtitle">Communicate with enterprise developers and marketplace clients.</p>
+        </div>
+      </div>
+
+      <!-- Simple Chat Overview Cards -->
+      <div class="admin-card" style="padding:0;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:320px 1fr;min-height:500px;">
+          <!-- Left thread list -->
+          <div style="border-right:1px solid var(--admin-border);background:#FAF9F6;">
+            <div style="padding:16px;border-bottom:1px solid var(--admin-border);">
+              <input type="text" placeholder="Search conversations..." class="admin-input-text" style="font-size:12.5px;padding:8px 12px;" />
+            </div>
+            <div>
+              <div style="padding:14px 16px;border-bottom:1px solid var(--admin-border-subtle);background:#FFFFFF;cursor:pointer;display:flex;gap:12px;align-items:center;">
+                <div class="table-avatar" style="background:#2D3748;">EV</div>
+                <div style="flex:1;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <strong style="font-size:13px;color:#111;">Eleanor Vance</strong>
+                    <span style="font-size:11px;color:#9CA3AF;">10:24 AM</span>
+                  </div>
+                  <div style="font-size:12px;color:#6B7280;margin-top:2px;">Requested review for Nexus ERP documentation...</div>
+                </div>
+              </div>
+              <div style="padding:14px 16px;border-bottom:1px solid var(--admin-border-subtle);cursor:pointer;display:flex;gap:12px;align-items:center;">
+                <div class="table-avatar" style="background:#334155;">SJ</div>
+                <div style="flex:1;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <strong style="font-size:13px;color:#111;">Sarah Jenkins</strong>
+                    <span style="font-size:11px;color:#9CA3AF;">Yesterday</span>
+                  </div>
+                  <div style="font-size:12px;color:#6B7280;margin-top:2px;">Updated repository release tags as requested.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Conversation Pane -->
+          <div style="display:flex;flex-direction:column;background:#FFFFFF;">
+            <div style="padding:16px 24px;border-bottom:1px solid var(--admin-border);display:flex;justify-content:space-between;align-items:center;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div class="table-avatar" style="background:#2D3748;">EV</div>
+                <div>
+                  <div style="font-weight:700;font-size:14px;color:#111;">Eleanor Vance</div>
+                  <div style="font-size:11.5px;color:#1B7A41;">Developer Account &bull; Active</div>
+                </div>
+              </div>
+              <button class="btn-admin-outline" style="padding:6px 12px;font-size:12px;" onclick="showAdminToast('User profile opened')">View Profile</button>
+            </div>
+
+            <div style="flex:1;padding:24px;overflow-y:auto;display:flex;flex-direction:column;gap:16px;">
+              <div style="align-self:flex-start;max-width:70%;background:#F3F4F6;padding:12px 16px;border-radius:10px;font-size:13px;line-height:1.4;">
+                Hi Karan, we've updated the Docker compose manifests and security scan report for Nexus ERP. Can you please review for production listing?
+                <div style="font-size:10px;color:#9CA3AF;margin-top:4px;">10:24 AM</div>
+              </div>
+              <div style="align-self:flex-end;max-width:70%;background:#111111;color:#FFFFFF;padding:12px 16px;border-radius:10px;font-size:13px;line-height:1.4;">
+                Reviewing the updated artifacts now. All automated compliance passes are green. Approval should reflect shortly.
+                <div style="font-size:10px;color:#A1A1AA;margin-top:4px;">10:28 AM</div>
+              </div>
+            </div>
+
+            <div style="padding:16px 24px;border-top:1px solid var(--admin-border);display:flex;gap:10px;">
+              <input type="text" id="chatInputMsg" placeholder="Type an administrative response..." class="admin-input-text" style="flex:1;" />
+              <button class="btn-admin-gold" onclick="sendAdminChatMessage()">
+                <span class="material-symbols-outlined" style="font-size:18px;">send</span>
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+  <script src="admin.js"></script>
+</body>
+</html>

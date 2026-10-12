@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Karan Garchar | ProjectHub</title>
+  <!-- Google Fonts: Playfair Display, Inter, Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Micro Portal Bar -->
+  <div class="admin-portal-bar">
+    <div class="portal-tag">
+      <span class="material-symbols-outlined">admin_panel_settings</span>
+      MASTER ADMIN / PLATFORM GOVERNANCE
+    </div>
+    <div class="portal-links">
+      <a href="../user/index.html">User Portal &rarr;</a>
+      <a href="../developer/dashboard.html">Developer Studio &rarr;</a>
+      <a href="../index.html">Main Hub &rarr;</a>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand-block">
+        <a href="index.html" class="sidebar-logo">
+          ProjectHub
+        </a>
+
+        <!-- Admin Profile -->
+        <div class="sidebar-user-card">
+          <div class="sidebar-avatar">
+            <span class="material-symbols-outlined" style="font-size:22px;">account_circle</span>
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name">Karan Garchar</span>
+            <span class="sidebar-user-role">ADMIN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link active">
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a href="projects.html" class="nav-link">
+          <span class="material-symbols-outlined">inventory_2</span>
+          My Projects
+          <span class="nav-badge-count">24</span>
+        </a>
+        <a href="users.html" class="nav-link">
+          <span class="material-symbols-outlined">group</span>
+          User Management
+        </a>
+        <a href="inquiries.html" class="nav-link">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          Inquiries
+        </a>
+        <a href="messages.html" class="nav-link">
+          <span class="material-symbols-outlined">forum</span>
+          Messages
+        </a>
+        <a href="logs.html" class="nav-link">
+          <span class="material-symbols-outlined">analytics</span>
+          Analytics
+        </a>
+        <a href="categories.html" class="nav-link">
+          <span class="material-symbols-outlined">category</span>
+          Categories &amp; Tech
+        </a>
+        <a href="settings.html" class="nav-link">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </nav>
+
+      <!-- Post New Project CTA Button -->
+      <a href="upload-project.html" class="sidebar-cta-btn btn-dark">
+        <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+        Post New Project
+      </a>
+
+      <!-- Sidebar Utilities -->
+      <div class="sidebar-bottom">
+        <a href="#help" class="bottom-link" onclick="showAdminToast('Help Center docs loaded')">
+          <span class="material-symbols-outlined">help_outline</span>
+          Help Center
+        </a>
+        <a href="../auth/login.html" class="bottom-link link-logout">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      
+      <!-- Page Header with Title and Range Picker -->
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Admin Dashboard</h1>
+          <p class="admin-page-subtitle">Comprehensive overview of enterprise metrics.</p>
+        </div>
+        <div class="time-range-group">
+          <button class="time-range-btn" onclick="setTimeRange(this, '7D')">7D</button>
+          <button class="time-range-btn" onclick="setTimeRange(this, '30D')">30D</button>
+          <button class="time-range-btn" onclick="setTimeRange(this, '90D')">90D</button>
+          <button class="time-range-btn active" onclick="setTimeRange(this, '12M')">12M</button>
+        </div>
+      </div>
+
+      <!-- 4 Top KPI Cards -->
+      <div class="admin-kpi-grid">
+        <!-- KPI 1 -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Total Revenue</span>
+            <span class="material-symbols-outlined kpi-icon">payments</span>
+          </div>
+          <div class="kpi-value">&#8377;42.5M</div>
+          <div class="kpi-footer">
+            <span class="kpi-badge up">
+              <span class="material-symbols-outlined" style="font-size:13px;">trending_up</span>
+              +12.4%
+            </span>
+            <span class="kpi-subtext">vs last year</span>
+          </div>
+        </div>
+
+        <!-- KPI 2 -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Active Users</span>
+            <span class="material-symbols-outlined kpi-icon">group</span>
+          </div>
+          <div class="kpi-value">18,492</div>
+          <div class="kpi-footer">
+            <span class="kpi-badge up">
+              <span class="material-symbols-outlined" style="font-size:13px;">trending_up</span>
+              +5.2%
+            </span>
+            <span class="kpi-subtext">vs last year</span>
+          </div>
+        </div>
+
+        <!-- KPI 3 -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Success Rate</span>
+            <span class="material-symbols-outlined kpi-icon">check_circle</span>
+          </div>
+          <div class="kpi-value">94.2%</div>
+          <div class="kpi-footer">
+            <span class="kpi-badge down">
+              <span class="material-symbols-outlined" style="font-size:13px;">trending_down</span>
+              -0.8%
+            </span>
+            <span class="kpi-subtext">vs last year</span>
+          </div>
+        </div>
+
+        <!-- KPI 4 -->
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-label">Avg Engagement</span>
+            <span class="material-symbols-outlined kpi-icon">schedule</span>
+          </div>
+          <div class="kpi-value">24m 15s</div>
+          <div class="kpi-footer">
+            <span class="kpi-badge up">
+              <span class="material-symbols-outlined" style="font-size:13px;">trending_up</span>
+              +2.1%
+            </span>
+            <span class="kpi-subtext">vs last year</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle Row: Growth Dynamics & Category Split -->
+      <div class="admin-grid-2-1">
+        <!-- Growth Dynamics (Area Chart) -->
+        <div class="admin-card">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="card-title">Growth Dynamics</h2>
+            </div>
+            <button class="btn-card-more" title="Options">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </div>
+
+          <!-- SVG Smooth Curved Golden Area Chart -->
+          <div class="chart-container" style="height: 250px;">
+            <svg viewBox="0 0 600 230" width="100%" height="100%" preserveAspectRatio="none" style="overflow: visible;">
+              <defs>
+                <!-- Golden Gradient Fill -->
+                <linearGradient id="goldGrowthGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#C69214" stop-opacity="0.32" />
+                  <stop offset="60%" stop-color="#C69214" stop-opacity="0.08" />
+                  <stop offset="100%" stop-color="#C69214" stop-opacity="0.0" />
+                </linearGradient>
+              </defs>
+
+              <!-- Subtle Horizontal Grid Lines -->
+              <line x1="0" y1="40" x2="600" y2="40" stroke="#F1EDE5" stroke-width="1" />
+              <line x1="0" y1="90" x2="600" y2="90" stroke="#F1EDE5" stroke-width="1" />
+              <line x1="0" y1="140" x2="600" y2="140" stroke="#F1EDE5" stroke-width="1" />
+              <line x1="0" y1="190" x2="600" y2="190" stroke="#F1EDE5" stroke-width="1" />
+
+              <!-- Area Fill Under Curve -->
+              <path d="M 0,195 
+                       C 120,195 180,185 240,165 
+                       C 320,140 380,95 460,70 
+                       C 510,55 560,50 600,48 
+                       L 600,210 L 0,210 Z" 
+                    fill="url(#goldGrowthGrad)" />
+
+              <!-- Smooth Golden Line -->
+              <path d="M 0,195 
+                       C 120,195 180,185 240,165 
+                       C 320,140 380,95 460,70 
+                       C 510,55 560,50 600,48" 
+                    fill="none" 
+                    stroke="#C69214" 
+                    stroke-width="3" 
+                    stroke-linecap="round" />
+
+              <!-- End Glowing Target Dot -->
+              <circle cx="600" cy="48" r="5" fill="#C69214" />
+              <circle cx="600" cy="48" r="9" fill="none" stroke="#C69214" stroke-opacity="0.3" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="chart-caption">[Area Chart: User &amp; Developer Growth over 12M]</div>
+        </div>
+
+        <!-- Category Split (Donut Chart) -->
+        <div class="admin-card">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="card-title">Category Split</h2>
+            </div>
+            <button class="btn-card-more" title="Options">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </div>
+
+          <!-- SVG Donut Chart -->
+          <div class="donut-wrap">
+            <svg width="150" height="150" viewBox="0 0 100 100">
+              <!-- Background circle -->
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#F3EFE6" stroke-width="9" />
+              <!-- Segments using stroke-dasharray (circumference ~ 238.76) -->
+              <!-- ERP Systems (45% -> 107.4) -->
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#1A1A1A" stroke-width="9"
+                      stroke-dasharray="107.4 238.76" stroke-dashoffset="0" transform="rotate(-90 50 50)" />
+              <!-- SaaS Products (30% -> 71.6) -->
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#C69214" stroke-width="9"
+                      stroke-dasharray="71.6 238.76" stroke-dashoffset="-107.4" transform="rotate(-90 50 50)" />
+              <!-- Mobile Apps (15% -> 35.8) -->
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#9CA3AF" stroke-width="9"
+                      stroke-dasharray="35.8 238.76" stroke-dashoffset="-179" transform="rotate(-90 50 50)" />
+              <!-- Other (10% -> 23.9) -->
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#D1D5DB" stroke-width="9"
+                      stroke-dasharray="23.9 238.76" stroke-dashoffset="-214.8" transform="rotate(-90 50 50)" />
+              <!-- Center Text -->
+              <text x="50" y="55" text-anchor="middle" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#111111">
+                100%
+              </text>
+            </svg>
+
+            <!-- Legend List -->
+            <div class="donut-legend">
+              <div class="legend-item">
+                <span class="legend-name">
+                  <span class="legend-dot" style="background:#1A1A1A;"></span>
+                  ERP Systems
+                </span>
+                <span class="legend-val">45%</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-name">
+                  <span class="legend-dot" style="background:#C69214;"></span>
+                  SaaS Products
+                </span>
+                <span class="legend-val">30%</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-name">
+                  <span class="legend-dot" style="background:#9CA3AF;"></span>
+                  Mobile Apps
+                </span>
+                <span class="legend-val">15%</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-name">
+                  <span class="legend-dot" style="background:#D1D5DB;"></span>
+                  Other
+                </span>
+                <span class="legend-val">10%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Top Performing Projects & Geographic Reach -->
+      <div class="admin-grid-2-1">
+        <!-- Top Performing Projects Table -->
+        <div class="admin-card">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="card-title">Top Performing Projects</h2>
+            </div>
+            <a href="projects.html" style="font-size:12.5px;color:var(--admin-gold);font-weight:600;text-decoration:none;">
+              View All
+            </a>
+          </div>
+
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Project Name</th>
+                <th>Developer</th>
+                <th>Total Views</th>
+                <th>Conv. Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600;color:#111;">Nexus ERP Implementation</td>
+                <td style="color:#6B7280;">Quantum Logic Inc.</td>
+                <td style="font-weight:500;">12,450</td>
+                <td style="color:#1B7A41;font-weight:600;">8.4%</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:#111;">Aura Mobile Platform</td>
+                <td style="color:#6B7280;">DesignShift</td>
+                <td style="font-weight:500;">9,210</td>
+                <td style="color:#1B7A41;font-weight:600;">7.2%</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:#111;">Global Supply Chain SaaS</td>
+                <td style="color:#6B7280;">LogisTech Solutions</td>
+                <td style="font-weight:500;">8,840</td>
+                <td style="color:#1B7A41;font-weight:600;">6.9%</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:#111;">FinServ Data Lake</td>
+                <td style="color:#6B7280;">DataMinds Co.</td>
+                <td style="font-weight:500;">7,105</td>
+                <td style="color:#1B7A41;font-weight:600;">5.8%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Geographic Reach Card -->
+        <div class="admin-card">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="card-title">Geographic Reach</h2>
+            </div>
+          </div>
+
+          <!-- Stylized World Map Box -->
+          <div class="geo-map-box">
+            <svg viewBox="0 0 320 150" width="100%" height="130" style="opacity: 0.9;">
+              <!-- World Map Simplified Landmasses -->
+              <path d="M 30,30 Q 60,20 80,45 Q 90,65 70,80 Q 40,70 30,30 Z" fill="#3B404E" />
+              <path d="M 75,95 Q 95,95 85,135 Q 70,140 65,115 Z" fill="#3B404E" />
+              <path d="M 130,25 Q 165,20 170,45 Q 155,60 135,50 Z" fill="#3B404E" />
+              <path d="M 140,65 Q 175,60 165,110 Q 140,115 135,80 Z" fill="#3B404E" />
+              <path d="M 185,25 Q 260,20 280,60 Q 240,85 200,65 Z" fill="#3B404E" />
+              <path d="M 235,95 Q 265,95 260,125 Q 230,125 235,95 Z" fill="#3B404E" />
+              
+              <!-- Hotspots / Pulsing Markers -->
+              <!-- North America -->
+              <circle cx="60" cy="45" r="4" fill="#C69214" />
+              <circle cx="60" cy="45" r="8" fill="none" stroke="#C69214" stroke-opacity="0.5" stroke-width="1.5" />
+              <!-- Europe -->
+              <circle cx="150" cy="38" r="4" fill="#C69214" />
+              <circle cx="150" cy="38" r="8" fill="none" stroke="#C69214" stroke-opacity="0.5" stroke-width="1.5" />
+              <!-- Asia -->
+              <circle cx="230" cy="50" r="3.5" fill="#C69214" />
+              <circle cx="230" cy="50" r="7" fill="none" stroke="#C69214" stroke-opacity="0.5" stroke-width="1.5" />
+            </svg>
+          </div>
+
+          <!-- Region Breakdown Progress Bars -->
+          <div class="geo-bars-list">
+            <div class="geo-bar-row">
+              <div class="geo-bar-meta">
+                <span>North America</span>
+                <span>52%</span>
+              </div>
+              <div class="geo-bar-track">
+                <div class="geo-bar-fill" style="width: 52%;"></div>
+              </div>
+            </div>
+            <div class="geo-bar-row">
+              <div class="geo-bar-meta">
+                <span>Europe</span>
+                <span>31%</span>
+              </div>
+              <div class="geo-bar-track">
+                <div class="geo-bar-fill" style="width: 31%;"></div>
+              </div>
+            </div>
+            <div class="geo-bar-row">
+              <div class="geo-bar-meta">
+                <span>Asia Pacific</span>
+                <span>17%</span>
+              </div>
+              <div class="geo-bar-track">
+                <div class="geo-bar-fill" style="width: 17%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- New Project Modal -->
+  <div class="admin-modal-backdrop" id="newProjectModal">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Post New Project</h3>
+        <button class="action-icon-btn" onclick="closeModal('newProjectModal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="admin-form-group">
+          <label class="admin-form-label">Project Title</label>
+          <input type="text" class="admin-input-text" id="modalProjectTitle" placeholder="e.g. Next-Gen Inventory SaaS" />
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label">Category</label>
+          <select class="filter-select" style="width:100%;" id="modalProjectCategory">
+            <option>ERP Solutions</option>
+            <option>SaaS Platform</option>
+            <option>Mobile App</option>
+            <option>Data Science</option>
+            <option>Web Development</option>
+          </select>
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label">Assign Developer / Studio</label>
+          <input type="text" class="admin-input-text" id="modalProjectDeveloper" placeholder="e.g. Quantum Logic Inc." />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-outline" onclick="closeModal('newProjectModal')">Cancel</button>
+        <button class="btn-admin-gold" onclick="submitNewProject()">Submit Submission</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <script src="admin.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

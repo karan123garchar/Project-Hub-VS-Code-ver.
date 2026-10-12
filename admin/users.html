@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Management | ProjectHub Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Micro Portal Bar -->
+  <div class="admin-portal-bar">
+    <div class="portal-tag">
+      <span class="material-symbols-outlined">manage_accounts</span>
+      PLATFORM GOVERNANCE / USER &amp; DEVELOPER ACCESS
+    </div>
+    <div class="portal-links">
+      <a href="index.html">&larr; Dashboard</a>
+      <a href="projects.html">Project Moderation &rarr;</a>
+      <a href="settings.html">Settings &rarr;</a>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand-block">
+        <a href="index.html" class="sidebar-logo">ProjectHub</a>
+        <div class="sidebar-user-card">
+          <div class="sidebar-avatar">
+            <span class="material-symbols-outlined" style="font-size:22px;">account_circle</span>
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name">Karan Garchar</span>
+            <span class="sidebar-user-role">ADMIN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post New Project CTA -->
+      <a href="upload-project.html" class="sidebar-cta-btn">
+        <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+        Post New Project
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a href="projects.html" class="nav-link">
+          <span class="material-symbols-outlined">inventory_2</span>
+          My Projects
+          <span class="nav-badge-count">24</span>
+        </a>
+        <a href="users.html" class="nav-link active">
+          <span class="material-symbols-outlined">group</span>
+          User Management
+        </a>
+        <a href="inquiries.html" class="nav-link">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          Inquiries
+        </a>
+        <a href="messages.html" class="nav-link">
+          <span class="material-symbols-outlined">forum</span>
+          Messages
+        </a>
+        <a href="logs.html" class="nav-link">
+          <span class="material-symbols-outlined">analytics</span>
+          Analytics
+        </a>
+        <a href="categories.html" class="nav-link">
+          <span class="material-symbols-outlined">category</span>
+          Categories &amp; Tech
+        </a>
+        <a href="settings.html" class="nav-link">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="#help" class="bottom-link" onclick="showAdminToast('Help Center docs loaded')">
+          <span class="material-symbols-outlined">help_outline</span>
+          Help Center
+        </a>
+        <a href="../auth/login.html" class="bottom-link link-logout">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+      <!-- Header Title and Top Actions -->
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">User Management</h1>
+          <p class="admin-page-subtitle">Monitor and moderate platform participants.</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;">
+          <button class="btn-admin-outline" onclick="exportUsersCSV()">
+            <span class="material-symbols-outlined" style="font-size:18px;">download</span>
+            Export CSV
+          </button>
+          <button class="btn-admin-primary" onclick="openModal('inviteUserModal')">
+            <span class="material-symbols-outlined" style="font-size:18px;">person_add</span>
+            + Invite User
+          </button>
+        </div>
+      </div>
+
+      <!-- Search & Filters Bar -->
+      <div class="admin-filter-bar">
+        <div class="filter-search-box">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input type="text" id="userSearchInput" placeholder="Search users by name or email..." />
+        </div>
+        <select class="filter-select" id="userRoleFilter">
+          <option value="all">Filter by Role</option>
+          <option value="developer">Developer</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <select class="filter-select" id="userStatusFilter">
+          <option value="all">Filter by Status</option>
+          <option value="active">Active</option>
+          <option value="suspended">Suspended</option>
+          <option value="pending">Pending</option>
+        </select>
+      </div>
+
+      <!-- Users Table Card -->
+      <div class="admin-table-card">
+        <table class="admin-table" id="usersTable">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Joined Date</th>
+              <th>Projects Viewed</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1: Eleanor Vance -->
+            <tr data-role="developer" data-status="active">
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#2D3748;">
+                    EV
+                  </div>
+                  <span class="table-user-name">Eleanor Vance</span>
+                </div>
+              </td>
+              <td style="color:#6B7280;">eleanor.v@example.com</td>
+              <td><span class="badge-pill role-badge">Developer</span></td>
+              <td>
+                <span class="badge-pill status-active">
+                  <span class="status-dot"></span>
+                  Active
+                </span>
+              </td>
+              <td style="color:#6B7280;">Oct 24, 2023</td>
+              <td style="font-weight:600;color:#111;">142</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <button class="action-icon-btn" title="View Profile" onclick="viewUser('Eleanor Vance', 'eleanor.v@example.com')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">visibility</span>
+                  </button>
+                  <button class="action-icon-btn" title="Edit User" onclick="editUser('Eleanor Vance')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                  </button>
+                  <button class="action-icon-btn btn-danger" title="Suspend" onclick="toggleUserStatus(this, 'Eleanor Vance')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">block</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 2: Marcus Thorne -->
+            <tr data-role="user" data-status="suspended">
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#4A5568;">
+                    MT
+                  </div>
+                  <span class="table-user-name">Marcus Thorne</span>
+                </div>
+              </td>
+              <td style="color:#6B7280;">m.thorne@globalcorp.net</td>
+              <td><span class="badge-pill role-badge">User</span></td>
+              <td>
+                <span class="badge-pill status-suspended">
+                  <span class="status-dot"></span>
+                  Suspended
+                </span>
+              </td>
+              <td style="color:#6B7280;">Nov 02, 2023</td>
+              <td style="font-weight:600;color:#111;">0</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <button class="action-icon-btn" title="View Profile" onclick="viewUser('Marcus Thorne', 'm.thorne@globalcorp.net')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">visibility</span>
+                  </button>
+                  <button class="action-icon-btn" title="Edit User" onclick="editUser('Marcus Thorne')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                  </button>
+                  <button class="action-icon-btn btn-success" title="Activate" onclick="toggleUserStatus(this, 'Marcus Thorne')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">check_circle</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 3: Sophia Laurent -->
+            <tr data-role="user" data-status="pending">
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#805AD5;">
+                    SL
+                  </div>
+                  <span class="table-user-name">Sophia Laurent</span>
+                </div>
+              </td>
+              <td style="color:#6B7280;">sophia@laurent-associates.com</td>
+              <td><span class="badge-pill role-badge">User</span></td>
+              <td>
+                <span class="badge-pill status-pending">
+                  <span class="status-dot"></span>
+                  Pending
+                </span>
+              </td>
+              <td style="color:#6B7280;">Dec 15, 2023</td>
+              <td style="font-weight:600;color:#111;">12</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <button class="action-icon-btn" title="View Profile" onclick="viewUser('Sophia Laurent', 'sophia@laurent-associates.com')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">visibility</span>
+                  </button>
+                  <button class="action-icon-btn" title="Edit User" onclick="editUser('Sophia Laurent')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                  </button>
+                  <button class="action-icon-btn btn-success" title="Approve Verification" onclick="approveUser(this, 'Sophia Laurent')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">how_to_reg</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 4: Julian Reed -->
+            <tr data-role="developer" data-status="active">
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#2B6CB0;">
+                    JR
+                  </div>
+                  <span class="table-user-name">Julian Reed</span>
+                </div>
+              </td>
+              <td style="color:#6B7280;">jreed@devstudios.io</td>
+              <td><span class="badge-pill role-badge">Developer</span></td>
+              <td>
+                <span class="badge-pill status-active">
+                  <span class="status-dot"></span>
+                  Active
+                </span>
+              </td>
+              <td style="color:#6B7280;">Jan 05, 2024</td>
+              <td style="font-weight:600;color:#111;">389</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <button class="action-icon-btn" title="View Profile" onclick="viewUser('Julian Reed', 'jreed@devstudios.io')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">visibility</span>
+                  </button>
+                  <button class="action-icon-btn" title="Edit User" onclick="editUser('Julian Reed')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                  </button>
+                  <button class="action-icon-btn btn-danger" title="Suspend" onclick="toggleUserStatus(this, 'Julian Reed')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">block</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Table Footer Pagination -->
+        <div class="admin-table-footer">
+          <div class="table-footer-info">Showing 1 to 4 of 248 entries</div>
+          <div class="table-pagination">
+            <button class="page-btn">&lsaquo;</button>
+            <button class="page-btn active" style="background:#78350F;color:#fff;">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span style="color:#9CA3AF;padding:0 4px;">...</span>
+            <button class="page-btn">62</button>
+            <button class="page-btn">&rsaquo;</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Invite User Modal -->
+  <div class="admin-modal-backdrop" id="inviteUserModal">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Invite Platform Participant</h3>
+        <button class="action-icon-btn" onclick="closeModal('inviteUserModal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="admin-form-group">
+          <label class="admin-form-label">Full Name</label>
+          <input type="text" class="admin-input-text" id="inviteUserName" placeholder="e.g. Alex Morgan" />
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label">Email Address</label>
+          <input type="email" class="admin-input-text" id="inviteUserEmail" placeholder="alex@company.com" />
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label">Platform Role</label>
+          <select class="filter-select" style="width:100%;" id="inviteUserRole">
+            <option value="Developer">Enterprise Developer</option>
+            <option value="User">Client / Buyer</option>
+            <option value="Admin">Moderator / Admin</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-outline" onclick="closeModal('inviteUserModal')">Cancel</button>
+        <button class="btn-admin-primary" onclick="submitInviteUser()">Send Invitation Email</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Project Modal -->
+  <div class="admin-modal-backdrop" id="newProjectModal">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Post New Project</h3>
+        <button class="action-icon-btn" onclick="closeModal('newProjectModal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="admin-form-group">
+          <label class="admin-form-label">Project Title</label>
+          <input type="text" class="admin-input-text" id="modalProjectTitle" placeholder="e.g. Nexus ERP Core" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-outline" onclick="closeModal('newProjectModal')">Cancel</button>
+        <button class="btn-admin-gold" onclick="submitNewProject()">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories &amp; Technologies | ProjectHub Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Micro Portal Bar -->
+  <div class="admin-portal-bar">
+    <div class="portal-tag">
+      <span class="material-symbols-outlined">category</span>
+      TAXONOMY &amp; TECH STACK GOVERNANCE
+    </div>
+    <div class="portal-links">
+      <a href="index.html">&larr; Dashboard</a>
+      <a href="projects.html">Projects</a>
+      <a href="settings.html">Settings &rarr;</a>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand-block">
+        <a href="index.html" class="sidebar-logo">ProjectHub</a>
+        <div class="sidebar-user-card">
+          <div class="sidebar-avatar">
+            <span class="material-symbols-outlined" style="font-size:22px;">account_circle</span>
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name">Karan Garchar</span>
+            <span class="sidebar-user-role">ADMIN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post New Project CTA -->
+      <button class="sidebar-cta-btn" onclick="openNewProjectModal()">
+        <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+        Post New Project
+      </button>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a href="projects.html" class="nav-link">
+          <span class="material-symbols-outlined">inventory_2</span>
+          My Projects
+          <span class="nav-badge-count">24</span>
+        </a>
+        <a href="users.html" class="nav-link">
+          <span class="material-symbols-outlined">group</span>
+          User Management
+        </a>
+        <a href="inquiries.html" class="nav-link">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          Inquiries
+        </a>
+        <a href="messages.html" class="nav-link">
+          <span class="material-symbols-outlined">forum</span>
+          Messages
+        </a>
+        <a href="logs.html" class="nav-link">
+          <span class="material-symbols-outlined">analytics</span>
+          Analytics
+        </a>
+        <a href="categories.html" class="nav-link active">
+          <span class="material-symbols-outlined">category</span>
+          Categories &amp; Tech
+        </a>
+        <a href="settings.html" class="nav-link">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="#help" class="bottom-link" onclick="showAdminToast('Help Center docs loaded')">
+          <span class="material-symbols-outlined">help_outline</span>
+          Help Center
+        </a>
+        <a href="../auth/login.html" class="bottom-link link-logout">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+      <!-- Header Search & Notification Bar (Image 4 top) -->
+      <div class="admin-header-bar">
+        <div class="header-search-wrap">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input type="text" placeholder="Search categories, technologies, or projects..." id="topGlobalSearch" />
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn-utility" title="Notifications" onclick="showAdminToast('2 category taxonomies pending sync')">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="badge-dot"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Page Title -->
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Categories &amp; Technologies</h1>
+          <p class="admin-page-subtitle">Manage the platform's taxonomy, programming languages, and frameworks. Ensure accurate classification for optimal search and discovery.</p>
+        </div>
+      </div>
+
+      <!-- Marketplace Categories Section -->
+      <div style="margin-top:24px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <h2 style="font-family:var(--font-serif);font-size:22px;font-weight:700;color:#111;margin:0;">
+            Marketplace Categories
+          </h2>
+          <button class="btn-admin-gold" onclick="openModal('addCategoryModal')">
+            <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+            + Add New Category
+          </button>
+        </div>
+
+        <!-- Categories Table Card -->
+        <div class="admin-table-card">
+          <table class="admin-table" id="categoriesTable">
+            <thead>
+              <tr>
+                <th>Category Name</th>
+                <th>Slug</th>
+                <th>Projects Count</th>
+                <th>Status</th>
+                <th style="text-align:right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1: Web Development -->
+              <tr>
+                <td style="font-weight:600;color:#111;">Web Development</td>
+                <td style="font-family:monospace;color:#6B7280;font-size:12.5px;">web-development</td>
+                <td style="font-weight:500;color:#111;">1,245</td>
+                <td>
+                  <span class="badge-pill status-active">Active</span>
+                </td>
+                <td>
+                  <div class="table-actions" style="justify-content:flex-end;">
+                    <button class="action-icon-btn" title="Edit" onclick="editCategory('Web Development', 'web-development')">
+                      <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                    </button>
+                    <button class="action-icon-btn btn-danger" title="Delete" onclick="deleteCategory(this, 'Web Development')">
+                      <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 2: Mobile Apps -->
+              <tr>
+                <td style="font-weight:600;color:#111;">Mobile Apps</td>
+                <td style="font-family:monospace;color:#6B7280;font-size:12.5px;">mobile-apps</td>
+                <td style="font-weight:500;color:#111;">892</td>
+                <td>
+                  <span class="badge-pill status-active">Active</span>
+                </td>
+                <td>
+                  <div class="table-actions" style="justify-content:flex-end;">
+                    <button class="action-icon-btn" title="Edit" onclick="editCategory('Mobile Apps', 'mobile-apps')">
+                      <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                    </button>
+                    <button class="action-icon-btn btn-danger" title="Delete" onclick="deleteCategory(this, 'Mobile Apps')">
+                      <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 3: Data Science -->
+              <tr>
+                <td style="font-weight:600;color:#111;">Data Science</td>
+                <td style="font-family:monospace;color:#6B7280;font-size:12.5px;">data-science</td>
+                <td style="font-weight:500;color:#111;">430</td>
+                <td>
+                  <span class="badge-pill status-approved" style="background:#F3F4F6;color:#6B7280;">Inactive</span>
+                </td>
+                <td>
+                  <div class="table-actions" style="justify-content:flex-end;">
+                    <button class="action-icon-btn" title="Edit" onclick="editCategory('Data Science', 'data-science')">
+                      <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                    </button>
+                    <button class="action-icon-btn btn-danger" title="Delete" onclick="deleteCategory(this, 'Data Science')">
+                      <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Add Category Modal -->
+  <div class="admin-modal-backdrop" id="addCategoryModal">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Marketplace Category</h3>
+        <button class="action-icon-btn" onclick="closeModal('addCategoryModal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="admin-form-group">
+          <label class="admin-form-label">Category Name</label>
+          <input type="text" class="admin-input-text" id="newCatName" placeholder="e.g. Artificial Intelligence" />
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label">Slug Identifier</label>
+          <input type="text" class="admin-input-text" id="newCatSlug" placeholder="e.g. artificial-intelligence" />
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label">Status</label>
+          <select class="filter-select" style="width:100%;" id="newCatStatus">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-outline" onclick="closeModal('addCategoryModal')">Cancel</button>
+        <button class="btn-admin-gold" onclick="submitAddCategory()">Create Category</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Project Modal -->
+  <div class="admin-modal-backdrop" id="newProjectModal">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Post New Project</h3>
+        <button class="action-icon-btn" onclick="closeModal('newProjectModal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="admin-form-group">
+          <label class="admin-form-label">Project Title</label>
+          <input type="text" class="admin-input-text" id="modalProjectTitle" placeholder="e.g. Nexus ERP" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-outline" onclick="closeModal('newProjectModal')">Cancel</button>
+        <button class="btn-admin-gold" onclick="submitNewProject()">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Settings | ProjectHub Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Micro Portal Bar -->
+  <div class="admin-portal-bar">
+    <div class="portal-tag">
+      <span class="material-symbols-outlined">settings_suggest</span>
+      SYSTEM CONFIGURATION &amp; PLATFORM POLICY
+    </div>
+    <div class="portal-links">
+      <a href="index.html">&larr; Dashboard</a>
+      <a href="projects.html">Moderation</a>
+      <a href="users.html">Users</a>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand-block">
+        <a href="index.html" class="sidebar-logo">ProjectHub</a>
+        <div class="sidebar-user-card">
+          <div class="sidebar-avatar">
+            <span class="material-symbols-outlined" style="font-size:22px;">account_circle</span>
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name">Karan Garchar</span>
+            <span class="sidebar-user-role">ADMIN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post New Project CTA -->
+      <button class="sidebar-cta-btn" onclick="openNewProjectModal()">
+        <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+        Post New Project
+      </button>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a href="projects.html" class="nav-link">
+          <span class="material-symbols-outlined">inventory_2</span>
+          My Projects
+          <span class="nav-badge-count">24</span>
+        </a>
+        <a href="users.html" class="nav-link">
+          <span class="material-symbols-outlined">group</span>
+          User Management
+        </a>
+        <a href="inquiries.html" class="nav-link">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          Inquiries
+        </a>
+        <a href="messages.html" class="nav-link">
+          <span class="material-symbols-outlined">forum</span>
+          Messages
+        </a>
+        <a href="logs.html" class="nav-link">
+          <span class="material-symbols-outlined">analytics</span>
+          Analytics
+        </a>
+        <a href="categories.html" class="nav-link">
+          <span class="material-symbols-outlined">category</span>
+          Categories &amp; Tech
+        </a>
+        <a href="settings.html" class="nav-link active">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="#help" class="bottom-link" onclick="showAdminToast('Help Center docs loaded')">
+          <span class="material-symbols-outlined">help_outline</span>
+          Help Center
+        </a>
+        <a href="../auth/login.html" class="bottom-link link-logout">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+      <!-- Top Search & Profile Bar (Image 5 top) -->
+      <div class="admin-header-bar">
+        <div class="header-search-wrap">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input type="text" placeholder="Search..." id="settingsTopSearch" />
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn-utility" title="Notifications" onclick="showAdminToast('Platform security patches up to date')">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="badge-dot"></span>
+          </button>
+          <div class="table-avatar" style="background:#111;width:36px;height:36px;cursor:pointer;">
+            <span class="material-symbols-outlined" style="font-size:20px;color:#fff;">person</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page Title -->
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">System Settings</h1>
+          <p class="admin-page-subtitle">Global configuration and marketplace parameters.</p>
+        </div>
+      </div>
+
+      <!-- Two-Column Settings Shell -->
+      <div class="settings-shell">
+        
+        <!-- Left Tab Nav -->
+        <nav class="settings-nav">
+          <button class="settings-tab-btn active" onclick="switchSettingsTab(this, 'generalTab')">
+            General
+          </button>
+          <button class="settings-tab-btn" onclick="switchSettingsTab(this, 'securityTab')">
+            Security
+          </button>
+          <button class="settings-tab-btn" onclick="switchSettingsTab(this, 'marketplaceTab')">
+            Marketplace Rules
+          </button>
+          <button class="settings-tab-btn" onclick="switchSettingsTab(this, 'notificationsTab')">
+            Notifications
+          </button>
+          <button class="settings-tab-btn" onclick="switchSettingsTab(this, 'apiTab')">
+            API &amp; Integrations
+          </button>
+        </nav>
+
+        <!-- Right Content Panels -->
+        <div class="settings-panels">
+
+          <!-- Floating Save Changes Bar (Image 5) -->
+          <div class="floating-save-bar" id="saveChangesBar" style="display:none;">
+            <div class="save-bar-info">
+              <span class="material-symbols-outlined" style="font-size:18px;color:var(--admin-gold);">info</span>
+              <span>Unsaved changes in General</span>
+            </div>
+            <div class="save-bar-actions">
+              <button class="btn-admin-outline" onclick="discardSettingsChanges()">Discard</button>
+              <button class="btn-admin-gold" onclick="saveSettingsChanges()">Save Configuration</button>
+            </div>
+          </div>
+
+          <!-- Card 1: General Information -->
+          <div class="settings-card" id="cardGeneral">
+            <div class="settings-card-topbar">
+              <h2 class="settings-card-title">General Information</h2>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">Site Name</label>
+              <input type="text" class="admin-input-text" id="settingSiteName" value="ProjectHub" oninput="triggerUnsavedChanges()" />
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">Support Email</label>
+              <input type="email" class="admin-input-text" id="settingSupportEmail" value="admin@projecthub.com" oninput="triggerUnsavedChanges()" />
+            </div>
+
+            <div class="toggle-row" style="border-top:1px solid #F1EDE5;margin-top:20px;padding-top:20px;">
+              <div class="toggle-info">
+                <span class="toggle-title">Maintenance Mode</span>
+                <span class="toggle-desc">Temporarily disable public access to the marketplace.</span>
+              </div>
+              <label class="switch-box">
+                <input type="checkbox" id="settingMaintenanceMode" onchange="triggerUnsavedChanges()" />
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Card 2: Marketplace Rules / Parameters -->
+          <div class="settings-card" id="cardMarketplace">
+            <div class="settings-card-topbar">
+              <h2 class="settings-card-title">Marketplace Parameters</h2>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">Commission Percentage (%)</label>
+              <div class="admin-input-wrap">
+                <input type="number" class="admin-input-text" id="settingCommission" value="15" oninput="triggerUnsavedChanges()" />
+                <span class="admin-input-unit">%</span>
+              </div>
+              <div class="admin-input-hint">Platform fee taken from successful project transactions.</div>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">Minimum Project Description Length</label>
+              <div class="admin-input-wrap">
+                <input type="number" class="admin-input-text" id="settingMinDesc" value="250" oninput="triggerUnsavedChanges()" />
+                <span class="admin-input-unit">characters</span>
+              </div>
+            </div>
+
+            <div class="toggle-row" style="border-top:1px solid #F1EDE5;margin-top:20px;padding-top:20px;">
+              <div class="toggle-info">
+                <span class="toggle-title">Auto-Approve Enterprise Developers</span>
+                <span class="toggle-desc">Bypass manual moderation for verified enterprise accounts.</span>
+              </div>
+              <label class="switch-box">
+                <input type="checkbox" id="settingAutoApprove" checked onchange="triggerUnsavedChanges()" />
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Card 3: Security & Access -->
+          <div class="settings-card" id="cardSecurity">
+            <div class="settings-card-topbar">
+              <span class="material-symbols-outlined" style="font-size:22px;color:#111;">shield</span>
+              <h2 class="settings-card-title">Security &amp; Access</h2>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-form-label">Password Rotation Policy</label>
+              <select class="filter-select" style="width:100%;" id="settingPasswordRotation" onchange="triggerUnsavedChanges()">
+                <option selected>Every 90 Days</option>
+                <option>Every 60 Days</option>
+                <option>Every 180 Days</option>
+                <option>Never</option>
+              </select>
+            </div>
+
+            <div class="toggle-row" style="border-top:1px solid #F1EDE5;margin-top:20px;padding-top:20px;">
+              <div class="toggle-info">
+                <span class="toggle-title">Enforce Two-Factor Authentication</span>
+                <span class="toggle-desc">Require 2FA for all admin and moderator roles.</span>
+              </div>
+              <label class="switch-box">
+                <input type="checkbox" id="settingEnforce2FA" checked onchange="triggerUnsavedChanges()" />
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- New Project Modal -->
+  <div class="admin-modal-backdrop" id="newProjectModal">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Post New Project</h3>
+        <button class="action-icon-btn" onclick="closeModal('newProjectModal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="admin-form-group">
+          <label class="admin-form-label">Project Title</label>
+          <input type="text" class="admin-input-text" id="modalProjectTitle" placeholder="e.g. Nexus ERP" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-outline" onclick="closeModal('newProjectModal')">Cancel</button>
+        <button class="btn-admin-gold" onclick="submitNewProject()">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,744 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload New Project | ProjectHub Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Micro Portal Bar -->
+  <div class="admin-portal-bar">
+    <div class="portal-tag">
+      <span class="material-symbols-outlined">cloud_upload</span>
+      PROJECT LISTING &amp; MODERATION SUBMISSION FLOW
+    </div>
+    <div class="portal-links">
+      <a href="my-projects.html">&larr; My Projects</a>
+      <a href="index.html">Dashboard</a>
+    </div>
+  </div>
+
+  <div class="admin-layout" id="mainAdminLayout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="wizardSidebar">
+      <div class="sidebar-brand-block">
+        <a href="index.html" class="sidebar-logo">ProjectHub</a>
+        <div class="sidebar-user-card">
+          <div class="sidebar-avatar">
+            <span class="material-symbols-outlined" style="font-size:22px;">account_circle</span>
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name">Karan Garchar</span>
+            <span class="sidebar-user-role">ADMIN</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="sidebar-cta-btn btn-dark" onclick="goToStep(1)">
+        <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+        + Post New Project
+      </button>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a href="my-projects.html" class="nav-link active">
+          <span class="material-symbols-outlined">inventory_2</span>
+          My Projects
+        </a>
+        <a href="users.html" class="nav-link">
+          <span class="material-symbols-outlined">group</span>
+          User Management
+        </a>
+        <a href="inquiries.html" class="nav-link">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          Inquiries
+        </a>
+        <a href="messages.html" class="nav-link">
+          <span class="material-symbols-outlined">forum</span>
+          Messages
+        </a>
+        <a href="logs.html" class="nav-link">
+          <span class="material-symbols-outlined">analytics</span>
+          Analytics
+        </a>
+        <a href="settings.html" class="nav-link">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="#help" class="bottom-link" onclick="showAdminToast('Help Center docs loaded')">
+          <span class="material-symbols-outlined">help_outline</span>
+          Help Center
+        </a>
+        <a href="../auth/login.html" class="bottom-link link-logout">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Flow Container -->
+    <main class="admin-main" style="max-width: 1040px; margin: 0 auto;">
+
+      <!-- Top Exit Flow bar for Step 4 -->
+      <div class="review-top-bar" id="step4ExitBar" style="display:none;">
+        <span style="font-family:var(--font-serif);font-size:24px;font-weight:700;color:#111;">ProjectHub</span>
+        <a href="my-projects.html" class="review-exit-link">
+          <span class="material-symbols-outlined" style="font-size:18px;">close</span>
+          Exit Flow
+        </a>
+      </div>
+
+      <!-- Stepper Header -->
+      <div class="wizard-header-center" id="wizardHeaderCenter">
+        <h1 class="wizard-title" id="wizardHeaderTitle">Upload Project</h1>
+        <p class="wizard-desc" id="wizardHeaderDesc">
+          Showcase your latest enterprise solution. Provide the essential details to begin the listing process.
+        </p>
+      </div>
+
+      <!-- Interactive Stepper Progress Track -->
+      <div class="stepper-nav">
+        <!-- Step 1 Nav -->
+        <button class="step-item active" id="stepNav1" onclick="goToStep(1)">
+          <div class="step-circle" id="circle1">1</div>
+          <div class="step-title">Basic Info</div>
+        </button>
+
+        <!-- Connector 1-2 -->
+        <div class="step-connector" id="connector1"></div>
+
+        <!-- Step 2 Nav -->
+        <button class="step-item" id="stepNav2" onclick="goToStep(2)">
+          <div class="step-circle" id="circle2">2</div>
+          <div class="step-title">Media</div>
+        </button>
+
+        <!-- Connector 2-3 -->
+        <div class="step-connector" id="connector2"></div>
+
+        <!-- Step 3 Nav -->
+        <button class="step-item" id="stepNav3" onclick="goToStep(3)">
+          <div class="step-circle" id="circle3">3</div>
+          <div class="step-title">Pricing</div>
+        </button>
+
+        <!-- Connector 3-4 -->
+        <div class="step-connector" id="connector3"></div>
+
+        <!-- Step 4 Nav -->
+        <button class="step-item" id="stepNav4" onclick="goToStep(4)">
+          <div class="step-circle" id="circle4">4</div>
+          <div class="step-title">Review</div>
+        </button>
+      </div>
+
+      <!-- =================================================================
+           STEP 1: BASIC INFO (Image 1 Right)
+           ================================================================= -->
+      <div class="wizard-step-pane" id="paneStep1">
+        <div class="wizard-card accent-top">
+          
+          <div class="admin-form-group">
+            <label class="admin-form-label">Project Name</label>
+            <input type="text" class="admin-input-text" id="inputProjName" 
+                   value="Aethelgard Enterprise Implementation Suite" 
+                   placeholder="e.g., Enterprise Resource Planning" />
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">Category</label>
+            <select class="filter-select" style="width:100%;" id="inputProjCategory">
+              <option value="Enterprise Software / SCM" selected>Enterprise Software / SCM</option>
+              <option value="ERP Solutions">ERP Solutions</option>
+              <option value="SaaS Platform">SaaS Platform</option>
+              <option value="Mobile App">Mobile App</option>
+              <option value="Cloud Infrastructure">Cloud Infrastructure</option>
+            </select>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">Primary Industry</label>
+            <select class="filter-select" style="width:100%;" id="inputProjIndustry">
+              <option value="Supply Chain & Logistics" selected>Supply Chain &amp; Logistics</option>
+              <option value="Banking & Finance">Banking &amp; Finance</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Manufacturing">Manufacturing</option>
+              <option value="Commercial Real Estate">Commercial Real Estate</option>
+            </select>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">Short Description (Max 150 chars)</label>
+            <input type="text" class="admin-input-text" id="inputProjShortDesc" 
+                   value="A high-performance deployment framework with predictive analytics." 
+                   maxlength="150" />
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label">Full Description</label>
+            <div class="rich-editor-wrap">
+              <div class="rich-editor-toolbar">
+                <button type="button" class="rich-tool-btn" onclick="formatEditor('bold')"><strong>B</strong></button>
+                <button type="button" class="rich-tool-btn" onclick="formatEditor('italic')"><em>I</em></button>
+                <button type="button" class="rich-tool-btn" onclick="formatEditor('underline')"><u>U</u></button>
+                <button type="button" class="rich-tool-btn" onclick="formatEditor('insertUnorderedList')">
+                  <span class="material-symbols-outlined" style="font-size:16px;">format_list_bulleted</span>
+                </button>
+                <button type="button" class="rich-tool-btn" onclick="formatEditor('insertOrderedList')">
+                  <span class="material-symbols-outlined" style="font-size:16px;">format_list_numbered</span>
+                </button>
+                <button type="button" class="rich-tool-btn" onclick="formatEditor('createLink')">
+                  <span class="material-symbols-outlined" style="font-size:16px;">link</span>
+                </button>
+              </div>
+              <textarea class="rich-editor-textarea" id="inputProjFullDesc" rows="5">A comprehensive deployment framework designed for Fortune 500 companies looking to overhaul their legacy supply chain management systems. Includes specialized modules for predictive analytics and real-time global inventory tracking.</textarea>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:28px;max-width:820px;margin-left:auto;margin-right:auto;">
+          <a href="my-projects.html" class="btn-admin-outline">Cancel</a>
+          <button class="btn-admin-gold" onclick="goToStep(2)">
+            Next Step &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- =================================================================
+           STEP 2: MEDIA (Image 2 Left)
+           ================================================================= -->
+      <div class="wizard-step-pane" id="paneStep2" style="display:none;">
+        <div class="wizard-card">
+          
+          <!-- Hero Image -->
+          <div style="margin-bottom:28px;">
+            <h3 style="font-size:15px;font-weight:700;color:#111;margin-bottom:4px;">Hero Image</h3>
+            <p style="font-size:12px;color:#6B7280;margin:0;">The primary visual representation of your project. High resolution required (min 2400&times;1600px).</p>
+            
+            <div class="dropzone-box" onclick="document.getElementById('heroFileInput').click()">
+              <input type="file" id="heroFileInput" style="display:none;" accept="image/*" onchange="previewHeroImage(this)" />
+              <span class="material-symbols-outlined dropzone-icon">cloud_upload</span>
+              <div class="dropzone-title">Drag &amp; drop your primary image here</div>
+              <div class="dropzone-sub">or click to browse from your computer</div>
+              <div class="dropzone-hint">PNG, JPG, WEBP up to 10MB</div>
+            </div>
+          </div>
+
+          <!-- Gallery & Screenshots -->
+          <div style="margin-bottom:28px;">
+            <h3 style="font-size:15px;font-weight:700;color:#111;margin-bottom:4px;">Gallery &amp; Screenshots</h3>
+            <p style="font-size:12px;color:#6B7280;margin:0;">Provide context through interface shots or physical product photography.</p>
+            
+            <div class="gallery-grid">
+              <div class="gallery-slot" onclick="showAdminToast('Choose image file to upload')">
+                <span class="material-symbols-outlined" style="font-size:24px;margin-bottom:4px;">add_photo_alternate</span>
+                <span>Add Image</span>
+              </div>
+              <div class="gallery-slot" style="background:#E2E8F0;">
+                <span class="material-symbols-outlined" style="font-size:24px;color:#64748B;">dashboard</span>
+              </div>
+              <div class="gallery-slot" style="background:#E2E8F0;">
+                <span class="material-symbols-outlined" style="font-size:24px;color:#64748B;">analytics</span>
+              </div>
+              <div class="gallery-slot" style="background:#E2E8F0;">
+                <span class="material-symbols-outlined" style="font-size:24px;color:#64748B;">devices</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video & Tech Docs Row -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-top:16px;border-top:1px solid #F1EDE5;">
+            <div>
+              <label class="admin-form-label">Demo Video URL</label>
+              <div style="font-size:11.5px;color:#6B7280;margin-bottom:6px;">Link a YouTube or Vimeo presentation.</div>
+              <div class="admin-input-wrap">
+                <input type="url" class="admin-input-text" id="inputVideoUrl" value="https://vimeo.com/79218549" placeholder="https://" />
+              </div>
+            </div>
+
+            <div>
+              <label class="admin-form-label">Technical Documentation</label>
+              <div style="font-size:11.5px;color:#6B7280;margin-bottom:6px;">Upload whitepapers, spec sheets, or security briefs (PDF).</div>
+              <div style="display:flex;align-items:center;gap:10px;margin-top:2px;">
+                <button type="button" class="btn-admin-outline" style="padding:8px 14px;font-size:12.5px;" onclick="showAdminToast('Selected Spec_Sheet.pdf')">
+                  Select File
+                </button>
+                <span style="font-size:12px;color:#6B7280;" id="docFileNameLabel">Spec_Sheet.pdf</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:28px;max-width:820px;margin-left:auto;margin-right:auto;">
+          <button class="btn-admin-outline" onclick="goToStep(1)">Back to Details</button>
+          <button class="btn-admin-gold" onclick="goToStep(3)">
+            Continue to Pricing &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- =================================================================
+           STEP 3: PRICING (Image 2 Right)
+           ================================================================= -->
+      <div class="wizard-step-pane" id="paneStep3" style="display:none;">
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:24px;max-width:860px;margin:0 auto;">
+          
+          <!-- Left Column: Pricing Models & Base Price -->
+          <div>
+            <!-- Pricing Model -->
+            <div class="wizard-card" style="margin-bottom:20px;padding:24px;">
+              <h3 style="font-size:16px;font-weight:700;color:#111;margin-bottom:12px;">Pricing Model</h3>
+              
+              <div class="pricing-models-grid">
+                <!-- Option 1: Single License -->
+                <div class="pricing-model-card" id="cardModelSingle" onclick="selectPricingModel('Single License')">
+                  <div class="pricing-model-header">
+                    <span class="material-symbols-outlined pricing-model-icon">person</span>
+                  </div>
+                  <div class="pricing-model-title">Single License</div>
+                  <div class="pricing-model-desc">Standard usage rights for one individual or small team.</div>
+                </div>
+
+                <!-- Option 2: Enterprise (Selected) -->
+                <div class="pricing-model-card selected" id="cardModelEnterprise" onclick="selectPricingModel('Enterprise Perpetual')">
+                  <div class="pricing-model-header">
+                    <span class="material-symbols-outlined pricing-model-icon">business</span>
+                    <span class="material-symbols-outlined pricing-model-check">check_circle</span>
+                  </div>
+                  <div class="pricing-model-title">Enterprise</div>
+                  <div class="pricing-model-desc">Unlimited scale, extended rights, and source code access.</div>
+                </div>
+
+                <!-- Option 3: Subscription -->
+                <div class="pricing-model-card" id="cardModelSubscription" onclick="selectPricingModel('Subscription')">
+                  <div class="pricing-model-header">
+                    <span class="material-symbols-outlined pricing-model-icon">sync</span>
+                  </div>
+                  <div class="pricing-model-title">Subscription</div>
+                  <div class="pricing-model-desc">Recurring billing for ongoing access and updates.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Base Price -->
+            <div class="wizard-card" style="margin-bottom:20px;padding:24px;">
+              <h3 style="font-size:16px;font-weight:700;color:#111;margin-bottom:12px;">Base Price</h3>
+              <div style="display:grid;grid-template-columns:120px 1fr;gap:12px;">
+                <div>
+                  <label class="admin-form-label">Currency</label>
+                  <select class="filter-select" style="width:100%;" id="inputCurrency">
+                    <option value="INR (₹)" selected>INR (&#8377;)</option>
+                    <option value="USD ($)">USD ($)</option>
+                    <option value="EUR (€)">EUR (€)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="admin-form-label">Amount</label>
+                  <input type="text" class="admin-input-text" id="inputPriceAmount" value="125,000" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Licensing Terms -->
+            <div class="wizard-card" style="padding:24px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <h3 style="font-size:16px;font-weight:700;color:#111;margin:0;">Licensing Terms</h3>
+                <a href="#template" style="font-size:12px;color:var(--admin-gold);font-weight:600;text-decoration:none;" onclick="applyLicenseTemplate()">Use Template</a>
+              </div>
+              <div class="rich-editor-wrap">
+                <div class="rich-editor-toolbar">
+                  <button type="button" class="rich-tool-btn"><strong>B</strong></button>
+                  <button type="button" class="rich-tool-btn"><em>I</em></button>
+                  <button type="button" class="rich-tool-btn"><span class="material-symbols-outlined" style="font-size:16px;">format_list_bulleted</span></button>
+                  <button type="button" class="rich-tool-btn"><span class="material-symbols-outlined" style="font-size:16px;">link</span></button>
+                </div>
+                <textarea class="rich-editor-textarea" id="inputLicenseTerms" rows="4">Perpetual enterprise deployment rights granted for unlimited internal corporate nodes. Full source code escrow and automated CVE vulnerability audits included.</textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Support Package -->
+          <div>
+            <div class="support-package-card">
+              <h3 style="font-size:16px;font-weight:700;color:#111;margin-bottom:12px;">Support Package</h3>
+
+              <div class="support-option-row" onclick="selectSupport('Standard')">
+                <input type="radio" name="supportRadio" id="radioSupportStandard" />
+                <div>
+                  <div style="font-weight:600;font-size:13px;color:#111;">Standard</div>
+                  <div style="font-size:11.5px;color:#6B7280;margin-top:2px;">Email support within 48 hours.</div>
+                </div>
+              </div>
+
+              <div class="support-option-row" onclick="selectSupport('Premium')">
+                <input type="radio" name="supportRadio" id="radioSupportPremium" checked />
+                <div>
+                  <div style="font-weight:600;font-size:13px;color:#111;display:flex;align-items:center;">
+                    Premium
+                    <span class="support-badge-rec">Recommended</span>
+                  </div>
+                  <div style="font-size:11.5px;color:#6B7280;margin-top:2px;">Priority email &amp; chat within 12 hours.</div>
+                </div>
+              </div>
+
+              <div class="support-option-row" onclick="selectSupport('Dedicated')">
+                <input type="radio" name="supportRadio" id="radioSupportDedicated" />
+                <div>
+                  <div style="font-weight:600;font-size:13px;color:#111;">24/7 Dedicated</div>
+                  <div style="font-size:11.5px;color:#6B7280;margin-top:2px;">Direct channel with dedicated SLA.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Geometric Pattern Accent Card -->
+            <div style="margin-top:20px;border-radius:10px;overflow:hidden;border:1px solid #ECE7DE;height:120px;background:#FBF9F4;display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 240 100" width="100%" height="100%" style="opacity:0.35;">
+                <line x1="0" y1="0" x2="240" y2="100" stroke="#C69214" stroke-width="1.5" />
+                <line x1="0" y1="100" x2="240" y2="0" stroke="#C69214" stroke-width="1.5" />
+                <circle cx="120" cy="50" r="30" fill="none" stroke="#C69214" stroke-width="1.5" />
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:28px;max-width:860px;margin-left:auto;margin-right:auto;">
+          <button class="btn-admin-outline" onclick="goToStep(2)">Back to Assets</button>
+          <button class="btn-admin-gold" onclick="goToStep(4)">
+            Continue to Review &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- =================================================================
+           STEP 4: FINAL REVIEW (Image 3)
+           ================================================================= -->
+      <div class="wizard-step-pane" id="paneStep4" style="display:none;">
+        <div class="review-grid-layout" style="max-width:880px;margin:0 auto;">
+          
+          <!-- Left Column: Review Cards -->
+          <div>
+            <!-- Card 1: Basic Information -->
+            <div class="review-section-card">
+              <div class="review-section-header">
+                <h3 class="review-section-title">Basic Information</h3>
+                <button class="review-edit-btn" onclick="goToStep(1)">
+                  <span>Edit</span>
+                  <span class="material-symbols-outlined" style="font-size:15px;">edit</span>
+                </button>
+              </div>
+
+              <div style="margin-bottom:12px;">
+                <div style="font-size:11px;font-weight:600;color:#8C929D;text-transform:uppercase;letter-spacing:0.04em;">Project Title</div>
+                <div style="font-family:var(--font-serif);font-size:16px;font-weight:700;color:#111;margin-top:3px;" id="reviewProjTitle">
+                  Aethelgard Enterprise Implementation Suite
+                </div>
+              </div>
+
+              <div style="margin-bottom:14px;">
+                <div style="font-size:11px;font-weight:600;color:#8C929D;text-transform:uppercase;letter-spacing:0.04em;">Description</div>
+                <div style="font-size:13px;color:#4B5563;line-height:1.55;margin-top:4px;" id="reviewProjDesc">
+                  A comprehensive deployment framework designed for Fortune 500 companies looking to overhaul their legacy supply chain management systems. Includes specialized modules for predictive analytics and real-time global inventory tracking.
+                </div>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid #F1EDE5;padding-top:12px;">
+                <div>
+                  <div style="font-size:11px;font-weight:600;color:#8C929D;text-transform:uppercase;letter-spacing:0.04em;">Category</div>
+                  <div style="font-size:12.5px;font-weight:600;color:#111;margin-top:2px;" id="reviewProjCategory">
+                    Enterprise Software / SCM
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:11px;font-weight:600;color:#8C929D;text-transform:uppercase;letter-spacing:0.04em;text-align:right;">Tags</div>
+                  <div style="display:flex;gap:6px;margin-top:4px;">
+                    <span class="badge-pill entity-badge" style="font-size:10.5px;">Analytics</span>
+                    <span class="badge-pill entity-badge" style="font-size:10.5px;">B2B</span>
+                    <span class="badge-pill entity-badge" style="font-size:10.5px;">SaaS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Media Assets -->
+            <div class="review-section-card">
+              <div class="review-section-header">
+                <h3 class="review-section-title">Media Assets</h3>
+                <button class="review-edit-btn" onclick="goToStep(2)">
+                  <span>Edit</span>
+                  <span class="material-symbols-outlined" style="font-size:15px;">edit</span>
+                </button>
+              </div>
+
+              <div style="display:flex;gap:12px;align-items:center;">
+                <!-- Cover thumbnail -->
+                <div style="width:90px;height:55px;border-radius:6px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                  <span style="font-size:10px;background:rgba(0,0,0,0.6);padding:2px 6px;border-radius:4px;position:absolute;top:4px;left:4px;">Cover</span>
+                  <span class="material-symbols-outlined" style="font-size:22px;color:#9CA3AF;">image</span>
+                </div>
+                <!-- Screenshot 1 -->
+                <div style="width:90px;height:55px;border-radius:6px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+                  <span class="material-symbols-outlined" style="font-size:22px;color:#6B7280;">analytics</span>
+                </div>
+                <!-- Document PDF -->
+                <div style="width:90px;height:55px;border-radius:6px;background:#F3F4F6;border:1px solid #E5E7EB;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                  <span class="material-symbols-outlined" style="font-size:18px;color:#DC2626;">description</span>
+                  <span style="font-size:9px;color:#4B5563;margin-top:2px;">Spec_Sheet.pdf</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Pricing Details -->
+            <div class="review-section-card">
+              <div class="review-section-header">
+                <h3 class="review-section-title">Pricing Details</h3>
+                <button class="review-edit-btn" onclick="goToStep(3)">
+                  <span>Edit</span>
+                  <span class="material-symbols-outlined" style="font-size:15px;">edit</span>
+                </button>
+              </div>
+
+              <div style="background:#FAF9F6;border-radius:8px;padding:16px 20px;border:1px solid #F0ECE4;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <div style="font-size:11px;font-weight:600;color:#8C929D;text-transform:uppercase;">License Type</div>
+                  <div style="font-weight:700;font-size:14px;color:#111;margin-top:2px;" id="reviewLicenseType">Enterprise Perpetual</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-size:11px;font-weight:600;color:#8C929D;text-transform:uppercase;">Base Price</div>
+                  <div style="font-family:var(--font-serif);font-size:24px;font-weight:700;color:#111;margin-top:2px;" id="reviewBasePrice">&#8377;125,000</div>
+                </div>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12px;color:#6B7280;">
+                <span>Includes 12 months premium support</span>
+                <span style="display:inline-flex;align-items:center;gap:4px;color:#111;font-weight:600;">
+                  <span class="material-symbols-outlined" style="font-size:15px;color:var(--admin-gold);">verified</span>
+                  Standard SLA
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Ready to Launch -->
+          <div>
+            <div class="ready-launch-card">
+              <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:700;color:#111;margin-bottom:8px;">Ready to Launch</h3>
+              <p style="font-size:12.5px;color:#6B7280;line-height:1.5;margin-bottom:18px;">
+                Review your project details carefully. Once submitted, it will enter our moderation queue for quality assurance before going live on the marketplace.
+              </p>
+
+              <div style="background:#FAF9F6;border:1px solid #ECE7DE;border-radius:8px;padding:14px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start;">
+                <input type="checkbox" id="complianceCheck" class="admin-checkbox" style="margin-top:2px;" />
+                <label for="complianceCheck" style="font-size:11.5px;color:#4B5563;line-height:1.45;cursor:pointer;">
+                  I confirm that this project complies with ProjectHub's 
+                  <a href="#terms" style="color:var(--admin-gold);text-decoration:none;font-weight:600;">Terms of Service</a> and 
+                  <a href="#guidelines" style="color:var(--admin-gold);text-decoration:none;font-weight:600;">Quality Guidelines</a>.
+                </label>
+              </div>
+
+              <button class="btn-admin-gold" style="width:100%;justify-content:center;padding:12px;font-size:13.5px;" onclick="submitProjectForModeration()">
+                Submit for Moderation
+                <span class="material-symbols-outlined" style="font-size:17px;">send</span>
+              </button>
+
+              <button class="btn-admin-outline" style="width:100%;justify-content:center;padding:11px;font-size:13px;margin-top:10px;" onclick="saveProjectAsDraft()">
+                Save as Draft
+              </button>
+            </div>
+
+            <!-- Concierge Box -->
+            <div style="background:#FAF8F4;border:1px dashed #D6D0C4;border-radius:10px;padding:18px;margin-top:20px;text-align:center;">
+              <span class="material-symbols-outlined" style="font-size:24px;color:#9CA3AF;margin-bottom:4px;">support_agent</span>
+              <div style="font-size:12px;color:#6B7280;">Need assistance with your listing?</div>
+              <a href="inquiries.html" style="font-size:12px;color:#111;font-weight:700;text-decoration:none;display:inline-block;margin-top:4px;">
+                Contact Concierge &rarr;
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <script src="admin.js"></script>
+  <script>
+    let currentStep = 1;
+
+    const stepConfigs = {
+      1: {
+        title: "Upload Project",
+        desc: "Showcase your latest enterprise solution. Provide the essential details to begin the listing process."
+      },
+      2: {
+        title: "Upload New Project",
+        desc: "Curate the visual narrative of your enterprise solution."
+      },
+      3: {
+        title: "Upload New Project",
+        desc: "Configure pricing, licensing terms, and support packages."
+      },
+      4: {
+        title: "Final Review",
+        desc: ""
+      }
+    };
+
+    function goToStep(step) {
+      currentStep = step;
+
+      // Toggle Pane displays
+      for (let i = 1; i <= 4; i++) {
+        const pane = document.getElementById(`paneStep${i}`);
+        if (pane) pane.style.display = (i === step) ? 'block' : 'none';
+      }
+
+      // Update titles
+      const config = stepConfigs[step];
+      const headerTitle = document.getElementById('wizardHeaderTitle');
+      const headerDesc = document.getElementById('wizardHeaderDesc');
+      const exitBar = document.getElementById('step4ExitBar');
+      const wizardCenter = document.getElementById('wizardHeaderCenter');
+
+      if (step === 4) {
+        exitBar.style.display = 'flex';
+        headerTitle.innerText = "Final Review";
+        headerDesc.style.display = 'none';
+      } else {
+        exitBar.style.display = 'none';
+        headerTitle.innerText = config.title;
+        headerDesc.style.display = 'block';
+        headerDesc.innerText = config.desc;
+      }
+
+      // Update Stepper Navigation visuals
+      for (let i = 1; i <= 4; i++) {
+        const item = document.getElementById(`stepNav${i}`);
+        const circle = document.getElementById(`circle${i}`);
+
+        item.classList.remove('active', 'completed', 'gold-step');
+
+        if (i < step) {
+          item.classList.add('completed');
+          circle.innerHTML = '<span class="material-symbols-outlined" style="font-size:15px;color:#fff;">check</span>';
+        } else if (i === step) {
+          item.classList.add('active');
+          if (step === 2 || step === 4) {
+            item.classList.add('gold-step');
+          }
+          circle.innerText = i;
+        } else {
+          circle.innerText = i;
+        }
+      }
+
+      // Connectors
+      const conn1 = document.getElementById('connector1');
+      const conn2 = document.getElementById('connector2');
+      const conn3 = document.getElementById('connector3');
+
+      conn1.classList.toggle('completed', step > 1);
+      conn2.classList.toggle('completed', step > 2);
+      conn3.classList.toggle('completed', step > 3);
+
+      // Sync form values into Step 4 Review
+      if (step === 4) {
+        syncReviewData();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function syncReviewData() {
+      const name = document.getElementById('inputProjName')?.value || 'Aethelgard Enterprise Implementation Suite';
+      const desc = document.getElementById('inputProjFullDesc')?.value || 'Comprehensive deployment framework...';
+      const cat = document.getElementById('inputProjCategory')?.value || 'Enterprise Software / SCM';
+      const price = document.getElementById('inputPriceAmount')?.value || '125,000';
+
+      document.getElementById('reviewProjTitle').innerText = name;
+      document.getElementById('reviewProjDesc').innerText = desc;
+      document.getElementById('reviewProjCategory').innerText = cat;
+      document.getElementById('reviewBasePrice').innerHTML = `&#8377;${price}`;
+    }
+
+    function selectPricingModel(model) {
+      document.querySelectorAll('.pricing-model-card').forEach(c => {
+        c.classList.remove('selected');
+        const check = c.querySelector('.pricing-model-check');
+        if (check) check.remove();
+      });
+
+      let activeCard;
+      if (model.includes('Single')) activeCard = document.getElementById('cardModelSingle');
+      else if (model.includes('Enterprise')) activeCard = document.getElementById('cardModelEnterprise');
+      else activeCard = document.getElementById('cardModelSubscription');
+
+      if (activeCard) {
+        activeCard.classList.add('selected');
+        const header = activeCard.querySelector('.pricing-model-header');
+        const check = document.createElement('span');
+        check.className = 'material-symbols-outlined pricing-model-check';
+        check.innerText = 'check_circle';
+        header.appendChild(check);
+      }
+
+      document.getElementById('reviewLicenseType').innerText = model;
+      showAdminToast(`Selected ${model} model`);
+    }
+
+    function selectSupport(type) {
+      showAdminToast(`Support package: ${type}`);
+    }
+
+    function applyLicenseTemplate() {
+      document.getElementById('inputLicenseTerms').value = "Perpetual enterprise deployment rights granted for unlimited internal corporate nodes. Full source code escrow and automated CVE vulnerability audits included.";
+      showAdminToast('Standard enterprise license terms applied');
+    }
+
+    function previewHeroImage(input) {
+      if (input.files && input.files[0]) {
+        showAdminToast(`Loaded image: ${input.files[0].name}`);
+      }
+    }
+
+    function formatEditor(command) {
+      document.execCommand(command, false, null);
+    }
+
+    function submitProjectForModeration() {
+      const check = document.getElementById('complianceCheck');
+      if (!check.checked) {
+        alert("Please confirm the compliance checkbox before submitting.");
+        return;
+      }
+      showAdminToast('Submission sent! Project is now in the Moderation Queue.');
+      setTimeout(() => {
+        location.href = 'projects.html';
+      }, 1500);
+    }
+
+    function saveProjectAsDraft() {
+      showAdminToast('Project saved as draft in your portfolio.');
+      setTimeout(() => {
+        location.href = 'my-projects.html';
+      }, 1200);
+    }
+  </script>
+</body>
+</html>

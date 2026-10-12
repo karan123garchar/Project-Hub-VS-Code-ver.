@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects | ProjectHub Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-portal-bar">
+    <div class="portal-tag">
+      <span class="material-symbols-outlined">inventory_2</span>
+      ENTERPRISE PORTFOLIO MANAGEMENT
+    </div>
+    <div class="portal-links">
+      <a href="index.html">&larr; Dashboard</a>
+      <a href="upload-project.html">+ Upload Project &rarr;</a>
+      <a href="../developer/dashboard.html">Developer Studio &rarr;</a>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand-block">
+        <a href="index.html" class="sidebar-logo">ProjectHub</a>
+        <div class="sidebar-user-card">
+          <div class="sidebar-avatar">
+            <span class="material-symbols-outlined" style="font-size:22px;">account_circle</span>
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name">Karan Garchar</span>
+            <span class="sidebar-user-role">ADMIN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post New Project CTA -->
+      <a href="upload-project.html" class="sidebar-cta-btn">
+        <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+        Post New Project
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a href="my-projects.html" class="nav-link active">
+          <span class="material-symbols-outlined">inventory_2</span>
+          My Projects
+        </a>
+        <a href="projects.html" class="nav-link">
+          <span class="material-symbols-outlined">rule_folder</span>
+          Moderation Queue
+          <span class="nav-badge-count">24</span>
+        </a>
+        <a href="users.html" class="nav-link">
+          <span class="material-symbols-outlined">group</span>
+          User Management
+        </a>
+        <a href="inquiries.html" class="nav-link">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          Inquiries
+        </a>
+        <a href="messages.html" class="nav-link">
+          <span class="material-symbols-outlined">forum</span>
+          Messages
+        </a>
+        <a href="logs.html" class="nav-link">
+          <span class="material-symbols-outlined">analytics</span>
+          Analytics
+        </a>
+        <a href="categories.html" class="nav-link">
+          <span class="material-symbols-outlined">category</span>
+          Categories &amp; Tech
+        </a>
+        <a href="settings.html" class="nav-link">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="#help" class="bottom-link" onclick="showAdminToast('Help Center docs loaded')">
+          <span class="material-symbols-outlined">help_outline</span>
+          Help Center
+        </a>
+        <a href="../auth/login.html" class="bottom-link link-logout">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+      <!-- Header with Title and Search/Filter (Image 1 left) -->
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">My Projects</h1>
+          <p class="admin-page-subtitle">Manage your active developments, review inquiries, and monitor performance across your portfolio.</p>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div class="filter-search-box" style="width:240px;">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input type="text" id="myProjectsSearch" placeholder="Search projects..." />
+          </div>
+          <button class="icon-btn-utility" title="Filter" onclick="showAdminToast('Filter options expanded')">
+            <span class="material-symbols-outlined">filter_list</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bulk Action Bar (Image 1 left) -->
+      <div class="bulk-action-bar" id="bulkActionBar">
+        <span class="bulk-count-badge" id="bulkCountText">2 projects selected</span>
+        <div class="bulk-actions-group">
+          <button class="btn-bulk-action" onclick="showAdminToast('Opening batch edit mode')">
+            <span class="material-symbols-outlined" style="font-size:16px;">edit</span>
+            Edit
+          </button>
+          <button class="btn-bulk-action" onclick="showAdminToast('Archived selected projects')">
+            <span class="material-symbols-outlined" style="font-size:16px;">archive</span>
+            Archive
+          </button>
+          <button class="btn-bulk-action action-delete" onclick="showAdminToast('Deleted selected items from portfolio')">
+            <span class="material-symbols-outlined" style="font-size:16px;">delete</span>
+            Delete
+          </button>
+        </div>
+      </div>
+
+      <!-- Portfolio Table Card -->
+      <div class="admin-table-card">
+        <table class="admin-table" id="myProjectsTable">
+          <thead>
+            <tr>
+              <th style="width:36px;text-align:center;">
+                <input type="checkbox" class="admin-checkbox" id="selectAllCheckbox" onchange="toggleSelectAllProjects(this)" />
+              </th>
+              <th>Project</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Views</th>
+              <th>Inquiries</th>
+              <th>Created</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1: Aura Corporate Campus -->
+            <tr>
+              <td style="text-align:center;">
+                <input type="checkbox" class="admin-checkbox project-row-check" checked onchange="updateSelectedCount()" />
+              </td>
+              <td>
+                <div class="table-project-cell">
+                  <div class="table-project-thumb" style="background:#E2E8F0;">
+                    <span class="material-symbols-outlined" style="color:#64748B;font-size:22px;">apartment</span>
+                  </div>
+                  <div>
+                    <div class="table-project-title">Aura Corporate Campus</div>
+                    <div class="table-project-sub">Enterprise Suite</div>
+                  </div>
+                </div>
+              </td>
+              <td style="color:#4B5563;">Commercial</td>
+              <td>
+                <span class="badge-pill status-approved" style="background:#EBF8F2;color:#1B7A41;font-weight:600;font-size:10.5px;letter-spacing:0.04em;">
+                  APPROVED
+                </span>
+              </td>
+              <td style="font-weight:600;color:#111;">12,450</td>
+              <td style="font-weight:600;color:#111;">34</td>
+              <td style="color:#6B7280;">Oct 12, 2024</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <button class="action-icon-btn" title="Edit" onclick="location.href='upload-project.html'">
+                    <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                  </button>
+                  <button class="action-icon-btn" title="View" onclick="showAdminToast('Opening project live view')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">visibility</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 2: Lumina Hotel Redesign -->
+            <tr>
+              <td style="text-align:center;">
+                <input type="checkbox" class="admin-checkbox project-row-check" checked onchange="updateSelectedCount()" />
+              </td>
+              <td>
+                <div class="table-project-cell">
+                  <div class="table-project-thumb" style="background:#FEF3C7;">
+                    <span class="material-symbols-outlined" style="color:#B45309;font-size:22px;">hotel</span>
+                  </div>
+                  <div>
+                    <div class="table-project-title">
+                      Lumina Hotel Redesign
+                      <span class="star-badge">&#9733;</span>
+                    </div>
+                    <div class="table-project-sub">Hospitality</div>
+                  </div>
+                </div>
+              </td>
+              <td style="color:#4B5563;">Interior</td>
+              <td>
+                <span class="badge-pill status-featured" style="font-weight:600;font-size:10.5px;letter-spacing:0.04em;">
+                  FEATURED
+                </span>
+              </td>
+              <td style="font-weight:600;color:#111;">8,920</td>
+              <td style="font-weight:600;color:#111;">18</td>
+              <td style="color:#6B7280;">Sep 28, 2024</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <button class="action-icon-btn" title="Edit" onclick="location.href='upload-project.html'">
+                    <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                  </button>
+                  <button class="action-icon-btn" title="View" onclick="showAdminToast('Opening project live view')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">visibility</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 3: Nexus Data Center V2 -->
+            <tr>
+              <td style="text-align:center;">
+                <input type="checkbox" class="admin-checkbox project-row-check" onchange="updateSelectedCount()" />
+              </td>
+              <td>
+                <div class="table-project-cell">
+                  <div class="table-project-thumb" style="background:#F1F5F9;">
+                    <span class="material-symbols-outlined" style="color:#64748B;font-size:22px;">dns</span>
+                  </div>
+                  <div>
+                    <div class="table-project-title">Nexus Data Center V2</div>
+                    <div class="table-project-sub">Infrastructure</div>
+                  </div>
+                </div>
+              </td>
+              <td style="color:#4B5563;">Industrial</td>
+              <td>
+                <span class="badge-pill status-pending" style="font-weight:600;font-size:10.5px;letter-spacing:0.04em;">
+                  PENDING
+                </span>
+              </td>
+              <td style="font-weight:600;color:#111;">142</td>
+              <td style="font-weight:600;color:#111;">0</td>
+              <td style="color:#6B7280;">Oct 18, 2024</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <button class="action-icon-btn" title="Edit" onclick="location.href='upload-project.html'">
+                    <span class="material-symbols-outlined" style="font-size:18px;">edit</span>
+                  </button>
+                  <button class="action-icon-btn" title="View" onclick="showAdminToast('Opening project live view')">
+                    <span class="material-symbols-outlined" style="font-size:18px;">visibility</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Table Footer -->
+        <div class="admin-table-footer">
+          <div class="table-footer-info">Showing 1 to 3 of 24 results</div>
+          <div class="table-pagination">
+            <button class="page-btn">&lsaquo;</button>
+            <button class="page-btn" style="background:#F4EFE6;border:1px solid #D1D5DB;color:#111;font-weight:600;">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span style="color:#9CA3AF;padding:0 4px;">...</span>
+            <button class="page-btn">&rsaquo;</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <script src="admin.js"></script>
+  <script>
+    function updateSelectedCount() {
+      const checks = document.querySelectorAll('.project-row-check:checked');
+      const bar = document.getElementById('bulkActionBar');
+      const countText = document.getElementById('bulkCountText');
+      if (checks.length > 0) {
+        bar.style.display = 'flex';
+        countText.innerText = `${checks.length} project${checks.length > 1 ? 's' : ''} selected`;
+      } else {
+        bar.style.display = 'none';
+      }
+    }
+
+    function toggleSelectAllProjects(master) {
+      document.querySelectorAll('.project-row-check').forEach(cb => {
+        cb.checked = master.checked;
+      });
+      updateSelectedCount();
+    }
+  </script>
+</body>
+</html>

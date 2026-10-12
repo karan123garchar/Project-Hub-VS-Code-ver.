@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Moderation | ProjectHub Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Micro Portal Bar -->
+  <div class="admin-portal-bar">
+    <div class="portal-tag">
+      <span class="material-symbols-outlined">rule_folder</span>
+      PLATFORM MODERATION / SOFTWARE REVIEWS
+    </div>
+    <div class="portal-links">
+      <a href="index.html">&larr; Dashboard</a>
+      <a href="users.html">Users &rarr;</a>
+      <a href="../developer/dashboard.html">Developer Studio &rarr;</a>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand-block">
+        <a href="index.html" class="sidebar-logo">ProjectHub</a>
+        <div class="sidebar-user-card">
+          <div class="sidebar-avatar">
+            <span class="material-symbols-outlined" style="font-size:22px;">account_circle</span>
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name">Karan Garchar</span>
+            <span class="sidebar-user-role">ADMIN</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a href="projects.html" class="nav-link active">
+          <span class="material-symbols-outlined">inventory_2</span>
+          My Projects
+          <span class="nav-badge-count" id="pendingCounterBadge">24</span>
+        </a>
+        <a href="users.html" class="nav-link">
+          <span class="material-symbols-outlined">group</span>
+          User Management
+        </a>
+        <a href="inquiries.html" class="nav-link">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          Inquiries
+        </a>
+        <a href="messages.html" class="nav-link">
+          <span class="material-symbols-outlined">forum</span>
+          Messages
+        </a>
+        <a href="logs.html" class="nav-link">
+          <span class="material-symbols-outlined">analytics</span>
+          Analytics
+        </a>
+        <a href="categories.html" class="nav-link">
+          <span class="material-symbols-outlined">category</span>
+          Categories &amp; Tech
+        </a>
+        <a href="settings.html" class="nav-link">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </nav>
+
+      <!-- Post New Project CTA -->
+      <a href="upload-project.html" class="sidebar-cta-btn">
+        <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+        Post New Project
+      </a>
+
+      <div class="sidebar-bottom">
+        <a href="#help" class="bottom-link" onclick="showAdminToast('Help Center docs loaded')">
+          <span class="material-symbols-outlined">help_outline</span>
+          Help Center
+        </a>
+        <a href="../auth/login.html" class="bottom-link link-logout">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+      <!-- Header with Top Right Counters -->
+      <div class="admin-page-header">
+        <div style="flex:1;">
+          <h1 class="admin-page-title">Project Moderation</h1>
+          <p class="admin-page-subtitle">Review, approve, and manage incoming enterprise software submissions to ensure platform quality.</p>
+        </div>
+
+        <div class="mod-kpi-row">
+          <div class="mod-kpi-card">
+            <div class="mod-kpi-label">Pending Approvals</div>
+            <div class="mod-kpi-num" id="pendingKpiVal">24</div>
+          </div>
+          <div class="mod-kpi-card">
+            <div class="mod-kpi-label">Flagged Reports</div>
+            <div class="mod-kpi-num alert">07</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters Card -->
+      <div class="admin-filter-bar">
+        <div class="filter-search-box">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input type="text" id="projectSearchInput" placeholder="Search projects, developers, or IDs..." />
+        </div>
+        <select class="filter-select" id="projectStatusFilter">
+          <option value="all">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="featured">Featured</option>
+        </select>
+        <select class="filter-select" id="projectCategoryFilter">
+          <option value="all">All Categories</option>
+          <option value="erp">ERP Solutions</option>
+          <option value="saas">SaaS Platform</option>
+          <option value="mobile">Mobile App</option>
+        </select>
+        <button class="filter-date-btn" onclick="showAdminToast('Date filter range: Last 30 Days')">
+          <span class="material-symbols-outlined">calendar_today</span>
+          <span>Date Range</span>
+        </button>
+        <button class="btn-admin-primary" onclick="filterProjectsTable()">
+          Apply
+        </button>
+      </div>
+
+      <!-- Projects Moderation Table -->
+      <div class="admin-table-card">
+        <table class="admin-table" id="projectsModTable">
+          <thead>
+            <tr>
+              <th>Project Details</th>
+              <th>Developer</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Metrics</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1: Nexus ERP Core -->
+            <tr data-status="pending" data-category="erp">
+              <td>
+                <div class="table-project-cell">
+                  <div class="table-project-thumb" style="background:#E2E8F0;">
+                    <span class="material-symbols-outlined" style="color:#64748B;font-size:24px;">grid_view</span>
+                  </div>
+                  <div>
+                    <div class="table-project-title">Nexus ERP Core</div>
+                    <div class="table-project-sub">Next-...</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#334155;">SJ</div>
+                  <span class="table-user-name">Sarah Jenkins</span>
+                </div>
+              </td>
+              <td style="color:#4B5563;">ERP Solutions</td>
+              <td>
+                <span class="badge-pill status-pending">
+                  Pending
+                </span>
+              </td>
+              <td>
+                <span style="display:inline-flex;align-items:center;gap:4px;color:#4B5563;font-weight:500;">
+                  <span class="material-symbols-outlined" style="font-size:16px;color:#9CA3AF;">visibility</span>
+                  1,204
+                </span>
+              </td>
+              <td style="color:#6B7280;">Oct 24, 2023</td>
+            </tr>
+
+            <!-- Row 2: Aura Analytics -->
+            <tr data-status="approved" data-category="saas">
+              <td>
+                <div class="table-project-cell">
+                  <div class="table-project-thumb" style="background:#1E293B;">
+                    <span class="material-symbols-outlined" style="color:#94A3B8;font-size:24px;">monitoring</span>
+                  </div>
+                  <div>
+                    <div class="table-project-title">Aura Analytics</div>
+                    <div class="table-project-sub">Predictive...</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#475569;">MR</div>
+                  <span class="table-user-name">Marcus Reed</span>
+                </div>
+              </td>
+              <td style="color:#4B5563;">SaaS Platform</td>
+              <td>
+                <span class="badge-pill status-approved">
+                  Approved
+                </span>
+              </td>
+              <td>
+                <span style="display:inline-flex;align-items:center;gap:4px;color:#4B5563;font-weight:500;">
+                  <span class="material-symbols-outlined" style="font-size:16px;color:#9CA3AF;">visibility</span>
+                  8,492
+                </span>
+              </td>
+              <td style="color:#6B7280;">Oct 21, 2023</td>
+            </tr>
+
+            <!-- Row 3: Omni Shield (Featured row) -->
+            <tr class="row-featured-highlight" data-status="featured" data-category="mobile">
+              <td>
+                <div class="table-project-cell">
+                  <div class="table-project-thumb" style="background:#FDE68A;">
+                    <span class="material-symbols-outlined" style="color:#B45309;font-size:24px;">verified_user</span>
+                  </div>
+                  <div>
+                    <div class="table-project-title">
+                      Omni Shield 
+                      <span class="star-badge">&#9733;</span>
+                    </div>
+                    <div class="table-project-sub">End-to-end...</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#7C3AED;">ER</div>
+                  <span class="table-user-name">Elena Rostova</span>
+                </div>
+              </td>
+              <td style="color:#4B5563;">Mobile App</td>
+              <td>
+                <span class="badge-pill status-featured">
+                  Featured
+                </span>
+              </td>
+              <td>
+                <span style="display:inline-flex;align-items:center;gap:4px;color:#4B5563;font-weight:500;">
+                  <span class="material-symbols-outlined" style="font-size:16px;color:#9CA3AF;">visibility</span>
+                  45,102
+                </span>
+              </td>
+              <td style="color:#6B7280;">Sep 14, 2023</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Table Footer -->
+        <div class="admin-table-footer">
+          <div class="table-footer-info">Showing 1 to 3 of 142 projects</div>
+          <div class="table-pagination">
+            <button class="page-btn">&lsaquo;</button>
+            <button class="page-btn active-gold">1</button>
+            <button class="page-btn">&rsaquo;</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- New Project Modal -->
+  <div class="admin-modal-backdrop" id="newProjectModal">
+    <div class="admin-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Post New Project</h3>
+        <button class="action-icon-btn" onclick="closeModal('newProjectModal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="admin-form-group">
+          <label class="admin-form-label">Project Title</label>
+          <input type="text" class="admin-input-text" id="modalProjectTitle" placeholder="e.g. Nexus ERP Core" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-admin-outline" onclick="closeModal('newProjectModal')">Cancel</button>
+        <button class="btn-admin-gold" onclick="submitNewProject()">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
