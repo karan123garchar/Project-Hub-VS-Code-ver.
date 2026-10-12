@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Login - ProjectHub</title>
+  <meta name="description" content="Sign in to your ProjectHub enterprise workspace. Access verified codebases, private guild contracts, and institutional escrows." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Configuration matching Quiet Luxury Design Specification -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-dim": "#dbdad5",
+            "secondary-fixed-dim": "#ecc246",
+            "on-background": "#1b1c19",
+            "on-surface-variant": "#444748",
+            "on-primary-container": "#858383",
+            "on-error-container": "#93000a",
+            "surface-variant": "#e4e2dd",
+            "primary-fixed": "#e5e2e1",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#1b1c19",
+            "error-container": "#ffdad6",
+            "surface-container-high": "#eae8e3",
+            "on-error": "#ffffff",
+            "background": "#fbf9f4",
+            "primary-fixed-dim": "#c8c6c5",
+            "outline": "#747878",
+            "on-secondary-fixed": "#241a00",
+            "on-secondary-container": "#735a00",
+            "secondary": "#755b00",
+            "on-primary-fixed": "#1c1b1b",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#231b00",
+            "surface-bright": "#fbf9f4",
+            "inverse-surface": "#30312e",
+            "surface-container-low": "#f5f3ee",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#000000",
+            "on-primary-fixed-variant": "#474646",
+            "surface": "#fbf9f4",
+            "tertiary-fixed-dim": "#e4c456",
+            "tertiary-fixed": "#ffe17c",
+            "on-tertiary-fixed-variant": "#564500",
+            "surface-container": "#f0eee9",
+            "on-secondary-fixed-variant": "#584400",
+            "secondary-container": "#fed255",
+            "surface-tint": "#5f5e5e",
+            "secondary-fixed": "#ffe08e",
+            "surface-container-highest": "#e4e2dd",
+            "on-tertiary-container": "#9c8116",
+            "primary": "#000000",
+            "inverse-primary": "#c8c6c5",
+            "tertiary-container": "#231b00",
+            "outline-variant": "#c4c7c7",
+            "on-secondary": "#ffffff",
+            "primary-container": "#1c1b1b",
+            "inverse-on-surface": "#f2f1ec",
+            "on-primary": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "container-max": "1440px",
+            "margin-desktop": "40px",
+            "unit": "8px",
+            "unit-4": "16px",
+            "unit-8": "32px",
+            "gutter": "24px",
+            "section-gap": "80px",
+            "margin-mobile": "16px"
+          },
+          fontFamily: {
+            "headline-md": ["Playfair Display", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-sm": ["Playfair Display", "serif"],
+            "display-lg-mobile": ["Playfair Display", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "data-mono": ["Inter", "monospace"],
+            "label-uppercase": ["Inter", "sans-serif"],
+            "display-lg": ["Playfair Display", "serif"],
+            "body-sm": ["Inter", "sans-serif"]
+          },
+          fontSize: {
+            "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "data-mono": ["14px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-uppercase": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body { background-color: #F8F6F1; }
+    
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    
+    .gold-button {
+      background-color: #C9A227;
+      color: #FFFFFF;
+      transition: background-color 0.25s ease, transform 0.15s ease;
+    }
+    
+    .gold-button:hover {
+      background-color: #B59021;
+      transform: translateY(-1px);
+    }
+    
+    .input-luxury {
+      border: 1px solid #E5E2DA;
+      transition: all 0.3s ease;
+    }
+    
+    .input-luxury:focus {
+      border-color: #C9A227;
+      box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.2);
+      outline: none;
+    }
+
+    /* Background image with local asset and web fallback */
+    .auth-bg-canvas {
+      background-image: url('login-bg.jpg'), url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7kgPWWfBgZDpzu3zMEn3Kzw5UWRtsFCD6l7Fl3ot9Q2cJghA1UQV_1MefIvF40CgRWIQl4rlHRhrsQgVdNUVQJPHVO6ZomtPcy9PLOt_M21fCd8tiFNItY40iZbKh176LSpXC3J2PvDg-Mt0odhJrbQ0TEogb1XNY2x0t7g7TulCEMdyF58SLaefsVz2I4z3ksewYR5zuz1MnM-12-pjxBMV40YvptclL5uHuRtGtf41FJMJZD7XazA');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+  <!-- Main Content Canvas -->
+  <main class="flex-grow flex items-center justify-center p-margin-mobile md:p-margin-desktop py-section-gap relative overflow-hidden auth-bg-canvas">
+    
+    <!-- Subtle Background Accent / Overlay -->
+    <div class="absolute inset-0 bg-primary/60 backdrop-blur-[2px] z-0"></div>
+
+    <div class="w-full max-w-[450px] z-10 py-6">
+      
+      <!-- Brand Anchor Header -->
+      <div class="text-center mb-unit-8">
+        <a href="../index.html" class="inline-block group transition-transform hover:scale-105 duration-300">
+          <div class="flex items-center justify-center gap-2 mb-unit-4">
+            <span class="font-display-lg text-4xl font-bold text-white tracking-tight">ProjectHub</span>
+          </div>
+        </a>
+        <h1 class="sr-only">ProjectHub Login</h1>
+        <p class="font-body-sm text-body-sm text-surface-container-lowest/90 font-medium">
+          Sign in to your enterprise workspace
+        </p>
+      </div>
+
+      <!-- Login Card -->
+      <div class="bg-surface-container-lowest rounded-xl shadow-[0_16px_50px_rgba(0,0,0,0.25)] border border-[#E5E2DA]/60 overflow-hidden relative">
+        <div class="p-gutter pt-gutter">
+          
+          <form class="space-y-gutter" id="loginForm" onsubmit="handleLoginSubmit(event)">
+            <!-- Email Input -->
+            <div class="space-y-unit">
+              <label class="block font-label-uppercase text-label-uppercase text-on-surface-variant" for="email">
+                Email Address
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-outline pointer-events-none">
+                  <span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+                </span>
+                <input 
+                  class="input-luxury w-full bg-surface-container-lowest rounded-lg py-3 pl-11 pr-4 font-body-md text-body-md text-on-surface placeholder:text-outline-variant transition-all duration-300 ease-in-out" 
+                  id="email" 
+                  placeholder="name@company.com" 
+                  required 
+                  type="email" 
+                  value="alex.morgan@enterprise.com" 
+                />
+              </div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="space-y-unit">
+              <div class="flex justify-between items-center">
+                <label class="block font-label-uppercase text-label-uppercase text-on-surface-variant" for="password">
+                  Password
+                </label>
+                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-[#C9A227] transition-colors duration-300 ease-in-out border-b border-transparent hover:border-[#C9A227]" href="forgot-password.html">
+                  Forgot Password?
+                </a>
+              </div>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-outline pointer-events-none">
+                  <span class="material-symbols-outlined text-[20px]" data-icon="lock">lock</span>
+                </span>
+                <input 
+                  class="input-luxury w-full bg-surface-container-lowest rounded-lg py-3 pl-11 pr-11 font-body-md text-body-md text-on-surface placeholder:text-outline-variant transition-all duration-300 ease-in-out" 
+                  id="password" 
+                  placeholder="••••••••" 
+                  required 
+                  type="password" 
+                  value="EnterprisePassword123!" 
+                />
+                <button 
+                  type="button" 
+                  id="togglePassword" 
+                  class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-outline hover:text-on-surface transition-colors"
+                  aria-label="Toggle password visibility"
+                >
+                  <span class="material-symbols-outlined text-[20px]" id="eyeIcon">visibility</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Role Structure Selector Cards -->
+            <div class="pt-2">
+              <label class="block font-label-uppercase text-[11px] text-outline mb-2 uppercase tracking-wider font-semibold">
+                Select Workspace Identity &amp; Role Structure
+              </label>
+              <div class="grid grid-cols-3 gap-2.5">
+                <button type="button" class="role-selector p-2.5 rounded-lg border border-[#C9A227] bg-[#C9A227]/10 text-primary text-left transition-all cursor-pointer flex flex-col justify-between" data-role="user">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span class="material-symbols-outlined text-[18px] text-[#C9A227]">person</span>
+                    <span class="font-semibold text-xs text-primary">Client</span>
+                  </div>
+                  <span class="text-[10px] text-on-surface-variant leading-tight">Browse &amp; send inquiries</span>
+                </button>
+
+                <button type="button" class="role-selector p-2.5 rounded-lg border border-[#E5E2DA] bg-surface-container-low text-on-surface-variant text-left hover:border-[#C9A227] transition-all cursor-pointer flex flex-col justify-between" data-role="developer">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span class="material-symbols-outlined text-[18px] text-[#C9A227]">code</span>
+                    <span class="font-semibold text-xs text-primary">Developer</span>
+                  </div>
+                  <span class="text-[10px] text-on-surface-variant leading-tight">Post projects &amp; studio</span>
+                </button>
+
+                <button type="button" class="role-selector p-2.5 rounded-lg border border-[#E5E2DA] bg-surface-container-low text-on-surface-variant text-left hover:border-[#C9A227] transition-all cursor-pointer flex flex-col justify-between" data-role="admin">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span class="material-symbols-outlined text-[18px] text-[#C9A227]">shield</span>
+                    <span class="font-semibold text-xs text-primary">Admin</span>
+                  </div>
+                  <span class="text-[10px] text-on-surface-variant leading-tight">Master governance</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sign In Button -->
+            <button class="w-full gold-button rounded-lg py-3 font-body-md text-body-md font-medium transition-colors duration-300 ease-in-out shadow-sm mt-unit-4 flex items-center justify-center gap-2 cursor-pointer" type="submit">
+              <span>Sign In</span>
+              <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <div class="mt-gutter flex items-center">
+            <div class="flex-grow border-t border-surface-variant"></div>
+            <span class="px-3 font-body-sm text-body-sm text-outline-variant font-medium">or</span>
+            <div class="flex-grow border-t border-surface-variant"></div>
+          </div>
+
+          <!-- Enterprise Single Sign-On (SSO) -->
+          <div class="mt-gutter">
+            <button 
+              type="button" 
+              onclick="handleSsoLogin()" 
+              class="w-full bg-surface-container-low hover:bg-surface-container border border-[#E5E2DA] text-on-surface rounded-lg py-2.5 px-4 font-body-sm text-body-sm font-medium transition-colors flex items-center justify-center gap-2.5"
+            >
+              <span class="material-symbols-outlined text-[20px] text-secondary">fingerprint</span>
+              <span>Enterprise SSO (SAML / Okta)</span>
+            </button>
+          </div>
+
+          <!-- Alternate Actions -->
+          <div class="mt-gutter text-center">
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
+              Don't have an account? 
+              <a class="text-primary font-medium hover:text-[#C9A227] transition-colors duration-300 ease-in-out underline decoration-[#E5E2DA] hover:decoration-[#C9A227] underline-offset-4" href="register.html">
+                Create an Account
+              </a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-background w-full py-unit-8 border-t border-outline-variant/20 opacity-100 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter">
+    <div class="font-headline-sm text-headline-sm text-primary font-bold">
+      <a href="../index.html" class="hover:text-secondary transition-colors">ProjectHub</a>
+    </div>
+
+    <nav class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="../about.html">Privacy Policy</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="../about.html">Terms of Service</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="../about.html">Security</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="../contact.html">Contact</a>
+    </nav>
+
+    <div class="font-body-sm text-body-sm text-on-surface-variant">
+      &copy; 2024 ProjectHub Enterprise. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    let selectedDestination = 'user';
+
+    // Role destination toggle
+    const roleButtons = document.querySelectorAll('.role-selector');
+    roleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        roleButtons.forEach(b => {
+          b.classList.remove('border-[#C9A227]', 'bg-[#C9A227]/10', 'text-primary');
+          b.classList.add('border-[#E5E2DA]', 'bg-surface-container-low', 'text-on-surface-variant');
+        });
+        btn.classList.remove('border-[#E5E2DA]', 'bg-surface-container-low', 'text-on-surface-variant');
+        btn.classList.add('border-[#C9A227]', 'bg-[#C9A227]/10', 'text-primary');
+        selectedDestination = btn.dataset.role;
+
+        // Auto-switch default test credentials for convenience
+        const emailInput = document.getElementById('email');
+        if (selectedDestination === 'developer') {
+          emailInput.value = 'alexander.vance@guild.projecthub.io';
+        } else if (selectedDestination === 'admin') {
+          emailInput.value = 'governance@projecthub.enterprise';
+        } else {
+          emailInput.value = 'alex.morgan@enterprise.com';
+        }
+      });
+    });
+
+    // Password visibility toggle
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('eyeIcon');
+
+    if (togglePassword && passwordInput && eyeIcon) {
+      togglePassword.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+      });
+    }
+
+    // Login Form Submission
+    function handleLoginSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value.trim();
+
+      // Store active session token and structural role
+      localStorage.setItem('projecthub_user_authenticated', 'true');
+      localStorage.setItem('projecthub_user_email', email);
+
+      if (selectedDestination === 'developer' || email.includes('guild') || email.includes('vance')) {
+        localStorage.setItem('currentUserRole', 'developer');
+        window.location.href = '../developer/dashboard.html';
+      } else if (selectedDestination === 'admin' || email.includes('admin') || email.includes('governance')) {
+        localStorage.setItem('currentUserRole', 'admin');
+        window.location.href = '../admin/index.html';
+      } else {
+        localStorage.setItem('currentUserRole', 'user');
+        window.location.href = '../user/index.html';
+      }
+    }
+
+    // SSO Handler
+    function handleSsoLogin() {
+      localStorage.setItem('projecthub_user_authenticated', 'true');
+      localStorage.setItem('projecthub_user_email', 'sso.executive@enterprise-client.com');
+      localStorage.setItem('currentUserRole', 'user');
+      window.location.href = '../user/index.html';
+    }
+  </script>
+</body>
+</html>

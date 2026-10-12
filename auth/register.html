@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Register - ProjectHub</title>
+  <meta name="description" content="Create your enterprise account on ProjectHub. Procure verified codebases and collaborate with top 1% guild architects." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Configuration matching Quiet Luxury Specification -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-dim": "#dbdad5",
+            "secondary-fixed-dim": "#ecc246",
+            "on-background": "#1b1c19",
+            "on-surface-variant": "#444748",
+            "on-primary-container": "#858383",
+            "on-error-container": "#93000a",
+            "surface-variant": "#e4e2dd",
+            "primary-fixed": "#e5e2e1",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#1b1c19",
+            "error-container": "#ffdad6",
+            "surface-container-high": "#eae8e3",
+            "on-error": "#ffffff",
+            "background": "#fbf9f4",
+            "primary-fixed-dim": "#c8c6c5",
+            "outline": "#747878",
+            "on-secondary-fixed": "#241a00",
+            "on-secondary-container": "#735a00",
+            "secondary": "#755b00",
+            "on-primary-fixed": "#1c1b1b",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#231b00",
+            "surface-bright": "#fbf9f4",
+            "inverse-surface": "#30312e",
+            "surface-container-low": "#f5f3ee",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#000000",
+            "on-primary-fixed-variant": "#474646",
+            "surface": "#fbf9f4",
+            "tertiary-fixed-dim": "#e4c456",
+            "tertiary-fixed": "#ffe17c",
+            "on-tertiary-fixed-variant": "#564500",
+            "surface-container": "#f0eee9",
+            "on-secondary-fixed-variant": "#584400",
+            "secondary-container": "#fed255",
+            "surface-tint": "#5f5e5e",
+            "secondary-fixed": "#ffe08e",
+            "surface-container-highest": "#e4e2dd",
+            "on-tertiary-container": "#9c8116",
+            "primary": "#000000",
+            "inverse-primary": "#c8c6c5",
+            "tertiary-container": "#231b00",
+            "outline-variant": "#c4c7c7",
+            "on-secondary": "#ffffff",
+            "primary-container": "#1c1b1b",
+            "inverse-on-surface": "#f2f1ec",
+            "on-primary": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "container-max": "1440px",
+            "margin-desktop": "40px",
+            "unit": "8px",
+            "unit-2": "10px",
+            "unit-4": "16px",
+            "unit-8": "32px",
+            "gutter": "24px",
+            "section-gap": "80px",
+            "margin-mobile": "16px"
+          },
+          fontFamily: {
+            "headline-md": ["Playfair Display", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-sm": ["Playfair Display", "serif"],
+            "display-lg-mobile": ["Playfair Display", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "data-mono": ["Inter", "monospace"],
+            "label-uppercase": ["Inter", "sans-serif"],
+            "display-lg": ["Playfair Display", "serif"],
+            "body-sm": ["Inter", "sans-serif"]
+          },
+          fontSize: {
+            "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "data-mono": ["14px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-uppercase": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body { background-color: #F8F6F1; }
+    .gold-btn { 
+      background-color: #C9A227; 
+      color: #FFFFFF; 
+      border-radius: 8px; 
+      transition: background-color 0.25s ease, transform 0.15s ease;
+    }
+    .gold-btn:hover { 
+      background-color: #B59021; 
+      transform: translateY(-1px);
+    }
+    .input-minimal { 
+      border: 1px solid #E5E2DA; 
+      background: transparent; 
+      transition: all 0.3s ease; 
+    }
+    .input-minimal:focus { 
+      border-color: #C9A227; 
+      box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.2); 
+      outline: none; 
+    }
+    .glass-panel { 
+      background: rgba(255, 255, 255, 0.90); 
+      backdrop-filter: blur(16px); 
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .card-shadow { 
+      box-shadow: 0px 16px 40px rgba(24, 24, 24, 0.08); 
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col relative selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+  <!-- Background Image with Overlay -->
+  <div class="fixed inset-0 w-full h-full z-[-1] overflow-hidden">
+    <img 
+      alt="Sophisticated abstract 3D render representing global connectivity" 
+      class="w-full h-full object-cover opacity-90 scale-105" 
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqJP2YkKPuZWPFaekW6SC6Zd4j-FBC6Rd6Vd2_Rn-TAXJHxwGDTRmowIGA0kVY-SXPwhdhfXyC30NeZHxZWL-T6XeR3MgJ9lzw-mnTTuvJ_7OnJmZWqSajPDDZW9U7D5BD8rMnwcpuoLyuzc7CSH7w6s-_E-6ZLiJ0fW9t-du1quNuHBwnIyAYvR3t5XMfpfL-giUu2CEtZP9l3N_FOuSDrLvoqzkdZOLxuhMDrfUmiJz_tQTNkYtrHg" 
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/40"></div>
+  </div>
+
+  <!-- Main Content Canvas -->
+  <main class="flex-grow flex items-center justify-center py-section-gap px-margin-mobile md:px-margin-desktop relative z-10">
+    <div class="w-full max-w-md">
+      
+      <!-- Registration Card -->
+      <div class="glass-panel rounded-xl card-shadow border border-[#E5E2DA] p-unit-8 sm:p-gutter">
+        
+        <!-- Header Branding -->
+        <div class="text-center mb-unit-8">
+          <a href="../index.html" class="inline-block group">
+            <h1 class="font-headline-md text-headline-md text-primary mb-1 tracking-tight">ProjectHub</h1>
+          </a>
+          <p class="font-body-md text-body-md text-on-surface-variant">Create your enterprise account</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form class="space-y-4" id="registerForm" onsubmit="handleRegisterSubmit(event)">
+          
+          <!-- Full Name -->
+          <div>
+            <label class="block font-label-uppercase text-label-uppercase text-on-surface-variant mb-1.5 uppercase" for="fullName">
+              Full Name
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-outline pointer-events-none">
+                <span class="material-symbols-outlined text-[18px]">person</span>
+              </span>
+              <input 
+                class="w-full input-minimal rounded-lg py-2.5 pl-10 pr-3 font-body-md text-body-md text-primary bg-surface-container-lowest/60" 
+                id="fullName" 
+                placeholder="Jane Doe" 
+                required 
+                type="text" 
+                value="Alexander Vance"
+              />
+            </div>
+          </div>
+
+          <!-- Work Email -->
+          <div>
+            <label class="block font-label-uppercase text-label-uppercase text-on-surface-variant mb-1.5 uppercase" for="workEmail">
+              Work Email
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-outline pointer-events-none">
+                <span class="material-symbols-outlined text-[18px]">mail</span>
+              </span>
+              <input 
+                class="w-full input-minimal rounded-lg py-2.5 pl-10 pr-3 font-body-md text-body-md text-primary bg-surface-container-lowest/60" 
+                id="workEmail" 
+                placeholder="jane@company.com" 
+                required 
+                type="email" 
+                value="alex.vance@enterprise.com"
+              />
+            </div>
+          </div>
+
+          <!-- Company Name -->
+          <div>
+            <label class="block font-label-uppercase text-label-uppercase text-on-surface-variant mb-1.5 uppercase" for="companyName">
+              Company Name
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-outline pointer-events-none">
+                <span class="material-symbols-outlined text-[18px]">domain</span>
+              </span>
+              <input 
+                class="w-full input-minimal rounded-lg py-2.5 pl-10 pr-3 font-body-md text-body-md text-primary bg-surface-container-lowest/60" 
+                id="companyName" 
+                placeholder="Acme Corp" 
+                required 
+                type="text" 
+                value="Aurelia Forge Group"
+              />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div>
+            <label class="block font-label-uppercase text-label-uppercase text-on-surface-variant mb-1.5 uppercase" for="password">
+              Password
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-outline pointer-events-none">
+                <span class="material-symbols-outlined text-[18px]">lock</span>
+              </span>
+              <input 
+                class="w-full input-minimal rounded-lg py-2.5 pl-10 pr-10 font-body-md text-body-md text-primary bg-surface-container-lowest/60" 
+                id="password" 
+                placeholder="••••••••" 
+                required 
+                type="password" 
+                value="EnterpriseSecure2026!"
+              />
+              <button 
+                type="button" 
+                id="toggleRegPassword" 
+                class="absolute inset-y-0 right-0 flex items-center pr-3 text-outline hover:text-on-surface transition-colors"
+                aria-label="Toggle password visibility"
+              >
+                <span class="material-symbols-outlined text-[18px]" id="eyeRegIcon">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            class="w-full gold-btn py-3 font-body-md text-body-md font-medium hover:opacity-95 transition-all mt-unit-4 shadow-sm flex items-center justify-center gap-2 cursor-pointer" 
+            type="submit"
+          >
+            <span>Create Account</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+        </form>
+
+        <!-- Link to Login -->
+        <div class="mt-gutter text-center">
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            Already have an account? 
+            <a class="text-primary hover:text-secondary font-semibold transition-colors border-b border-transparent hover:border-secondary pb-0.5" href="login.html">
+              Sign In
+            </a>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Legal Disclaimer -->
+      <div class="mt-6 text-center">
+        <p class="font-body-sm text-xs text-on-surface-variant/90 drop-shadow-sm">
+          By registering, you agree to our 
+          <a class="underline hover:text-primary font-medium" href="../about.html">Terms of Service</a> 
+          and 
+          <a class="underline hover:text-primary font-medium" href="../about.html">Privacy Policy</a>.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full py-unit-8 border-t border-outline-variant/20 bg-background/80 backdrop-blur-md max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter relative z-10 mt-auto">
+    <div class="font-headline-sm text-headline-sm text-primary font-bold">
+      <a href="../index.html" class="hover:text-secondary transition-colors">ProjectHub</a>
+    </div>
+
+    <nav class="flex flex-wrap gap-x-6 gap-y-2 justify-center font-body-sm text-body-sm">
+      <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../about.html">Privacy Policy</a>
+      <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../about.html">Terms of Service</a>
+      <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../about.html">Security</a>
+      <a class="text-on-surface-variant hover:text-secondary transition-colors" href="../contact.html">Contact</a>
+    </nav>
+
+    <div class="font-body-sm text-body-sm text-on-surface-variant">
+      &copy; 2024 ProjectHub Enterprise. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Password visibility toggle
+    const toggleRegPassword = document.getElementById('toggleRegPassword');
+    const passwordInput = document.getElementById('password');
+    const eyeRegIcon = document.getElementById('eyeRegIcon');
+
+    if (toggleRegPassword && passwordInput && eyeRegIcon) {
+      toggleRegPassword.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        eyeRegIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+      });
+    }
+
+    // Registration Form Submission
+    function handleRegisterSubmit(event) {
+      event.preventDefault();
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('workEmail').value.trim();
+      const company = document.getElementById('companyName').value.trim();
+
+      // Store in localStorage
+      localStorage.setItem('projecthub_user_authenticated', 'true');
+      localStorage.setItem('projecthub_user_name', fullName);
+      localStorage.setItem('projecthub_user_email', email);
+      localStorage.setItem('projecthub_user_company', company);
+
+      // Redirect to client workspace
+      window.location.href = '../user/index.html';
+    }
+  </script>
+</body>
+</html>
