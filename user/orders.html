@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orders &amp; Licenses | ProjectHub Client Portal</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="user.css" />
+</head>
+<body>
+
+<!-- Role Bar -->
+<div class="portal-bar">
+  <div class="portal-tag">
+    <span class="material-symbols-outlined" style="font-size:16px;">receipt_long</span>
+    NORMAL USER / BILLING &amp; LICENSES
+  </div>
+  <div class="portal-switch-links">
+    <span>Switch Portal:</span>
+    <a href="index.html">&larr; User Hub</a>
+    <a href="../developer/dashboard.html">Developer Studio &rarr;</a>
+    <a href="../admin/index.html">Admin Panel &rarr;</a>
+  </div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../index.html" class="logo">ProjectHub</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Client Hub</a>
+        <a href="orders.html" class="nav-link active">My Licenses &amp; Orders</a>
+        <a href="../search.html" class="nav-link">Explore Marketplace</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="btn-outline hide-mobile">Back to Workspace</a>
+    </div>
+  </div>
+</nav>
+
+<main style="max-width:1200px;margin:40px auto;padding:0 var(--sp-px);">
+  <div style="margin-bottom:32px;">
+    <h1 style="font-family:var(--font-display);font-size:32px;font-weight:700;">Purchase History &amp; Commercial Licenses</h1>
+    <p style="color:var(--color-on-surface-variant);font-size:15px;">
+      Verified cryptographic receipts, perpetual commercial rights, and direct GitHub repository access invitations.
+    </p>
+  </div>
+
+  <div style="background:#fff;border:1px solid var(--color-outline-variant);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);">
+    <table style="width:100%;border-collapse:collapse;text-align:left;font-size:14px;">
+      <thead>
+        <tr style="background:var(--color-surface-container);border-bottom:1px solid var(--color-outline-variant);font-family:var(--font-mono);font-size:12px;text-transform:uppercase;color:var(--color-on-surface-variant);">
+          <th style="padding:16px 20px;">Order #</th>
+          <th style="padding:16px 20px;">Project &amp; Author</th>
+          <th style="padding:16px 20px;">Date</th>
+          <th style="padding:16px 20px;">License Type</th>
+          <th style="padding:16px 20px;">Amount</th>
+          <th style="padding:16px 20px;">Status</th>
+          <th style="padding:16px 20px;text-align:right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--color-outline-variant);">
+          <td style="padding:16px 20px;font-family:var(--font-mono);font-weight:600;">#ORD-9932</td>
+          <td style="padding:16px 20px;">
+            <strong>Apex Banking – Multi-Tenant Core</strong><br />
+            <span style="font-size:12px;color:#777;">by Elena Vance</span>
+          </td>
+          <td style="padding:16px 20px;color:#666;">Oct 02, 2026</td>
+          <td style="padding:16px 20px;"><span class="badge-status badge-active">Perpetual Commercial</span></td>
+          <td style="padding:16px 20px;font-weight:600;">$1,850.00</td>
+          <td style="padding:16px 20px;"><span style="color:#2e7d32;font-weight:600;">Paid</span></td>
+          <td style="padding:16px 20px;text-align:right;">
+            <button class="btn-primary download-code-btn" data-title="Apex Banking" style="padding:6px 14px;font-size:12px;">Download</button>
+          </td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--color-outline-variant);">
+          <td style="padding:16px 20px;font-family:var(--font-mono);font-weight:600;">#ORD-9811</td>
+          <td style="padding:16px 20px;">
+            <strong>Synthetix AI – Autonomous Agent Orchestrator</strong><br />
+            <span style="font-size:12px;color:#777;">by Devon Lee</span>
+          </td>
+          <td style="padding:16px 20px;color:#666;">Sep 24, 2026</td>
+          <td style="padding:16px 20px;"><span class="badge-status badge-active">Unlimited SaaS</span></td>
+          <td style="padding:16px 20px;font-weight:600;">$2,400.00</td>
+          <td style="padding:16px 20px;"><span style="color:#2e7d32;font-weight:600;">Paid</span></td>
+          <td style="padding:16px 20px;text-align:right;">
+            <button class="btn-primary download-code-btn" data-title="Synthetix AI" style="padding:6px 14px;font-size:12px;">Download</button>
+          </td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--color-outline-variant);">
+          <td style="padding:16px 20px;font-family:var(--font-mono);font-weight:600;">#ORD-9420</td>
+          <td style="padding:16px 20px;">
+            <strong>LuxeCart – Headless Luxury Storefront</strong><br />
+            <span style="font-size:12px;color:#777;">by Studio Nord</span>
+          </td>
+          <td style="padding:16px 20px;color:#666;">Aug 18, 2026</td>
+          <td style="padding:16px 20px;"><span class="badge-status badge-active">Enterprise Extended</span></td>
+          <td style="padding:16px 20px;font-weight:600;">$980.00</td>
+          <td style="padding:16px 20px;"><span style="color:#2e7d32;font-weight:600;">Paid</span></td>
+          <td style="padding:16px 20px;text-align:right;">
+            <button class="btn-primary download-code-btn" data-title="LuxeCart" style="padding:6px 14px;font-size:12px;">Download</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<script src="../main.js"></script>
+<script src="user.js"></script>
+</body>
+</html>

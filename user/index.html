@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Portal | ProjectHub</title>
+  <meta name="description" content="Normal User & Client Hub: Manage your purchased software licenses, source code downloads, and developer contracts." />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="user.css" />
+</head>
+<body>
+
+<!-- Role Bar -->
+<div class="portal-bar">
+  <div class="portal-tag">
+    <span class="material-symbols-outlined" style="font-size:16px;">person</span>
+    NORMAL USER / CLIENT PORTAL
+  </div>
+  <div class="portal-switch-links">
+    <span>Switch Portal:</span>
+    <a href="../developer/dashboard.html">Developer Studio &rarr;</a>
+    <a href="../admin/index.html">Admin Panel &rarr;</a>
+    <a href="../index.html">Main Hub &rarr;</a>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../index.html" class="logo">ProjectHub</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Client Hub</a>
+        <a href="orders.html" class="nav-link">My Licenses &amp; Orders</a>
+        <a href="../search.html" class="nav-link">Explore Marketplace</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="orders.html" class="btn-primary hide-mobile">
+        <span class="material-symbols-outlined" style="font-size:18px;margin-right:6px;">download</span>
+        My Downloads (4)
+      </a>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="material-symbols-outlined" style="color:var(--color-gold);">verified_user</span>
+        <span style="font-size:13px;font-weight:600;">Alex Morgan</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- User Hero -->
+<section class="user-hero">
+  <div class="user-hero-inner">
+    <div>
+      <h1 class="user-hero-title">Client Workspace</h1>
+      <p class="user-hero-subtitle">
+        Welcome back, Alex. Manage commercial software licenses, verified production codebases, and direct developer contracts.
+      </p>
+    </div>
+    <div class="user-stats-strip">
+      <div class="user-stat-item">
+        <span class="user-stat-val">4</span>
+        <span class="user-stat-lbl">Active Licenses</span>
+      </div>
+      <div class="user-stat-item" style="border-left:1px solid rgba(255,255,255,0.1);padding-left:16px;">
+        <span class="user-stat-val">2</span>
+        <span class="user-stat-lbl">Pending Updates</span>
+      </div>
+      <div class="user-stat-item" style="border-left:1px solid rgba(255,255,255,0.1);padding-left:16px;">
+        <span class="user-stat-val">100%</span>
+        <span class="user-stat-lbl">Clean Code Score</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Content Container -->
+<main style="max-width:1200px;margin:40px auto;padding:0 var(--sp-px);">
+  
+  <!-- Role Guidance & Developer Upgrade Callout -->
+  <div style="background:#FFFFFF;border:1px solid #EBE5DB;border-left:4px solid var(--color-gold);border-radius:12px;padding:18px 24px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:#111;margin-bottom:4px;">
+        <span class="material-symbols-outlined" style="color:var(--color-gold);font-size:20px;">info</span>
+        Active Role: Client / Buyer
+      </div>
+      <p style="font-size:13px;color:#666;margin:0;line-height:1.4;">
+        As a client, you can browse verified solutions, download licensed source code, and send inquiries/RFPs to architects.
+      </p>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="inquiries.html" class="btn-outline" style="font-size:12px;padding:8px 14px;border-radius:8px;">
+        <span class="material-symbols-outlined" style="font-size:16px;margin-right:4px;">mail</span> My Inquiries
+      </a>
+      <button type="button" onclick="upgradeToDeveloperAndPost()" class="btn-primary" style="background:#111;color:#fff;font-size:12px;padding:9px 18px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+        <span class="material-symbols-outlined" style="font-size:16px;color:var(--color-gold);">rocket_launch</span>
+        Start as Developer to Post Projects &rarr;
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="user-tabs">
+    <button class="user-tab-btn active" data-tab="all">
+      <span class="material-symbols-outlined" style="font-size:18px;">grid_view</span> All Purchased Projects (4)
+    </button>
+    <button class="user-tab-btn" data-tab="fintech">
+      <span class="material-symbols-outlined" style="font-size:18px;">payments</span> Fintech &amp; Banking
+    </button>
+    <button class="user-tab-btn" data-tab="ai">
+      <span class="material-symbols-outlined" style="font-size:18px;">smart_toy</span> AI &amp; Enterprise
+    </button>
+    <button class="user-tab-btn" data-tab="ecommerce">
+      <span class="material-symbols-outlined" style="font-size:18px;">shopping_bag</span> E-Commerce
+    </button>
+  </div>
+
+  <!-- Purchases List -->
+  <div class="orders-list">
+
+    <!-- Card 1 -->
+    <div class="order-card" data-category="fintech">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtPSCcHuTfMuZ0TokTVjXTayS5CVVu2Hk5_PQ_3_sxf8uhrmrEzgkmsU8ja8cmoC8IOXeJIOXJRqugWU7Dve_2Ju2azOLy11Q7wcuWdjScrJUP8diy3Z1yS744xAC-3i9dH-yrk2jx3LhaDxwKuLXC4jegkHJ9sO_YZbdHXymooPXcMwmmuBR0Nc1XTRHmXgAHZt8C0Ol5ylSU-pb58KKmLWjTiGPTgiNX9QJOP9hX2mspZNavoHSTHQ" alt="Fintech Project" class="order-thumb" />
+      <div class="order-meta">
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="badge-status badge-active"><span class="material-symbols-outlined" style="font-size:14px;">check_circle</span> Lifetime Commercial License</span>
+          <span class="badge-status badge-updated"><span class="material-symbols-outlined" style="font-size:14px;">update</span> v2.4 Update Ready</span>
+        </div>
+        <h2 class="order-title">Apex Banking – Multi-Tenant Core Architecture</h2>
+        <div class="order-sub">
+          <span>Author: <strong>Elena Vance</strong> (Top 1% Dev)</span>
+          <span>&bull;</span>
+          <span>Purchased: Oct 02, 2026</span>
+          <span>&bull;</span>
+          <span>Tech: Next.js 15, Go, PostgreSQL</span>
+        </div>
+        <div class="license-box">
+          <span>License Key:</span>
+          <code>PH-COMM-8942-APEX-9921-ELITE</code>
+          <button class="copy-btn" title="Copy Key" aria-label="Copy Key">
+            <span class="material-symbols-outlined">content_copy</span>
+          </button>
+        </div>
+      </div>
+      <div class="order-actions">
+        <button class="btn-gold download-code-btn" data-title="Apex Banking v2.4">
+          <span class="material-symbols-outlined" style="font-size:18px;margin-right:6px;">folder_zip</span>
+          Download Code
+        </button>
+        <a href="orders.html" class="btn-outline" style="text-align:center;padding:8px 12px;font-size:12px;">View Documentation</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="order-card" data-category="ai">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC42N48qp_qwfXYpMoxwy82U6vcio-Gr_0314u4FGl1wWMSFCf4iqrydHgk8FA0OBbDdqSk1-R05A0f1MiCvFGrfN1w4z2dKiGnzipTwbkxzgHZqzOOzzZelxBWg-CDBanD9qfkqx_b1VhqdussqrDz8qn9wTEqYEviU7-848S43rpdDWkJkt956du3Vu7KzppfcWTgkNf1NLRjzaBskKqxNr9YOufSkFdOOc0lWmY-bLwVFwzgMdx2HA" alt="AI Project" class="order-thumb" />
+      <div class="order-meta">
+        <span class="badge-status badge-active"><span class="material-symbols-outlined" style="font-size:14px;">check_circle</span> Unlimited SaaS License</span>
+        <h2 class="order-title">Synthetix AI – Autonomous Agent Orchestrator</h2>
+        <div class="order-sub">
+          <span>Author: <strong>Devon Lee</strong> (Verified Architect)</span>
+          <span>&bull;</span>
+          <span>Purchased: Sep 24, 2026</span>
+          <span>&bull;</span>
+          <span>Tech: Python, FastAPI, React, Docker</span>
+        </div>
+        <div class="license-box">
+          <span>License Key:</span>
+          <code>PH-AI-ORCH-7711-PROD-LIVE-X</code>
+          <button class="copy-btn" title="Copy Key" aria-label="Copy Key">
+            <span class="material-symbols-outlined">content_copy</span>
+          </button>
+        </div>
+      </div>
+      <div class="order-actions">
+        <button class="btn-gold download-code-btn" data-title="Synthetix AI v3.1">
+          <span class="material-symbols-outlined" style="font-size:18px;margin-right:6px;">folder_zip</span>
+          Download Code
+        </button>
+        <a href="orders.html" class="btn-outline" style="text-align:center;padding:8px 12px;font-size:12px;">Docker Compose</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="order-card" data-category="ecommerce">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ3fdK-tDZV4VbjVu6r6Rz20Maj2pLbIxF2UUXQgMR3_AKbQUKF8G-28lr83Puz_dxjLFp3HwPa8kyyHcvilRhdZhu8-AUyFE7o5BB7Dg7l4j2XIPMjRVGQSXmKdd90glNLngEkIbIEQWvreliZjiigSB0l-JYKSEzSNSVRISrSOOPaUy06Ayujb_QBmRJZVG02TGaEtH1uTZa1eGLN5GolGEgkSXvqtkNEk_rAkWks6e8-_Az5ixGhQ" alt="E-commerce Project" class="order-thumb" />
+      <div class="order-meta">
+        <span class="badge-status badge-active"><span class="material-symbols-outlined" style="font-size:14px;">check_circle</span> Enterprise License</span>
+        <h2 class="order-title">LuxeCart – Headless Luxury Storefront &amp; POS</h2>
+        <div class="order-sub">
+          <span>Author: <strong>Studio Nord</strong> (Design Guild)</span>
+          <span>&bull;</span>
+          <span>Purchased: Aug 18, 2026</span>
+          <span>&bull;</span>
+          <span>Tech: Shopify GraphQL, Hydrogen, Tailwind</span>
+        </div>
+        <div class="license-box">
+          <span>License Key:</span>
+          <code>PH-ENT-LUXE-0091-STORE-LIVE</code>
+          <button class="copy-btn" title="Copy Key" aria-label="Copy Key">
+            <span class="material-symbols-outlined">content_copy</span>
+          </button>
+        </div>
+      </div>
+      <div class="order-actions">
+        <button class="btn-gold download-code-btn" data-title="LuxeCart v1.8">
+          <span class="material-symbols-outlined" style="font-size:18px;margin-right:6px;">folder_zip</span>
+          Download Code
+        </button>
+        <a href="orders.html" class="btn-outline" style="text-align:center;padding:8px 12px;font-size:12px;">Github Access</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Client Perks & Support Box -->
+  <div style="background:#fff;border:1px solid var(--color-outline-variant);border-radius:var(--radius-lg);padding:32px;margin-top:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+    <div>
+      <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:6px;">Need Custom Modifications or Dedicated Developer Support?</h3>
+      <p style="color:var(--color-on-surface-variant);font-size:14px;max-width:600px;">
+        All ProjectHub purchases include 6 months of direct developer support and free security patch updates. You can also contract the original developers for custom enterprise features.
+      </p>
+    </div>
+    <div style="display:flex;gap:12px;">
+      <a href="../search.html" class="btn-outline">Browse More Projects</a>
+      <a href="orders.html" class="btn-primary">View Invoices &amp; Receipts</a>
+    </div>
+  </div>
+
+</main>
+
+<script src="../main.js"></script>
+<script src="user.js"></script>
+</body>
+</html>
