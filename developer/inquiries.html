@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Inquiries | ProjectHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../admin/admin.css" />
+  <link rel="stylesheet" href="developer.css" />
+</head>
+<body class="dev-body">
+
+  <div class="dev-portal-bar">
+    <div class="portal-tag">
+      <span class="material-symbols-outlined">chat_bubble_outline</span>
+      CLIENT PROPOSALS &amp; CONTRACT RFPs
+    </div>
+    <div class="portal-links">
+      <a href="dashboard.html">&larr; My Projects</a>
+      <a href="messages.html">Direct Messages &rarr;</a>
+    </div>
+  </div>
+
+  <div class="dev-layout">
+    <aside class="dev-sidebar">
+      <div class="dev-brand-block">
+        <a href="dashboard.html" class="dev-logo">ProjectHub</a>
+        <div class="dev-user-card">
+          <div class="dev-avatar"><span class="material-symbols-outlined">code</span></div>
+          <div class="dev-user-info">
+            <span class="dev-user-name">Alexander Vance</span>
+            <span class="dev-user-role">VERIFIED ARCHITECT</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="upload.html" class="dev-cta-btn">
+        <span class="material-symbols-outlined" style="font-size:18px;">add</span>
+        + Post New Project
+      </a>
+
+      <nav class="dev-nav">
+        <a href="dashboard.html" class="dev-nav-link">
+          <span class="material-symbols-outlined">inventory_2</span>
+          My Projects
+        </a>
+        <a href="analytics.html" class="dev-nav-link">
+          <span class="material-symbols-outlined">analytics</span>
+          Analytics
+        </a>
+        <a href="inquiries.html" class="dev-nav-link active">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          Inquiries
+          <span class="dev-badge-count">3</span>
+        </a>
+        <a href="messages.html" class="dev-nav-link">
+          <span class="material-symbols-outlined">forum</span>
+          Messages
+        </a>
+        <a href="portfolio.html" class="dev-nav-link">
+          <span class="material-symbols-outlined">person</span>
+          Public Portfolio
+        </a>
+        <a href="settings.html" class="dev-nav-link">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </nav>
+
+      <div class="dev-bottom-links">
+        <a href="#help" class="dev-nav-link"><span class="material-symbols-outlined">help_outline</span> Developer Docs</a>
+        <a href="../auth/login.html" class="dev-nav-link" style="color:#DC2626;"><span class="material-symbols-outlined">logout</span> Logout</a>
+      </div>
+    </aside>
+
+    <main class="dev-main">
+      <div class="dev-page-header">
+        <div>
+          <h1 class="dev-page-title">My Inquiries</h1>
+          <p class="dev-page-subtitle">Manage client RFPs, technical discussions, and milestone contract proposals.</p>
+        </div>
+        <button class="btn-admin-outline" onclick="showDevToast('Exported inquiries')">
+          <span class="material-symbols-outlined" style="font-size:18px;">download</span> Export CSV
+        </button>
+      </div>
+
+      <div class="admin-filter-bar">
+        <div class="filter-search-box">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input type="text" placeholder="Search inquiries by client, project, or email..." />
+        </div>
+        <select class="filter-select">
+          <option>All Statuses</option>
+          <option>Active RFP</option>
+          <option>Pending Review</option>
+          <option>In Negotiation</option>
+        </select>
+      </div>
+
+      <div class="admin-table-card">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Client Organization</th>
+              <th>Target Project</th>
+              <th>Budget Range</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#0F766E;">AG</div>
+                  <div>
+                    <div class="table-user-name">Apex Global Corp</div>
+                    <div class="table-user-sub">m.turner@apex.com</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-weight:600;color:#111;">Nexus ERP Core Customization</td>
+              <td style="font-weight:600;color:#1B7A41;">$75,000 - $100,000</td>
+              <td><span class="badge-pill status-active">Active RFP</span></td>
+              <td style="color:#6B7280;">Oct 24, 2024</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <a href="messages.html" class="action-icon-btn" title="Message Client">
+                    <span class="material-symbols-outlined" style="font-size:18px;">chat</span>
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#B45309;">VH</div>
+                  <div>
+                    <div class="table-user-name">Vanguard Health Systems</div>
+                    <div class="table-user-sub">compliance@vanguard.org</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-weight:600;color:#111;">Omni Shield Mobile SDK</td>
+              <td style="font-weight:600;color:#1B7A41;">$40,000 - $60,000</td>
+              <td><span class="badge-pill status-pending">Pending Review</span></td>
+              <td style="color:#6B7280;">Oct 22, 2024</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <a href="messages.html" class="action-icon-btn" title="Message Client">
+                    <span class="material-symbols-outlined" style="font-size:18px;">chat</span>
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="table-user-cell">
+                  <div class="table-avatar" style="background:#3B82F6;">FE</div>
+                  <div>
+                    <div class="table-user-name">FinEdge Labs</div>
+                    <div class="table-user-sub">tech@finedge.io</div>
+                  </div>
+                </div>
+              </td>
+              <td style="font-weight:600;color:#111;">Aura Analytics Custom Agents</td>
+              <td style="font-weight:600;color:#1B7A41;">$50,000 - $80,000</td>
+              <td><span class="badge-pill status-approved" style="background:#FEF3C7;color:#92400E;">In Negotiation</span></td>
+              <td style="color:#6B7280;">Oct 19, 2024</td>
+              <td>
+                <div class="table-actions" style="justify-content:flex-end;">
+                  <a href="messages.html" class="action-icon-btn" title="Message Client">
+                    <span class="material-symbols-outlined" style="font-size:18px;">chat</span>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

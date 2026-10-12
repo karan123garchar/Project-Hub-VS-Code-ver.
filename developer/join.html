@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join as Developer | ProjectHub Guild</title>
+  <meta name="description" content="Join the elite 1% developer guild on ProjectHub. Monetize your professional codebases, boilerplates, and SaaS systems with a 90% revenue share." />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="developer.css" />
+</head>
+<body>
+
+<!-- Role Bar -->
+<div class="portal-bar">
+  <div class="portal-tag">
+    <span class="material-symbols-outlined" style="font-size:16px;">code</span>
+    DEVELOPER GUILD / ONBOARDING
+  </div>
+  <div class="portal-switch-links">
+    <span>Switch Portal:</span>
+    <a href="../user/index.html">Client Portal &rarr;</a>
+    <a href="dashboard.html">Developer Dashboard &rarr;</a>
+    <a href="../admin/index.html">Admin Panel &rarr;</a>
+  </div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../index.html" class="logo">ProjectHub</a>
+      <div class="nav-links">
+        <a href="join.html" class="nav-link active">Join as Developer</a>
+        <a href="dashboard.html" class="nav-link">Developer Studio</a>
+        <a href="upload.html" class="nav-link">Publish Project</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="dashboard.html" class="btn-primary hide-mobile">
+        <span class="material-symbols-outlined" style="font-size:18px;margin-right:6px;">dashboard</span>
+        Go to Studio
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="dev-hero">
+  <div class="dev-hero-inner">
+    <div>
+      <span style="display:inline-block;padding:4px 12px;background:rgba(201,162,39,0.2);color:var(--color-gold);border-radius:var(--radius-full);font-size:12px;font-family:var(--font-mono);font-weight:600;margin-bottom:12px;">
+        ELITE CREATOR NETWORK
+      </span>
+      <h1 style="font-family:var(--font-display);font-size:36px;font-weight:700;margin-bottom:8px;">
+        Join the Top 1% Developer Guild
+      </h1>
+      <p style="color:#bbb;max-width:580px;font-size:15px;">
+        Keep 90% of every sale. Connect directly with enterprise founders and tech leads looking for production-grade software kits.
+      </p>
+    </div>
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:20px 24px;border-radius:var(--radius-lg);text-align:right;">
+      <div style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--color-gold);">$2.4M+</div>
+      <div style="font-size:12px;color:#999;text-transform:uppercase;font-family:var(--font-mono);">Paid to Creators in 2026</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="join-container" id="joinFormContainer">
+    <!-- Step Indicator -->
+    <div class="step-indicator">
+      <div class="step-item active">
+        <div class="step-circle">1</div>
+        <span class="step-label">Profile &amp; Git</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">2</div>
+        <span class="step-label">Tech Stack</span>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">3</div>
+        <span class="step-label">Payouts &amp; Terms</span>
+      </div>
+    </div>
+
+    <!-- Wizard Step 1 -->
+    <div class="wizard-step" id="step1">
+      <h2 style="font-family:var(--font-display);font-size:22px;margin-bottom:20px;">Developer Identity &amp; Code Presence</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="devFullName">Full Name / Studio Name</label>
+          <input type="text" id="devFullName" class="form-input" placeholder="e.g. Elena Vance" value="Marcus Thorne" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="devEmail">Developer Email</label>
+          <input type="email" id="devEmail" class="form-input" placeholder="marcus@thorne.tech" value="marcus@thorne.tech" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="devGithub">GitHub / GitLab Profile URL</label>
+          <input type="url" id="devGithub" class="form-input" placeholder="https://github.com/username" value="https://github.com/mthorne-dev" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="devPortfolio">Portfolio or Live App URL</label>
+          <input type="url" id="devPortfolio" class="form-input" placeholder="https://yourportfolio.dev" value="https://marcus.design.code" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="devBio">Brief Bio / Technical Focus</label>
+        <textarea id="devBio" class="form-textarea" rows="3" placeholder="Tell clients and administrators about your architectural specialization...">Full-stack engineer specializing in scalable distributed microservices, fintech core ledgers, and zero-downtime Kubernetes deployments.</textarea>
+      </div>
+    </div>
+
+    <!-- Wizard Step 2 -->
+    <div class="wizard-step" id="step2" style="display:none;">
+      <h2 style="font-family:var(--font-display);font-size:22px;margin-bottom:20px;">Primary Tech Stacks &amp; Specializations</h2>
+      <p style="color:#666;font-size:14px;margin-bottom:16px;">Select all frameworks and languages you actively build production code with:</p>
+      <div class="tech-tag-group">
+        <span class="tech-tag-select selected">Next.js 15</span>
+        <span class="tech-tag-select selected">TypeScript</span>
+        <span class="tech-tag-select selected">Go / Golang</span>
+        <span class="tech-tag-select selected">Python / FastAPI</span>
+        <span class="tech-tag-select">Rust</span>
+        <span class="tech-tag-select selected">PostgreSQL</span>
+        <span class="tech-tag-select">Docker &amp; K8s</span>
+        <span class="tech-tag-select">React Native</span>
+        <span class="tech-tag-select">GraphQL</span>
+        <span class="tech-tag-select">Solidity / Web3</span>
+        <span class="tech-tag-select">PyTorch / LangChain</span>
+      </div>
+      <div class="form-group" style="margin-top:24px;">
+        <label class="form-label" for="devYears">Years of Professional Experience</label>
+        <select id="devYears" class="form-select">
+          <option>3 - 5 Years (Mid-Senior)</option>
+          <option selected>5 - 8 Years (Lead / Staff)</option>
+          <option>8+ Years (Principal / Architect)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="devSampleLink">Public Open-Source Repo or Showcase Project</label>
+        <input type="url" id="devSampleLink" class="form-input" placeholder="https://github.com/mthorne/high-performance-ledger" value="https://github.com/mthorne/high-performance-ledger" />
+      </div>
+    </div>
+
+    <!-- Wizard Step 3 -->
+    <div class="wizard-step" id="step3" style="display:none;">
+      <h2 style="font-family:var(--font-display);font-size:22px;margin-bottom:20px;">Payout Distribution &amp; Guild Terms</h2>
+      <div class="form-group">
+        <label class="form-label" for="devPayoutPref">Payout Method</label>
+        <select id="devPayoutPref" class="form-select">
+          <option selected>Stripe Connect (Direct Bank Deposit)</option>
+          <option>Wise Global Business Wire</option>
+          <option>USDC / Crypto (Ethereum / Solana)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="devPayoutAccount">Stripe Connect ID or Account Routing</label>
+        <input type="text" id="devPayoutAccount" class="form-input" placeholder="acct_1NZ519ABC..." value="acct_1P9X44THORNE9" />
+      </div>
+      <div style="background:var(--color-surface-container);padding:16px 20px;border-radius:var(--radius-md);margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:8px;font-weight:600;margin-bottom:6px;">
+          <span class="material-symbols-outlined" style="color:var(--color-gold);">handshake</span>
+          90/10 Creator Royalty Agreement
+        </div>
+        <p style="font-size:13px;color:#555;">
+          You retain 100% intellectual property ownership of your templates and codebases. ProjectHub charges a 10% marketplace fee covering payment processing, buyer licensing, and security infrastructure.
+        </p>
+      </div>
+      <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#444;cursor:pointer;">
+        <input type="checkbox" checked style="margin-top:3px;accent-color:var(--color-gold);" />
+        <span>I certify that all code uploaded to ProjectHub is my original intellectual property and passes rigorous automated security standards.</span>
+      </label>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:20px;border-top:1px solid var(--color-outline-variant);">
+      <button type="button" class="btn-outline" id="wizardPrevBtn" style="display:none;">&larr; Back</button>
+      <button type="button" class="btn-primary" id="wizardNextBtn" style="margin-left:auto;">Continue &rarr;</button>
+    </div>
+
+  </div>
+</main>
+
+<script src="../main.js"></script>
+<script src="developer.js"></script>
+</body>
+</html>
