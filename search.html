@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProjectHub | Search Results</title>
+  <meta name="description" content="Search results for elite software projects and codebases on ProjectHub." />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== ROLE PORTAL TOP BAR ===== -->
+<div class="portal-bar">
+  <div class="portal-tag">
+    <span class="material-symbols-outlined" style="font-size:16px;">hub</span>
+    PROJECTHUB MULTI-ROLE ECOSYSTEM
+  </div>
+  <div class="portal-switch-links">
+    <span>Direct Portals:</span>
+    <a href="user/index.html">👤 Normal User / Client</a>
+    <a href="developer/join.html">💻 Developer (Join Guild)</a>
+    <a href="admin/index.html">⚡ Admin (Master Control)</a>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <span class="logo" onclick="window.location.href='index.html'" style="cursor:pointer">ProjectHub</span>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Browse</a>
+        <a href="user/index.html" class="nav-link">Client Hub</a>
+        <a href="developer/dashboard.html" class="nav-link">Developer Studio</a>
+      </div>
+    </div>
+    <!-- Inline search in navbar -->
+    <div class="nav-search" id="navSearchWrap">
+      <span class="material-symbols-outlined nav-search-icon">search</span>
+      <input type="text" id="navSearch" value="Fintech" class="nav-search-input" placeholder="Search projects..." />
+    </div>
+    <div class="nav-right">
+      <button class="btn-primary hide-mobile" onclick="window.location.href='developer/join.html'">Join as Developer</button>
+      <button class="icon-btn" aria-label="Account" onclick="window.location.href='user/index.html'" title="Client Portal">
+        <span class="material-symbols-outlined">account_circle</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="user/index.html" class="mobile-link">👤 Normal User Portal</a>
+    <a href="developer/dashboard.html" class="mobile-link">💻 Developer Studio</a>
+    <a href="admin/index.html" class="mobile-link">⚡ Admin Panel</a>
+    <button class="btn-primary mt-sm" onclick="window.location.href='developer/join.html'">Join as Developer</button>
+  </div>
+</nav>
+
+<!-- ===== PAGE LAYOUT ===== -->
+<div class="search-page-layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="filter-group">
+        <h3 class="filter-title">Category</h3>
+        <label class="filter-check checked" data-filter="category">
+          <div class="check-box"><div class="check-dot"></div></div>
+          <span>Fintech</span>
+        </label>
+        <label class="filter-check" data-filter="category">
+          <div class="check-box"></div>
+          <span>E-Commerce</span>
+        </label>
+        <label class="filter-check" data-filter="category">
+          <div class="check-box"></div>
+          <span>SaaS Tools</span>
+        </label>
+        <label class="filter-check" data-filter="category">
+          <div class="check-box"></div>
+          <span>Web3 / Crypto</span>
+        </label>
+      </div>
+
+      <div class="filter-group">
+        <h3 class="filter-title">Tech Stack</h3>
+        <label class="filter-check" data-filter="stack">
+          <div class="check-box"></div>
+          <span>React</span>
+        </label>
+        <label class="filter-check checked" data-filter="stack">
+          <div class="check-box"><div class="check-dot"></div></div>
+          <span>Node.js</span>
+        </label>
+        <label class="filter-check" data-filter="stack">
+          <div class="check-box"></div>
+          <span>TypeScript</span>
+        </label>
+      </div>
+
+      <div class="filter-group">
+        <h3 class="filter-title">Language</h3>
+        <div class="filter-pills">
+          <button class="pill active">JavaScript</button>
+          <button class="pill">Python</button>
+          <button class="pill">Rust</button>
+          <button class="pill">Go</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h3 class="filter-title">Framework</h3>
+        <label class="filter-check" data-filter="fw">
+          <div class="check-box"></div><span>Next.js</span>
+        </label>
+        <label class="filter-check" data-filter="fw">
+          <div class="check-box"></div><span>Vue.js</span>
+        </label>
+        <label class="filter-check" data-filter="fw">
+          <div class="check-box"></div><span>Express</span>
+        </label>
+      </div>
+
+      <div class="filter-group">
+        <h3 class="filter-title">Database</h3>
+        <label class="filter-check checked" data-filter="db">
+          <div class="check-box"><div class="check-dot"></div></div>
+          <span>PostgreSQL</span>
+        </label>
+        <label class="filter-check" data-filter="db">
+          <div class="check-box"></div><span>MongoDB</span>
+        </label>
+      </div>
+
+      <div class="sidebar-clear">
+        <button class="btn-clear" id="clearFilters">Clear All Filters</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="search-main">
+
+    <!-- Header Row -->
+    <div class="results-header">
+      <div>
+        <nav class="breadcrumb">
+          <a href="index.html">Marketplace</a>
+          <span class="material-symbols-outlined bc-chevron">chevron_right</span>
+          <span class="bc-current">Search</span>
+        </nav>
+        <h1 class="results-title">Showing 1,240 results for <em class="gold">"Fintech"</em></h1>
+      </div>
+      <div class="results-controls">
+        <!-- Mobile filter toggle -->
+        <button class="btn-filter-toggle" id="filterToggle">
+          <span class="material-symbols-outlined">tune</span> Filters
+        </button>
+        <div class="view-toggle" id="viewToggle">
+          <button class="view-btn active" data-view="grid" aria-label="Grid view">
+            <span class="material-symbols-outlined">grid_view</span>
+          </button>
+          <button class="view-btn" data-view="list" aria-label="List view">
+            <span class="material-symbols-outlined">view_list</span>
+          </button>
+        </div>
+        <select class="sort-select" id="sortSelect" aria-label="Sort results">
+          <option>Sort by: Popularity</option>
+          <option>Sort by: Newest</option>
+          <option>Sort by: Price: Low to High</option>
+          <option>Sort by: Price: High to Low</option>
+          <option>Sort by: Rating</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Results Grid -->
+    <div class="results-grid" id="resultsGrid">
+
+      <!-- Card 1 – Featured -->
+      <div class="proj-card reveal featured-card">
+        <div class="card-gold-bar"></div>
+        <div class="card-img-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGOYPaBwetXcCCSjxG2cgti3OOPXjRCdIa6PaJdTcFdK8PbkdiKFS6sxG0xMppiZbcuxkHHBZtn2xPnJnav5vE6YJDYrDZ--i1qIrqTwPb3ex_zG_kDQ0GSxcTmuUgKu1isRvGAF1WcKc9_n6l3glN4FS0ddDy91W23szqrnwy7vin464WEdsa9McDHb3zj-MAizH8VOku6bz4vWTnzY0PibYPzeRgsKGhHMXSlhnCfrrqVYx0rYxWLQ" alt="Lumina Wealth" loading="lazy" />
+          <span class="card-badge featured-badge">Featured</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <h3 class="card-title">Lumina Wealth</h3>
+            <span class="card-price">$2,400</span>
+          </div>
+          <p class="card-desc">A comprehensive digital asset management platform with automated rebalancing and AI-driven portfolio insights.</p>
+          <div class="card-tags">
+            <span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">Stripe SDK</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-author">
+              <div class="author-placeholder"></div>
+              <span>Arch Studio</span>
+            </div>
+            <div class="card-stars">
+              <span class="material-symbols-outlined star" style="font-variation-settings:'FILL' 1;font-size:16px">star</span>
+              <strong>4.9</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="proj-card reveal">
+        <div class="card-img-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC27rrH8C4I5_NdalvVd-ZLGcd_u3dbGtnlyifl5LJabVUDOm0E0bMVfkjkBjOFQQ4xl-rYQ1AZz6V98XjiEq9npQO5QczPoIscJNbtL6YmomNeVHwz7mE2PjbGBdhuc6eLfB82Xp1MDs1ZAFTikuRXEraOshZLvjiyA70Q2vBwR63ntBEvUgNotiGScSzsEQIG2xyHG1cJHbHmlcrvK5DsSWFhntlLPXs-NR0kNgmtV8ZUz04yDwKdnw" alt="NeoVault Mobile" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <h3 class="card-title">NeoVault Mobile</h3>
+            <span class="card-price">$1,850</span>
+          </div>
+          <p class="card-desc">Boutique neobank application featuring real-time transaction tracking and high-yield savings vault modules.</p>
+          <div class="card-tags">
+            <span class="tag">React Native</span><span class="tag">Go</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-author">
+              <div class="author-placeholder"></div>
+              <span>Velvet Dev</span>
+            </div>
+            <div class="card-stars">
+              <span class="material-symbols-outlined star" style="font-variation-settings:'FILL' 1;font-size:16px">star</span>
+              <strong>4.8</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="proj-card reveal">
+        <div class="card-img-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5ucF_1bf-7U0VzvBirXmX6d4Yy-bV-jUDmiYo2-BiUh9UwM02NzpqSr1Pm_-R2NtKi8bvGI5o9nf8qd4K2QXX5F4RQO_PwKmogHxsBCI4mbMqCaT-YuFZl-2p2vW6ZU0pVH_YbDfNRcGycTJJgT9m5hhCS_MKLykWS3pcacEYahPOwT9S3qqv865Klx8-aVJfpqo6FPHwG3oGVny3swWkMo1IjIjeBaBWPxC4jeofhyLht-KMezmWfQ" alt="QuantX Terminal" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <h3 class="card-title">QuantX Terminal</h3>
+            <span class="card-price">$4,200</span>
+          </div>
+          <p class="card-desc">Professional grade algorithmic trading terminal with ultra-low latency execution and custom technical indicators.</p>
+          <div class="card-tags">
+            <span class="tag">Rust</span><span class="tag">WebAssembly</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-author">
+              <div class="author-placeholder"></div>
+              <span>Flux Systems</span>
+            </div>
+            <div class="card-stars">
+              <span class="material-symbols-outlined star" style="font-variation-settings:'FILL' 1;font-size:16px">star</span>
+              <strong>5.0</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="proj-card reveal">
+        <div class="card-img-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCzMNwu83wZTwRFtKrzb2XvVjfEWj2SDtl4I21GoB3UKKC1TYRBSXf3OvNtoqDxMKkVIS_1_bSSzEsvCEBdmow2n3SedbVOieAhl9MzYY2qkBcpOXTmGgznWz1pN1Ivyn-kdRafpaTsGsBc6whGkjRwkoAAW9BkwU4kOPTWCv75fAC2mUsxySZlNYNx_hs30-CB-V-DyF72SD0jEEiBPSdDYSbI6mUdGLApLlbLCKzi3VXNcyAZNND9w" alt="Biller Pro" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <h3 class="card-title">Biller Pro</h3>
+            <span class="card-price">$950</span>
+          </div>
+          <p class="card-desc">Streamlined B2B invoicing solution with automated payment reminders and multi-currency support.</p>
+          <div class="card-tags">
+            <span class="tag">Node.js</span><span class="tag">Vue 3</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-author">
+              <div class="author-placeholder"></div>
+              <span>Core Logic</span>
+            </div>
+            <div class="card-stars">
+              <span class="material-symbols-outlined star" style="font-variation-settings:'FILL' 1;font-size:16px">star</span>
+              <strong>4.6</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="proj-card reveal">
+        <div class="card-img-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2aVup2JqkAYYXS7t4sXieYwrs-_NzaEBYzmSReQT4ZFNnAP-tGrGsSqOjPWFYKoF0CDQ0WHaBZmFdEcr20rf14mjPg3KIGC-oAQ3KnjzsDjAiA-b6aef6gOw-fEY0S37bY1zfgsTGbzcJNJpVOH4ZdG6m6LC9RdXhQpe7aKAYCpnveDKNZJ-5Yeahxe8ck9In2GIoyS4euO1843eu5Gnw8hJJhuBwysSLsg-JCFIr8b4DKFbzco2PKg" alt="Ethereal Wallet" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <h3 class="card-title">Ethereal Wallet</h3>
+            <span class="card-price">$3,100</span>
+          </div>
+          <p class="card-desc">Multi-chain non-custodial wallet with native swap capabilities and hardware security module integration.</p>
+          <div class="card-tags">
+            <span class="tag">Solidity</span><span class="tag">Ethers.js</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-author">
+              <div class="author-placeholder"></div>
+              <span>Nexus Labs</span>
+            </div>
+            <div class="card-stars">
+              <span class="material-symbols-outlined star" style="font-variation-settings:'FILL' 1;font-size:16px">star</span>
+              <strong>4.9</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="proj-card reveal">
+        <div class="card-img-wrap">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV5JmfYSEkuFnfz6Xl2dZbT75pfWD-2DDeLRFSZF5q-Cpxn35Jw0DZHe4My3RtNTKxdvt31xBXO5ngRe2nJ0Y9n--eIUErZV9RzcqYFJJVBxGCExgwFnYm-h_NEQJvYczXIyph6KQGN2rsUEM6O-1JMnNOmUnEXBg5GPVdEwMGnxercHiffdJol_5LMgtTyLGCBCqqxQkKvQWtIJlAqHPU9IHhtkGIGyqpG4MR2EbMSW-ASjNgc8lvDQ" alt="Spenderly AI" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title-row">
+            <h3 class="card-title">Spenderly AI</h3>
+            <span class="card-price">$1,200</span>
+          </div>
+          <p class="card-desc">Automated expense classification and runway forecasting tool for growing startup teams.</p>
+          <div class="card-tags">
+            <span class="tag">Python</span><span class="tag">Django</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-author">
+              <div class="author-placeholder"></div>
+              <span>Mint Labs</span>
+            </div>
+            <div class="card-stars">
+              <span class="material-symbols-outlined star" style="font-variation-settings:'FILL' 1;font-size:16px">star</span>
+              <strong>4.7</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /results-grid -->
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination">
+      <button class="page-btn nav-btn" id="prevPage" disabled aria-label="Previous page">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <button class="page-btn active" data-page="1">1</button>
+      <button class="page-btn" data-page="2">2</button>
+      <button class="page-btn" data-page="3">3</button>
+      <span class="page-dots">...</span>
+      <button class="page-btn" data-page="10">10</button>
+      <button class="page-btn nav-btn" id="nextPage" aria-label="Next page">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+
+  </main>
+</div><!-- /search-page-layout -->
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo text-white">ProjectHub</span>
+      <p class="footer-desc">The world's most exclusive marketplace for professional-grade software assets and elite engineering talent.</p>
+    </div>
+    <div class="footer-col">
+      <h5 class="footer-heading">Platform</h5>
+      <ul>
+        <li><a href="search.html">Browse Projects</a></li>
+        <li><a href="#">Developer Directory</a></li>
+        <li><a href="#">Enterprise Solutions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 class="footer-heading">Legal</h5>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">License Agreement</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 class="footer-heading">Connect</h5>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Share"><span class="material-symbols-outlined">share</span></a>
+        <a href="#" class="social-btn" aria-label="Email"><span class="material-symbols-outlined">mail</span></a>
+      </div>
+      <p class="footer-copy">© 2024 ProjectHub. Crafted for Excellence.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script src="search.js"></script>
+</body>
+</html>

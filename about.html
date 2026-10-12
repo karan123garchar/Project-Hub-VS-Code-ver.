@@ -1,0 +1,799 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>About ProjectHub | Architecting the Future of Enterprise Software</title>
+  <meta name="description" content="ProjectHub is the definitive standard for sourcing elite engineering talent, vetted digital assets, and executing mission-critical enterprise projects." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Tailwind Configuration matching Quiet Luxury Design Specification -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary": "#755b00",
+            "on-primary-container": "#858383",
+            "secondary-container": "#fed255",
+            "primary-fixed-dim": "#c8c6c5",
+            "on-error": "#ffffff",
+            "on-background": "#1b1c19",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#564500",
+            "inverse-primary": "#c8c6c5",
+            "on-surface-variant": "#444748",
+            "surface-tint": "#5f5e5e",
+            "on-primary-fixed": "#1c1b1b",
+            "background": "#fbf9f4",
+            "on-tertiary-fixed": "#231b00",
+            "primary-fixed": "#e5e2e1",
+            "surface-container-low": "#f5f3ee",
+            "on-secondary-container": "#735a00",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "secondary-fixed": "#ffe08e",
+            "outline": "#747878",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#e4e2dd",
+            "surface-bright": "#fbf9f4",
+            "on-secondary-fixed": "#241a00",
+            "primary": "#000000",
+            "tertiary-fixed-dim": "#e4c456",
+            "surface-container-high": "#eae8e3",
+            "surface-dim": "#dbdad5",
+            "secondary-fixed-dim": "#ecc246",
+            "on-surface": "#1b1c19",
+            "on-primary-fixed-variant": "#474646",
+            "surface-container": "#f0eee9",
+            "primary-container": "#1c1b1b",
+            "inverse-surface": "#30312e",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#9c8116",
+            "tertiary": "#000000",
+            "outline-variant": "#c4c7c7",
+            "surface-container-highest": "#e4e2dd",
+            "inverse-on-surface": "#f2f1ec",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#fbf9f4",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#584400",
+            "tertiary-fixed": "#ffe17c",
+            "tertiary-container": "#231b00"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-mobile": "16px",
+            "container-max": "1440px",
+            "gutter": "24px",
+            "section-gap": "80px",
+            "unit": "8px",
+            "margin-desktop": "40px"
+          },
+          fontFamily: {
+            "display-lg": ["Playfair Display", "serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "headline-sm": ["Playfair Display", "serif"],
+            "label-uppercase": ["Inter", "sans-serif"],
+            "display-lg-mobile": ["Playfair Display", "serif"],
+            "data-mono": ["Inter", "monospace"],
+            "body-lg": ["Inter", "sans-serif"]
+          },
+          fontSize: {
+            "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+            "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+            "label-uppercase": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "data-mono": ["14px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #F8F6F1; color: #111111; }
+    .glass-nav { 
+      background-color: rgba(255, 255, 255, 0.85); 
+      backdrop-filter: blur(14px); 
+      -webkit-backdrop-filter: blur(14px); 
+    }
+    .gold-accent-text { color: #C9A227; }
+    .gold-accent-bg { background-color: #C9A227; }
+    .gold-stroke-top { border-top: 1px solid #C9A227; }
+    .gold-stroke-left { border-left: 1px solid #C9A227; }
+    .gold-stroke-left-active { border-left: 2px solid #C9A227; }
+    .atmospheric-shadow { box-shadow: 0px 8px 30px rgba(24, 24, 24, 0.04); }
+    .lux-card { 
+      background-color: #FFFFFF; 
+      border: 1px solid #E5E2DA; 
+      border-radius: 16px; 
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .lux-card:hover {
+      box-shadow: 0px 14px 34px rgba(24, 24, 24, 0.07);
+    }
+    .btn-primary-gold { 
+      background-color: #C9A227; 
+      color: #FFFFFF; 
+      border-radius: 8px; 
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .btn-primary-gold:hover {
+      background-color: #b5901e;
+      transform: translateY(-1px);
+    }
+    .btn-primary-black { 
+      background-color: #111111; 
+      color: #FFFFFF; 
+      border-radius: 8px; 
+      transition: opacity 0.2s ease, transform 0.1s ease;
+    }
+    .btn-primary-black:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+    .btn-secondary { 
+      background-color: transparent; 
+      color: #111111; 
+      border: 1px solid #E5E2DA; 
+      border-radius: 8px; 
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background-color: #F0EEE9;
+      border-color: #c4c7c7;
+    }
+    .btn-lux-action { 
+      color: #C9A227; 
+      border-bottom: 1px solid transparent; 
+      transition: border-color 0.3s ease; 
+    }
+    .btn-lux-action:hover { 
+      border-bottom: 1px solid #C9A227; 
+    }
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+  <!-- Top Subtle Announcement / Ecosystem Banner -->
+  <aside class="bg-surface-container-high border-b border-outline-variant/30 py-2 px-margin-mobile md:px-margin-desktop text-center text-xs text-on-surface-variant">
+    <div class="max-w-container-max mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 mx-auto md:mx-0">
+        <span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+        <span class="font-data-mono font-medium tracking-wide uppercase">The ProjectHub Enterprise Standard</span>
+        <span class="hidden sm:inline text-outline">&bull;</span>
+        <span class="hidden sm:inline">Rigorous Vetting &amp; Sovereign IP Escrow</span>
+      </div>
+      <div class="hidden md:flex items-center gap-4 text-xs font-medium">
+        <a href="user/index.html" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">person</span> Client Portal
+        </a>
+        <span class="text-outline-variant">|</span>
+        <a href="developer/join.html" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">code</span> Developer Guild
+        </a>
+        <span class="text-outline-variant">|</span>
+        <a href="admin/index.html" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">shield</span> Admin Governance
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navigation (TopNavBar) -->
+  <nav class="sticky top-0 w-full z-50 glass-nav border-b border-outline-variant/30 shadow-sm transition-all duration-300" id="mainNav">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+      <div class="flex items-center gap-10">
+        <a class="font-display-lg text-headline-sm md:text-display-lg font-bold text-primary tracking-tight flex items-center gap-2" href="index.html">
+          ProjectHub
+        </a>
+      </div>
+
+      <!-- Web Navigation Links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="index.html">Marketplace</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="case-studies.html">Solutions</a>
+        <a class="font-body-md text-body-md text-primary font-semibold border-b-2 border-secondary pb-0.5" href="about.html">Enterprise</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#leadership">Leadership</a>
+        <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="contact.html">Contact</a>
+      </div>
+
+      <!-- Actions -->
+      <div class="hidden md:flex items-center gap-4">
+        <a class="font-body-sm text-body-sm text-primary hover:text-secondary transition-colors duration-300 px-3 py-2 font-medium" href="auth/login.html">Sign In</a>
+        <a href="contact.html" class="btn-primary-black px-6 py-2.5 font-body-sm text-body-sm font-medium hover:opacity-90 transition-opacity">Get Started</a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="md:hidden text-primary p-2 focus:outline-none" id="menuToggle" aria-label="Toggle navigation menu">
+        <span class="material-symbols-outlined text-2xl" id="menuIcon">menu</span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="hidden md:hidden bg-surface-container-lowest border-b border-outline-variant/40 px-6 py-6 transition-all duration-300" id="mobileMenu">
+      <div class="flex flex-col gap-4">
+        <a class="font-body-md text-on-surface-variant hover:text-secondary py-1" href="index.html">Marketplace</a>
+        <a class="font-body-md text-on-surface-variant hover:text-secondary py-1" href="case-studies.html">Solutions</a>
+        <a class="font-body-md text-primary font-semibold py-1" href="about.html">Enterprise (About Us)</a>
+        <a class="font-body-md text-on-surface-variant hover:text-secondary py-1" href="#leadership">Leadership</a>
+        <a class="font-body-md text-on-surface-variant hover:text-secondary py-1" href="contact.html">Contact</a>
+        <hr class="border-outline-variant/30 my-2" />
+        <div class="flex flex-col gap-3">
+          <a class="font-body-sm text-center py-2.5 border border-outline-variant rounded-lg" href="auth/login.html">Sign In</a>
+          <a class="btn-primary-black font-body-sm text-center py-2.5 font-medium" href="contact.html">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow pt-8 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+    
+    <!-- Hero Section -->
+    <section class="mb-20 pt-10 md:pt-16 text-center max-w-4xl mx-auto">
+      <span class="font-label-uppercase text-label-uppercase text-secondary tracking-widest uppercase mb-4 block">About Us</span>
+      <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary mb-6 leading-tight">
+        Architecting the Future of Enterprise Software.
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+        We bridge the gap between visionary ambition and technical reality. ProjectHub is the definitive standard for sourcing elite engineering talent and executing mission-critical projects.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="contact.html" class="btn-primary-black px-7 py-3 font-medium text-body-sm inline-flex items-center gap-2">
+          <span>Schedule Enterprise Consultation</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+        <a href="index.html" class="btn-secondary px-7 py-3 font-medium text-body-sm inline-flex items-center gap-2">
+          <span>Browse Marketplace</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Key Metrics Strip (Atmospheric Luxury Card) -->
+    <section class="mb-section-gap">
+      <div class="lux-card atmospheric-shadow p-8 md:p-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-outline-variant/30 text-center">
+          <div class="pt-4 md:pt-0">
+            <div class="font-display-lg text-headline-md md:text-display-lg text-primary font-bold">Top 1%</div>
+            <div class="font-label-uppercase text-label-uppercase text-secondary uppercase tracking-widest mt-2">Vetted Talent Acceptance</div>
+            <p class="text-xs text-on-surface-variant mt-1">Multi-stage technical review</p>
+          </div>
+          <div class="pt-4 md:pt-0 md:pl-6">
+            <div class="font-display-lg text-headline-md md:text-display-lg text-primary font-bold">&#8377;2B+</div>
+            <div class="font-label-uppercase text-label-uppercase text-secondary uppercase tracking-widest mt-2">Managed Software Value</div>
+            <p class="text-xs text-on-surface-variant mt-1">Across 400+ enterprise deals</p>
+          </div>
+          <div class="pt-4 md:pt-0 md:pl-6">
+            <div class="font-display-lg text-headline-md md:text-display-lg text-primary font-bold">99.98%</div>
+            <div class="font-label-uppercase text-label-uppercase text-secondary uppercase tracking-widest mt-2">Platform Escrow Reliability</div>
+            <p class="text-xs text-on-surface-variant mt-1">Zero commercial license disputes</p>
+          </div>
+          <div class="pt-4 md:pt-0 md:pl-6">
+            <div class="font-display-lg text-headline-md md:text-display-lg text-primary font-bold">40+</div>
+            <div class="font-label-uppercase text-label-uppercase text-secondary uppercase tracking-widest mt-2">Fortune 500 Deployments</div>
+            <p class="text-xs text-on-surface-variant mt-1">FinTech, Health &amp; Defense</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Standard Section (Editorial Split) -->
+    <section class="mb-section-gap">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+        <!-- Visual Column -->
+        <div class="order-2 md:order-1 relative h-96 md:h-[580px] lux-card overflow-hidden atmospheric-shadow group">
+          <div class="w-full h-full bg-cover bg-center absolute inset-0 transition-transform duration-700 group-hover:scale-105" 
+               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCsD70ZGF76yl7a_OxLO5iWIObRYHXX-x3-VHnak8057zGU6PfXlLPJlne_h71Eu_T9OPoMkay_2d5cRw4tVXd3_tGWFlHRFoBt4PD-36BQ9BZi02rBYb7GEkW1Xff4HCLHizIkZq8Yfq3K9SAIlypqCK8hGOzZw32MIxAX_6QbeOmdbmRPLxrnotxT3Mw9AadmFeTKoHEDPvk9fZgCnDAjk7zIDrpbneIO5CsbLnpGw_IdnYnTrs2jIg');"
+               data-alt="Modern high-security data architecture facility with ambient gold and cool lighting reflecting quiet enterprise luxury">
+          </div>
+          <!-- Subtle Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 p-4 bg-surface/90 backdrop-blur-md rounded-xl border border-white/20">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-xs font-label-uppercase text-secondary font-semibold uppercase tracking-wider block">Infrastructure Verification</span>
+                <span class="text-sm font-semibold text-primary">Zurich &amp; Virginia Sovereign Edge Nodes</span>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-fixed/50 text-secondary text-xs rounded-full font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active &amp; Monitored
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy Column -->
+        <div class="order-1 md:order-2 md:pl-10">
+          <span class="font-label-uppercase text-label-uppercase text-secondary tracking-widest uppercase mb-3 block">The Standard</span>
+          <h2 class="font-headline-sm text-headline-sm md:font-headline-md md:text-headline-md text-primary mb-6">
+            Rigorous Vetting.<br />Absolute Security.
+          </h2>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+            Our platform is engineered for the highest stakes. We enforce stringent compliance protocols and a proprietary vetting matrix to ensure every project aligns with enterprise-grade security and excellence standards.
+          </p>
+
+          <ul class="space-y-5 mb-8">
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant/40 text-secondary">
+                <span class="material-symbols-outlined text-xl">verified_user</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-primary text-body-md">SOC 2 Type II Certified Infrastructure</h3>
+                <p class="text-body-sm text-on-surface-variant mt-0.5">Continuous cryptographic integrity monitoring, zero-trust perimeter segregation, and automated compliance logging.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant/40 text-secondary">
+                <span class="material-symbols-outlined text-xl">policy</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-primary text-body-md">End-to-End Encryption &amp; IP Protection</h3>
+                <p class="text-body-sm text-on-surface-variant mt-0.5">Irrevocable commercial licensing backed by clean git commit lineages, source code escrow, and complete indemnification.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant/40 text-secondary">
+                <span class="material-symbols-outlined text-xl">gavel</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-primary text-body-md">Cryptographic Milestone Escrow</h3>
+                <p class="text-body-sm text-on-surface-variant mt-0.5">Funds are safeguarded in enterprise-grade smart escrows, released strictly upon verifiable unit and integration test fulfillment.</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="case-studies.html" class="inline-flex items-center gap-2 font-medium text-secondary hover:text-primary transition-colors text-body-sm">
+            <span>Review our enterprise audit reports</span>
+            <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Genesis / Narrative Section (Why ProjectHub Exists) -->
+    <section class="mb-section-gap py-12 px-6 md:px-12 bg-surface-container-low rounded-2xl border border-outline-variant/30">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+          <span class="font-label-uppercase text-label-uppercase text-secondary tracking-widest uppercase mb-2 block">Our Genesis</span>
+          <h2 class="font-headline-sm text-headline-sm md:font-headline-md md:text-headline-md text-primary">
+            From Fragmented Freelancing to Sovereign Architecture.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-on-surface-variant leading-relaxed">
+          <p>
+            For decades, corporate technical leaders faced a binary compromise: pay exorbitant retainers to monolithic systems integrators who deployed junior contractors, or brave chaotic freelancer platforms littered with abandoned code, dubious copyright ownership, and zero accountability.
+          </p>
+          <p>
+            ProjectHub was established in 2021 by veterans of Tier-1 infrastructure firms to provide a third, uncompromised path: a curated, private ecosystem that operates like an investment-grade clearinghouse for enterprise software assets and architectural talent.
+          </p>
+        </div>
+
+        <!-- Pull Quote in Quiet Luxury Aesthetic -->
+        <div class="mt-10 p-8 lux-card gold-stroke-left-active border-y-0 border-r-0">
+          <blockquote class="font-display-lg italic text-headline-sm text-primary mb-3">
+            &ldquo;Software that powers the Fortune 500 should never be built on questionable codebases or opaque contracts. ProjectHub was crafted to embody the discretion and precision of private banking.&rdquo;
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <span class="font-semibold text-body-sm text-primary">The Founding Board</span>
+            <span class="text-outline-variant">&bull;</span>
+            <span class="text-body-sm text-secondary">ProjectHub Governance Committee</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Four Core Pillars (Lux Cards Grid) -->
+    <section class="mb-section-gap">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="font-label-uppercase text-label-uppercase text-secondary tracking-widest uppercase mb-2 block">Guiding Principles</span>
+        <h2 class="font-headline-sm text-headline-sm md:font-headline-md md:text-headline-md text-primary">
+          The Four Architectural Pillars
+        </h2>
+        <p class="text-on-surface-variant text-body-md mt-3">
+          Every line of code, talent profile, and commercial transaction on ProjectHub adheres to our foundational doctrine.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Pillar 1 -->
+        <div class="lux-card p-6 flex flex-col justify-between atmospheric-shadow hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-6 border border-outline-variant/30">
+              <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+            </div>
+            <span class="text-xs font-data-mono text-secondary font-bold tracking-wider">PILLAR 01</span>
+            <h3 class="font-headline-sm text-lg font-bold text-primary mt-1 mb-3">The Top 1% Guild</h3>
+            <p class="text-body-sm text-on-surface-variant leading-relaxed">
+              Acceptance into our guild demands blind peer code reviews, distributed systems simulations, and thorough security background verification.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-outline-variant/30 text-xs text-on-surface-variant flex items-center justify-between">
+            <span>Rigorous peer review</span>
+            <span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="lux-card p-6 flex flex-col justify-between atmospheric-shadow hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-6 border border-outline-variant/30">
+              <span class="material-symbols-outlined text-2xl">fingerprint</span>
+            </div>
+            <span class="text-xs font-data-mono text-secondary font-bold tracking-wider">PILLAR 02</span>
+            <h3 class="font-headline-sm text-lg font-bold text-primary mt-1 mb-3">Sovereign IP Rights</h3>
+            <p class="text-body-sm text-on-surface-variant leading-relaxed">
+              Every digital asset transfer includes an irrevocable, perpetual commercial license with audited lineage and full patent indemnification.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-outline-variant/30 text-xs text-on-surface-variant flex items-center justify-between">
+            <span>Zero vendor lock-in</span>
+            <span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="lux-card p-6 flex flex-col justify-between atmospheric-shadow hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-6 border border-outline-variant/30">
+              <span class="material-symbols-outlined text-2xl">vpn_lock</span>
+            </div>
+            <span class="text-xs font-data-mono text-secondary font-bold tracking-wider">PILLAR 03</span>
+            <h3 class="font-headline-sm text-lg font-bold text-primary mt-1 mb-3">Automated CVE Auditing</h3>
+            <p class="text-body-sm text-on-surface-variant leading-relaxed">
+              Prior to publishing, every codebase is sandboxed, static-analyzed for vulnerability trees, and scanned against zero-day exploit registries.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-outline-variant/30 text-xs text-on-surface-variant flex items-center justify-between">
+            <span>Continuous isolation</span>
+            <span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="lux-card p-6 flex flex-col justify-between atmospheric-shadow hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-6 border border-outline-variant/30">
+              <span class="material-symbols-outlined text-2xl">account_balance</span>
+            </div>
+            <span class="text-xs font-data-mono text-secondary font-bold tracking-wider">PILLAR 04</span>
+            <h3 class="font-headline-sm text-lg font-bold text-primary mt-1 mb-3">White-Glove Escrow</h3>
+            <p class="text-body-sm text-on-surface-variant leading-relaxed">
+              Institutional capital retention guarantees that payments are securely held until milestones pass automated build validations and client sign-off.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-outline-variant/30 text-xs text-on-surface-variant flex items-center justify-between">
+            <span>Milestone-backed</span>
+            <span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Multi-Role Architecture (Dedicated Roles) -->
+    <section class="mb-section-gap">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="font-label-uppercase text-label-uppercase text-secondary tracking-widest uppercase mb-2 block">Platform Architecture</span>
+        <h2 class="font-headline-sm text-headline-sm md:font-headline-md md:text-headline-md text-primary">
+          Designed for Three Distinct Portals
+        </h2>
+        <p class="text-on-surface-variant text-body-md mt-3">
+          Our unified ecosystem delivers tailored workspaces engineered for clients, creators, and platform governance.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Normal User -->
+        <div class="lux-card p-8 flex flex-col justify-between atmospheric-shadow relative overflow-hidden group">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-primary mb-6">
+              <span class="material-symbols-outlined text-3xl">corporate_fare</span>
+            </div>
+            <span class="font-data-mono text-xs uppercase text-secondary font-semibold">PORTAL 01</span>
+            <h3 class="font-headline-sm text-xl font-bold text-primary mt-1 mb-3">Enterprise Clients</h3>
+            <p class="text-body-sm text-on-surface-variant leading-relaxed mb-6">
+              Procure mission-ready software bundles, license production repositories, and contract verified senior architects with SLA guarantees.
+            </p>
+            <ul class="space-y-2 text-xs text-on-surface mb-6">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">check</span> Instant source archive downloads</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">check</span> Cryptographic license certificates</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">check</span> Contract lifecycle management</li>
+            </ul>
+          </div>
+          <a href="user/index.html" class="btn-secondary text-center py-2.5 font-medium text-xs block hover:border-secondary">
+            Enter Client Workspace &rarr;
+          </a>
+        </div>
+
+        <!-- Developer Guild -->
+        <div class="lux-card p-8 flex flex-col justify-between atmospheric-shadow relative overflow-hidden group border-secondary/40">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-secondary opacity-100"></div>
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-secondary mb-6">
+              <span class="material-symbols-outlined text-3xl">terminal</span>
+            </div>
+            <span class="font-data-mono text-xs uppercase text-secondary font-semibold">PORTAL 02</span>
+            <h3 class="font-headline-sm text-xl font-bold text-primary mt-1 mb-3">Developer Guild</h3>
+            <p class="text-body-sm text-on-surface-variant leading-relaxed mb-6">
+              World-class software craftspeople publish proprietary assets, secure premium contracts, and retain 90%+ net revenue earnings.
+            </p>
+            <ul class="space-y-2 text-xs text-on-surface mb-6">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">check</span> Peer reputation indexation</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">check</span> Milestone-based payment escrows</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">check</span> Automated project analytics</li>
+            </ul>
+          </div>
+          <a href="developer/join.html" class="btn-primary-gold text-center py-2.5 font-medium text-xs block">
+            Apply to Join the Guild &rarr;
+          </a>
+        </div>
+
+        <!-- Admin Control -->
+        <div class="lux-card p-8 flex flex-col justify-between atmospheric-shadow relative overflow-hidden group">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-primary mb-6">
+              <span class="material-symbols-outlined text-3xl">admin_panel_settings</span>
+            </div>
+            <span class="font-data-mono text-xs uppercase text-secondary font-semibold">PORTAL 03</span>
+            <h3 class="font-headline-sm text-xl font-bold text-primary mt-1 mb-3">Platform Governance</h3>
+            <p class="text-body-sm text-on-surface-variant leading-relaxed mb-6">
+              Centralized administrative dashboard for overseeing compliance verification, escrow reconciliations, and ecosystem safety protocols.
+            </p>
+            <ul class="space-y-2 text-xs text-on-surface mb-6">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">check</span> Real-time platform observability</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">check</span> Dispute resolution arbitration</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">check</span> Strict KYC &amp; AML compliance</li>
+            </ul>
+          </div>
+          <a href="admin/index.html" class="btn-secondary text-center py-2.5 font-medium text-xs block hover:border-secondary">
+            Access Master Governance &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership & Architectural Advisory Section -->
+    <section class="mb-section-gap" id="leadership">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="font-label-uppercase text-label-uppercase text-secondary tracking-widest uppercase mb-2 block">Our Stewards</span>
+        <h2 class="font-headline-sm text-headline-sm md:font-headline-md md:text-headline-md text-primary">
+          Executive Leadership &amp; Board
+        </h2>
+        <p class="text-on-surface-variant text-body-md mt-3">
+          Guided by industry leaders with decades of experience at Fortune 50 enterprise platforms and defense infrastructure.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Leader 1 -->
+        <div class="lux-card p-6 text-center atmospheric-shadow">
+          <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden bg-surface-container-high border-2 border-secondary/30 relative flex items-center justify-center">
+            <span class="material-symbols-outlined text-5xl text-outline">account_circle</span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-bold text-primary">Dr. Julian Vance</h3>
+          <p class="text-xs font-data-mono text-secondary font-medium uppercase tracking-wider mt-1">Founder &amp; CEO</p>
+          <p class="text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+            Former Principal Architect at Palantir. 18 years architecting distributed data pipelines for sovereign financial institutions.
+          </p>
+        </div>
+
+        <!-- Leader 2 -->
+        <div class="lux-card p-6 text-center atmospheric-shadow">
+          <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden bg-surface-container-high border-2 border-secondary/30 relative flex items-center justify-center">
+            <span class="material-symbols-outlined text-5xl text-outline">account_circle</span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-bold text-primary">Elena Rostova</h3>
+          <p class="text-xs font-data-mono text-secondary font-medium uppercase tracking-wider mt-1">Chief Technology Officer</p>
+          <p class="text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+            Ex-Director of Systems Engineering at Cloudflare. Specialist in edge caching, zero-knowledge proofs, and static analysis.
+          </p>
+        </div>
+
+        <!-- Leader 3 -->
+        <div class="lux-card p-6 text-center atmospheric-shadow">
+          <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden bg-surface-container-high border-2 border-secondary/30 relative flex items-center justify-center">
+            <span class="material-symbols-outlined text-5xl text-outline">account_circle</span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-bold text-primary">Marcus Sterling</h3>
+          <p class="text-xs font-data-mono text-secondary font-medium uppercase tracking-wider mt-1">Chief Security Officer</p>
+          <p class="text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+            Former Head of Cryptographic Assurance for European aerospace systems. Oversees our automated vulnerability containment matrix.
+          </p>
+        </div>
+
+        <!-- Leader 4 -->
+        <div class="lux-card p-6 text-center atmospheric-shadow">
+          <div class="w-24 h-24 mx-auto mb-5 rounded-full overflow-hidden bg-surface-container-high border-2 border-secondary/30 relative flex items-center justify-center">
+            <span class="material-symbols-outlined text-5xl text-outline">account_circle</span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-bold text-primary">Sarah Al-Mansoor</h3>
+          <p class="text-xs font-data-mono text-secondary font-medium uppercase tracking-wider mt-1">VP of Guild Relations</p>
+          <p class="text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+            Pioneered elite developer talent communities across Singapore and London. Manages peer vetting and technical admissions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Presence & Trust Footprint -->
+    <section class="mb-section-gap py-12 px-6 md:px-12 lux-card atmospheric-shadow">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="font-label-uppercase text-label-uppercase text-secondary tracking-widest uppercase mb-2 block">Global Footprint</span>
+          <h2 class="font-headline-sm text-headline-sm md:font-headline-md md:text-headline-md text-primary mb-4">
+            Operated Globally. Anchored in Legal Sovereignty.
+          </h2>
+          <p class="text-body-md text-on-surface-variant leading-relaxed mb-6">
+            ProjectHub operates secure escrow and legal compliance hubs across key enterprise jurisdictions to guarantee dispute protection and data sovereignty under GDPR, CCPA, and ISO 27001 mandates.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 bg-surface-container-low rounded-xl">
+              <span class="text-xs font-bold text-primary block">Zurich, Switzerland</span>
+              <span class="text-xs text-on-surface-variant">Global Escrow &amp; IP Custody</span>
+            </div>
+            <div class="p-4 bg-surface-container-low rounded-xl">
+              <span class="text-xs font-bold text-primary block">San Francisco, USA</span>
+              <span class="text-xs text-on-surface-variant">Engineering &amp; Code Analysis</span>
+            </div>
+            <div class="p-4 bg-surface-container-low rounded-xl">
+              <span class="text-xs font-bold text-primary block">London, UK</span>
+              <span class="text-xs text-on-surface-variant">European Enterprise Advisory</span>
+            </div>
+            <div class="p-4 bg-surface-container-low rounded-xl">
+              <span class="text-xs font-bold text-primary block">Singapore</span>
+              <span class="text-xs text-on-surface-variant">APAC Guild Operations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compliance Badges Box -->
+        <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/40 flex flex-col gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary shrink-0">
+              <span class="material-symbols-outlined text-2xl">verified</span>
+            </div>
+            <div>
+              <span class="text-sm font-bold text-primary block">SOC 2 Type II Certified</span>
+              <span class="text-xs text-on-surface-variant">Annually audited by independent third-party cybersecurity assessors.</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary shrink-0">
+              <span class="material-symbols-outlined text-2xl">encrypted</span>
+            </div>
+            <div>
+              <span class="text-sm font-bold text-primary block">Zero-Trust Cryptographic Escrow</span>
+              <span class="text-xs text-on-surface-variant">Dual-key signature protection ensures complete capital security.</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary shrink-0">
+              <span class="material-symbols-outlined text-2xl">license</span>
+            </div>
+            <div>
+              <span class="text-sm font-bold text-primary block">Indemnified Commercial IP Transfer</span>
+              <span class="text-xs text-on-surface-variant">Legally binding intellectual property transfer documentation with full warranty.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing Enterprise Call to Action -->
+    <section class="bg-primary text-on-primary rounded-3xl p-10 md:p-16 text-center relative overflow-hidden atmospheric-shadow">
+      <!-- Ambient Gold Glow Accent -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-secondary/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/15 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="max-w-2xl mx-auto relative z-10">
+        <span class="font-label-uppercase text-label-uppercase text-secondary-fixed uppercase tracking-widest block mb-4">Partner with ProjectHub</span>
+        <h2 class="font-display-lg text-headline-sm md:text-headline-md font-bold mb-6 text-white">
+          Elevate Your Enterprise to the Standard.
+        </h2>
+        <p class="text-on-primary-container text-body-md mb-8 max-w-xl mx-auto">
+          Whether you require bespoke enterprise software sourcing or seek to deploy our guild for mission-critical engineering, our executive team is at your disposal.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="contact.html" class="btn-primary-gold px-8 py-3.5 font-medium text-body-sm inline-flex items-center gap-2">
+            <span>Speak with an Enterprise Director</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+          <a href="case-studies.html" class="bg-surface-container-high/20 hover:bg-surface-container-high/30 border border-white/20 text-white px-8 py-3.5 rounded-lg font-medium text-body-sm transition-colors">
+            <span>Explore Case Studies</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-surface-container-lowest border-t border-outline-variant py-section-gap px-margin-mobile md:px-margin-desktop mt-auto">
+    <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex flex-col items-center md:items-start gap-4">
+        <a href="index.html" class="font-display-lg text-headline-sm font-bold text-primary">ProjectHub</a>
+        <span class="font-body-sm text-body-sm text-on-surface-variant">&copy; 2024 ProjectHub Enterprise. All rights reserved.</span>
+      </div>
+      <div class="flex flex-wrap justify-center md:justify-end gap-6 md:gap-8">
+        <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary underline decoration-secondary/50 opacity-80 hover:opacity-100 transition-opacity" href="about.html">About The Standard</a>
+        <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary underline decoration-secondary/50 opacity-80 hover:opacity-100 transition-opacity" href="case-studies.html">Case Studies</a>
+        <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary underline decoration-secondary/50 opacity-80 hover:opacity-100 transition-opacity" href="contact.html">Contact Sales</a>
+        <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary underline decoration-secondary/50 opacity-80 hover:opacity-100 transition-opacity" href="auth/login.html">Sign In</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts (Navbar behavior & Mobile Drawer) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuIcon = document.getElementById('menuIcon');
+
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            if (menuIcon) menuIcon.textContent = 'close';
+          } else {
+            mobileMenu.classList.add('hidden');
+            if (menuIcon) menuIcon.textContent = 'menu';
+          }
+        });
+      }
+
+      // Smooth scroll behavior on anchor clicks
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              targetEl.scrollIntoView({ behavior: 'smooth' });
+              // close mobile menu if open
+              if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                if (menuIcon) menuIcon.textContent = 'menu';
+              }
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

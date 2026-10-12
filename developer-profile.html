@@ -1,0 +1,738 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Developer Profile - Alexander Vance | ProjectHub Enterprise Guild</title>
+  <meta name="description" content="Alexander Vance - Principal Systems Architect and Senior Backend & Flutter Engineer on ProjectHub Enterprise Guild." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#c4c7c7",
+            "on-primary-fixed-variant": "#474646",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#ffe08e",
+            "surface-container": "#f0eee9",
+            "inverse-surface": "#30312e",
+            "background": "#fbf9f4",
+            "surface-dim": "#dbdad5",
+            "tertiary-container": "#231b00",
+            "tertiary-fixed-dim": "#e4c456",
+            "surface-bright": "#fbf9f4",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#584400",
+            "surface-container-highest": "#e4e2dd",
+            "tertiary-fixed": "#ffe17c",
+            "outline": "#747878",
+            "on-error": "#ffffff",
+            "tertiary": "#000000",
+            "on-surface": "#1b1c19",
+            "error": "#ba1a1a",
+            "inverse-primary": "#c8c6c5",
+            "on-tertiary": "#ffffff",
+            "secondary": "#755b00",
+            "primary-container": "#1c1b1b",
+            "surface-container-low": "#f5f3ee",
+            "on-secondary-fixed": "#241a00",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#f2f1ec",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#e5e2e1",
+            "on-tertiary-container": "#9c8116",
+            "secondary-fixed-dim": "#ecc246",
+            "surface": "#fbf9f4",
+            "on-tertiary-fixed": "#231b00",
+            "on-secondary-container": "#735a00",
+            "on-primary-container": "#858383",
+            "primary": "#000000",
+            "surface-variant": "#e4e2dd",
+            "surface-container-high": "#eae8e3",
+            "primary-fixed-dim": "#c8c6c5",
+            "on-background": "#1b1c19",
+            "on-primary-fixed": "#1c1b1b",
+            "secondary-container": "#fed255",
+            "on-tertiary-fixed-variant": "#564500",
+            "surface-tint": "#5f5e5e",
+            "error-container": "#ffdad6",
+            "on-surface-variant": "#444748"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-desktop": "40px",
+            "gutter": "24px",
+            "section-gap": "80px",
+            "container-max": "1440px",
+            "margin-mobile": "16px",
+            "unit": "8px"
+          },
+          fontFamily: {
+            "display-lg-mobile": ["Playfair Display", "serif"],
+            "body-md": ["Inter", "sans-serif"],
+            "body-sm": ["Inter", "sans-serif"],
+            "label-uppercase": ["Inter", "sans-serif"],
+            "data-mono": ["Inter", "monospace"],
+            "display-lg": ["Playfair Display", "serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-md": ["Playfair Display", "serif"],
+            "headline-sm": ["Playfair Display", "serif"]
+          },
+          fontSize: {
+            "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "body-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}],
+            "label-uppercase": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+            "data-mono": ["14px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body { background-color: #F8F6F1; color: #111111; }
+    .glass-panel {
+      background-color: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .atmospheric-shadow {
+      box-shadow: 0px 8px 30px rgba(24, 24, 24, 0.04);
+    }
+    .gold-accent-text { color: #C9A227; }
+    .gold-accent-bg { background-color: #C9A227; }
+    .lux-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E5E2DA;
+      border-radius: 16px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .lux-card:hover {
+      box-shadow: 0px 12px 32px rgba(24, 24, 24, 0.06);
+    }
+    .btn-primary-gold {
+      background-color: #C9A227;
+      color: #FFFFFF;
+      border-radius: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .btn-primary-gold:hover {
+      background-color: #b5901e;
+      transform: translateY(-1px);
+    }
+    .filter-tab.active {
+      background-color: #111111;
+      color: #FFFFFF;
+      border-color: #111111;
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface bg-background antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen flex flex-col">
+
+  <!-- Top Announcement Bar -->
+  <aside class="bg-surface-container-high border-b border-outline-variant/30 py-2 px-margin-mobile md:px-margin-desktop text-center text-xs text-on-surface-variant">
+    <div class="max-w-container-max mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 mx-auto md:mx-0">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#0F766E]"></span>
+        <span class="font-data-mono font-medium uppercase tracking-wide">Top 1% Architect Guild</span>
+        <span class="hidden sm:inline text-outline">&bull;</span>
+        <span class="hidden sm:inline">Cryptographically Verified Developer ID #PH-89241</span>
+      </div>
+      <div class="hidden md:flex items-center gap-4 text-xs font-medium">
+        <a href="index.html" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">storefront</span> Marketplace
+        </a>
+        <span class="text-outline-variant">|</span>
+        <a href="case-studies.html" class="hover:text-primary transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">query_stats</span> Solutions
+        </a>
+        <span class="text-outline-variant">|</span>
+        <a href="engage-developer.html" class="text-secondary hover:text-primary transition-colors flex items-center gap-1 font-semibold">
+          <span class="material-symbols-outlined text-sm">handshake</span> Hire Architect &rarr;
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Top Navigation (TopNavBar) -->
+  <header class="bg-white/85 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm sticky top-0 w-full z-50 transition-all duration-300" id="mainHeader">
+    <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto">
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="font-display-lg text-headline-sm md:text-display-lg tracking-tighter text-primary font-bold">
+          ProjectHub
+        </a>
+      </div>
+
+      <nav class="hidden md:flex gap-8">
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="index.html">Marketplace</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="case-studies.html">Solutions</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="about.html">Enterprise</a>
+        <a class="text-primary font-semibold border-b-2 border-secondary pb-0.5" href="developer-profile.html">Developers</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <a href="search.html" class="text-on-surface-variant hover:text-primary transition-colors p-2" title="Search Projects &amp; Talent">
+          <span class="material-symbols-outlined text-xl">search</span>
+        </a>
+        <a href="auth/login.html" class="text-on-surface-variant hover:text-primary transition-colors font-body-sm font-medium px-2">
+          Sign In
+        </a>
+        <a href="engage-developer.html" class="bg-[#111111] text-white px-6 py-2.5 rounded-lg font-body-sm text-body-sm font-medium hover:opacity-90 transition-opacity">
+          Engage Developer
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="md:hidden text-primary p-2 focus:outline-none" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+        <span class="material-symbols-outlined text-2xl" id="menuIcon">menu</span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="hidden md:hidden bg-surface-container-lowest border-b border-outline-variant/40 px-6 py-6 transition-all duration-300" id="mobileNavDrawer">
+      <div class="flex flex-col gap-4">
+        <a class="font-body-md text-on-surface-variant hover:text-primary py-1" href="index.html">Marketplace</a>
+        <a class="font-body-md text-on-surface-variant hover:text-primary py-1" href="case-studies.html">Solutions</a>
+        <a class="font-body-md text-on-surface-variant hover:text-primary py-1" href="about.html">Enterprise (About Us)</a>
+        <a class="font-body-md text-primary font-semibold py-1" href="developer-profile.html">Developer Profile</a>
+        <a class="font-body-md text-on-surface-variant hover:text-primary py-1" href="contact.html">Contact</a>
+        <hr class="border-outline-variant/30 my-1" />
+        <div class="flex flex-col gap-3">
+          <a class="font-body-sm text-center py-2.5 border border-outline-variant rounded-lg" href="auth/login.html">Sign In</a>
+          <a class="btn-primary-gold font-body-sm text-center py-2.5 font-medium" href="engage-developer.html">Engage Alexander Vance</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow pt-4 pb-section-gap min-h-screen">
+    <!-- Profile Cover & Header Info -->
+    <section class="relative w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-4 md:mt-8">
+      
+      <!-- Cover Image -->
+      <div class="w-full h-48 md:h-80 rounded-xl overflow-hidden relative shadow-sm group" 
+           data-alt="A sophisticated, abstract architectural rendering in a minimalist style. Soft natural light washes over smooth concrete and warm wood textures. The scene evokes a sense of high-end design, precision, and calm professionalism, perfectly suited as a luxury backdrop for a developer profile." 
+           style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaDJjSoWimmxTSXvjPaXkU_SDQyf5TBaS-NkTqFW5DjcKzoeSsf6az7swrBy0llMnglVlEkySj5iGzUZg_vJnKiHDtXH273OWvz2drFQ9Xh1iUDw0Lza1nyK4R3MUNWFUHrCI9VGhId8jpcplyzkDbXdH-iGQkMfi85rlANpRQYipMRBGsQMAN-xXmnlmxrh0Z-tzWhKXJt3bwGv-h16Q_bu4SEVaIU8rRSNo_vuQXvMgDS35L0WcZ_Q'); background-size: cover; background-position: center;">
+        <!-- Overlay gradient for contrast -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
+        <div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 text-white text-xs font-data-mono flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Available for Q4 Enterprise Projects</span>
+        </div>
+      </div>
+
+      <!-- Profile Details Box (Glassmorphism overlapping cover) -->
+      <div class="relative -mt-20 md:-mt-32 mx-2 md:mx-10 z-10 glass-panel rounded-xl border border-[#E5E2DA] atmospheric-shadow p-6 md:p-10 flex flex-col md:flex-row gap-8 items-start md:items-center">
+        
+        <!-- Avatar -->
+        <div class="relative shrink-0">
+          <img class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white object-cover shadow-md" 
+               data-alt="A professional headshot of Alexander Vance, sharp focus, soft studio lighting. The subject is wearing a high-quality minimal dark shirt, exuding confidence and technical expertise." 
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH9Y1P71YfLZBDCfUmJ1AtgorAmm1d6bXeHQrEGxVQl-0mBzgAZgbewf6_MGlI8DntsmJaQdSaOOiGdXwlqtHdK_tv2nZIm3tAuQpeS0rylddrkIdN2q8SR2071SGWlFlfcfkL0-iXEgc-IbzabvbOUPUt9jUZEsJho40K89AvBOkHFlGiv5NMVQzWUkCKj7yw5G2irfKu119aQa5nNOuiRVxlUzA3BGrjyMXdKXR9RFBTvOYGtOcqKA" 
+               alt="Alexander Vance Profile Portrait" />
+          <div class="absolute bottom-2 right-2 bg-[#0F766E] text-white rounded-full p-1.5 border-2 border-white flex items-center justify-center shadow-sm" title="Cryptographically Verified Professional">
+            <span class="material-symbols-outlined text-[18px]">verified</span>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="flex-grow">
+          <div class="flex flex-col md:flex-row md:items-center gap-4 justify-between w-full mb-3">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <h1 class="font-headline-md text-headline-md text-primary mb-0 font-bold tracking-tight">Alexander Vance</h1>
+                <span class="px-2.5 py-0.5 bg-[#C9A227]/15 text-secondary border border-[#C9A227]/30 rounded-full font-label-uppercase text-[11px] font-bold uppercase tracking-wider">
+                  Top 1% Guild Architect
+                </span>
+              </div>
+              <p class="font-body-lg text-body-lg text-on-surface-variant mt-1 font-medium">Senior Backend &amp; Flutter Engineer</p>
+            </div>
+            
+            <!-- Direct Actions -->
+            <div class="flex items-center gap-3">
+              <a href="engage-developer.html" class="bg-[#C9A227] text-white px-6 py-3 rounded-lg font-body-sm text-body-sm hover:opacity-90 transition-all flex items-center gap-2 shadow-sm font-medium">
+                <span class="material-symbols-outlined text-[18px]">mail</span>
+                <span>Contact Developer</span>
+              </a>
+              <button id="bookmarkBtn" class="border border-[#E5E2DA] bg-white text-[#111111] w-12 h-12 rounded-lg flex items-center justify-center hover:bg-surface-container-high transition-colors shadow-sm" title="Save to Shortlist">
+                <span class="material-symbols-outlined text-[20px]" id="bookmarkIcon">bookmark_border</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl mb-6 leading-relaxed">
+            Architecting robust enterprise solutions with a focus on scalable backend systems and seamless cross-platform mobile experiences. Specializing in high-performance computing, distributed ledger protocols, and elegant API design.
+          </p>
+
+          <!-- Skills Badges -->
+          <div class="flex flex-wrap gap-2 items-center">
+            <span class="px-3 py-1 bg-surface-container-low border border-[#E5E2DA] rounded-full font-label-uppercase text-label-uppercase text-on-surface-variant font-medium">Python</span>
+            <span class="px-3 py-1 bg-surface-container-low border border-[#E5E2DA] rounded-full font-label-uppercase text-label-uppercase text-on-surface-variant font-medium">Django</span>
+            <span class="px-3 py-1 bg-surface-container-low border border-[#E5E2DA] rounded-full font-label-uppercase text-label-uppercase text-on-surface-variant font-medium">Flutter</span>
+            <span class="px-3 py-1 bg-surface-container-low border border-[#E5E2DA] rounded-full font-label-uppercase text-label-uppercase text-on-surface-variant font-medium">PostgreSQL</span>
+            <span class="px-3 py-1 bg-surface-container-low border border-[#E5E2DA] rounded-full font-label-uppercase text-label-uppercase text-on-surface-variant font-medium">AWS</span>
+            <span class="px-3 py-1 bg-surface-container-low border border-[#E5E2DA] rounded-full font-label-uppercase text-label-uppercase text-on-surface-variant font-medium">Redis</span>
+            <span class="px-3 py-1 bg-surface-container-low border border-[#E5E2DA] rounded-full font-label-uppercase text-label-uppercase text-on-surface-variant font-medium">Go</span>
+            <span class="px-3 py-1 bg-surface-container-low border border-[#E5E2DA] rounded-full font-label-uppercase text-label-uppercase text-on-surface-variant font-medium">GraphQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Layout (Bento Grid) -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-14 grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+      
+      <!-- Left Column: Stats & Experience (4 cols) -->
+      <div class="lg:col-span-4 flex flex-col gap-8">
+        
+        <!-- Stats KPI Cards -->
+        <div class="lux-card atmospheric-shadow p-6">
+          <h3 class="font-label-uppercase text-label-uppercase text-[#8A8A8A] mb-6 border-b border-[#E5E2DA] pb-2 font-bold tracking-wider">
+            Developer Metrics
+          </h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <p class="font-label-uppercase text-label-uppercase text-[#8A8A8A] mb-1">Followers</p>
+              <p class="font-headline-sm text-headline-sm text-[#111111] font-bold">12.4k</p>
+              <p class="text-[11px] text-[#0F766E] mt-0.5">+18% this quarter</p>
+            </div>
+            <div>
+              <p class="font-label-uppercase text-label-uppercase text-[#8A8A8A] mb-1">Projects</p>
+              <p class="font-headline-sm text-headline-sm text-[#111111] font-bold">48</p>
+              <p class="text-[11px] text-on-surface-variant mt-0.5">Commercial verified</p>
+            </div>
+            <div>
+              <p class="font-label-uppercase text-label-uppercase text-[#8A8A8A] mb-1">Rating</p>
+              <div class="flex items-center gap-1">
+                <p class="font-headline-sm text-headline-sm text-[#111111] font-bold">4.9</p>
+                <span class="material-symbols-outlined text-[#C9A227] text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+              <p class="text-[11px] text-on-surface-variant mt-0.5">128 client reviews</p>
+            </div>
+            <div>
+              <p class="font-label-uppercase text-label-uppercase text-[#8A8A8A] mb-1">Avg. Response</p>
+              <p class="font-headline-sm text-headline-sm text-[#111111] font-bold">&lt; 2h</p>
+              <p class="text-[11px] text-[#0F766E] mt-0.5">Priority SLA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="lux-card atmospheric-shadow p-6">
+          <h3 class="font-label-uppercase text-label-uppercase text-[#8A8A8A] mb-6 border-b border-[#E5E2DA] pb-2 font-bold tracking-wider">
+            Experience &amp; Achievements
+          </h3>
+          <div class="relative border-l border-[#E5E2DA] ml-3 space-y-8 pb-4">
+            
+            <div class="relative pl-6">
+              <div class="absolute w-3.5 h-3.5 bg-[#C9A227] rounded-full -left-[7px] top-1 ring-4 ring-white"></div>
+              <p class="font-label-uppercase text-label-uppercase text-[#8A8A8A] font-medium">2022 &ndash; Present</p>
+              <h4 class="font-body-lg text-body-lg text-primary font-semibold mt-1">Lead Architect</h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Nexus Financial Systems</p>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                Directed distributed cloud ledger architecture handling $400M+ in daily transaction volume with sub-10ms p99 latency.
+              </p>
+            </div>
+
+            <div class="relative pl-6">
+              <div class="absolute w-3.5 h-3.5 bg-white border-2 border-[#E5E2DA] rounded-full -left-[7px] top-1"></div>
+              <p class="font-label-uppercase text-label-uppercase text-[#8A8A8A] font-medium">2019 &ndash; 2022</p>
+              <h4 class="font-body-lg text-body-lg text-primary font-semibold mt-1">Senior Backend Engineer</h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Vanguard Tech Solutions</p>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                Architected high-scale microservices processing 45k req/sec across multi-region Kubernetes clusters.
+              </p>
+            </div>
+
+            <div class="relative pl-6">
+              <div class="absolute w-3.5 h-3.5 bg-[#0F766E] rounded-full -left-[7px] top-1 ring-4 ring-white"></div>
+              <p class="font-label-uppercase text-label-uppercase text-[#8A8A8A] font-medium">Award &ndash; 2021</p>
+              <h4 class="font-body-lg text-body-lg text-primary font-semibold mt-1">Innovation Excellence</h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Global Developer Summit</p>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                Awarded 1st place in distributed algorithms for cryptographic tamper-proofing and verifiable audit logs.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Verified Guild Credentials -->
+        <div class="lux-card atmospheric-shadow p-6">
+          <h3 class="font-label-uppercase text-label-uppercase text-[#8A8A8A] mb-4 border-b border-[#E5E2DA] pb-2 font-bold tracking-wider">
+            Verified Credentials
+          </h3>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low">
+              <span class="material-symbols-outlined text-[#0F766E] text-xl">verified</span>
+              <div>
+                <p class="text-xs font-semibold text-primary">Identity &amp; Legal Audit Verified</p>
+                <p class="text-[11px] text-on-surface-variant">Full background &amp; IP ownership clearance</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low">
+              <span class="material-symbols-outlined text-[#0F766E] text-xl">cloud_done</span>
+              <div>
+                <p class="text-xs font-semibold text-primary">AWS Certified Solutions Architect</p>
+                <p class="text-[11px] text-on-surface-variant">Professional Level #AWS-SA-9812</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low">
+              <span class="material-symbols-outlined text-[#0F766E] text-xl">lock_clock</span>
+              <div>
+                <p class="text-xs font-semibold text-primary">100% Escrow Milestone Delivery</p>
+                <p class="text-[11px] text-on-surface-variant">48 completed milestones with zero disputes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social & Direct Links -->
+        <div class="lux-card atmospheric-shadow p-6">
+          <h3 class="font-label-uppercase text-label-uppercase text-[#8A8A8A] mb-4 border-b border-[#E5E2DA] pb-2 font-bold tracking-wider">
+            Connect
+          </h3>
+          <div class="flex flex-col gap-2">
+            <a class="flex items-center justify-between text-on-surface-variant hover:text-primary transition-colors p-2 rounded-lg hover:bg-surface-container-low" href="https://github.com" target="_blank" rel="noopener">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined">code</span>
+                <span class="font-body-sm text-body-sm font-medium">GitHub Repository</span>
+              </div>
+              <span class="text-xs text-outline">&rarr;</span>
+            </a>
+            <a class="flex items-center justify-between text-on-surface-variant hover:text-primary transition-colors p-2 rounded-lg hover:bg-surface-container-low" href="https://linkedin.com" target="_blank" rel="noopener">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined">work</span>
+                <span class="font-body-sm text-body-sm font-medium">LinkedIn Profile</span>
+              </div>
+              <span class="text-xs text-outline">&rarr;</span>
+            </a>
+            <a class="flex items-center justify-between text-on-surface-variant hover:text-primary transition-colors p-2 rounded-lg hover:bg-surface-container-low" href="contact.html">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined">language</span>
+                <span class="font-body-sm text-body-sm font-medium">Personal Site &amp; GPG</span>
+              </div>
+              <span class="text-xs text-outline">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Portfolio (8 cols) -->
+      <div class="lg:col-span-8 flex flex-col gap-8">
+        
+        <!-- Header with Filter Controls -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pb-2 border-b border-outline-variant/30">
+          <div>
+            <span class="font-label-uppercase text-label-uppercase text-secondary tracking-widest uppercase mb-1 block">Curated Portfolio</span>
+            <h2 class="font-headline-sm text-headline-sm text-primary font-bold">Featured Projects &amp; Digital Assets</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-1">Showcasing high-impact enterprise solutions &amp; audited codebases</p>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <button class="filter-tab active px-3.5 py-1.5 rounded-lg text-xs font-medium border border-transparent transition-all" data-category="all">
+              All (3)
+            </button>
+            <button class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-outline-variant text-on-surface-variant hover:text-primary transition-all" data-category="backend">
+              Backend &amp; API
+            </button>
+            <button class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-medium border border-outline-variant text-on-surface-variant hover:text-primary transition-all" data-category="mobile">
+              Mobile App
+            </button>
+          </div>
+        </div>
+
+        <!-- Bento Grid Portfolio -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projectsContainer">
+          
+          <!-- Featured Project (Full Width, Bento Primary) -->
+          <div class="md:col-span-2 lux-card atmospheric-shadow overflow-hidden group project-card" data-category="backend">
+            <div class="h-1.5 w-full bg-[#C9A227]"></div>
+            <div class="relative h-64 md:h-72 w-full bg-surface-container overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                   data-alt="A sleek, modern dashboard interface displayed on a high-end monitor. The UI features dark mode with subtle gold and teal accents, displaying complex financial data visualizations in a clean, uncluttered layout. Soft, professional lighting." 
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyhDa2GMt9DItOBZyDGJjdkWR0tALxiVOO3N4Ne5ViwKL0UM-S8p-4R1obnN2afycMkPYMx9XqE3R1X7AHmE5iHCp1N_twfCRdRPaTu6unmuW6f5-PuWJpEcxD1UvwBNEB1r7doXENMzx_sRW44XrCyeDFSebHb-lnIx9YD9CxGtSH4qB_lh5jUulBqQSxB-GWuNmHFdo52mEEDrHQaQcAXzVl5BtrDF_E-C1U3LFZoKJYyNomXhW2Rw" 
+                   alt="FinTech Data Aggregator API Architecture" />
+              <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1 rounded-full border border-[#E5E2DA] shadow-sm flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span class="font-label-uppercase text-label-uppercase text-primary text-[10px] font-bold">Enterprise Grade</span>
+              </div>
+              <div class="absolute top-4 right-4 bg-black/75 backdrop-blur-md px-3 py-1 rounded-full text-white text-[11px] font-data-mono">
+                18 Commercial Licenses Sold
+              </div>
+            </div>
+
+            <div class="p-6 md:p-8">
+              <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+                <div>
+                  <h3 class="font-headline-sm text-headline-sm text-primary font-bold">FinTech Data Aggregator API</h3>
+                  <p class="text-xs font-data-mono text-secondary font-semibold uppercase tracking-wider mt-0.5">High-Throughput Microservice Architecture</p>
+                </div>
+                <span class="px-3 py-1 bg-[#0F766E]/10 text-[#0F766E] border border-[#0F766E]/20 rounded-full font-label-uppercase text-[11px] font-bold tracking-wider">
+                  Production Verified
+                </span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant mb-6 max-w-3xl leading-relaxed">
+                A high-throughput Django-based API processing millions of financial transactions daily with sub-millisecond latency. Features advanced multi-layer caching with Redis, bank-grade encryption protocols, and automated webhook reconciliation.
+              </p>
+
+              <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-outline-variant/30">
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-[12px] font-data-mono text-on-surface-variant bg-surface-container-low px-2.5 py-1 rounded border border-[#E5E2DA]">Python</span>
+                  <span class="text-[12px] font-data-mono text-on-surface-variant bg-surface-container-low px-2.5 py-1 rounded border border-[#E5E2DA]">Redis</span>
+                  <span class="text-[12px] font-data-mono text-on-surface-variant bg-surface-container-low px-2.5 py-1 rounded border border-[#E5E2DA]">GraphQL</span>
+                  <span class="text-[12px] font-data-mono text-on-surface-variant bg-surface-container-low px-2.5 py-1 rounded border border-[#E5E2DA]">PostgreSQL</span>
+                </div>
+                
+                <a href="project-detail.html" class="inline-flex items-center gap-1.5 font-medium text-xs text-primary hover:text-secondary transition-colors font-data-mono uppercase tracking-wider">
+                  <span>Inspect Asset Spec</span>
+                  <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Standard Project 1: Luxe Concierge App -->
+          <div class="lux-card atmospheric-shadow overflow-hidden group flex flex-col project-card" data-category="mobile">
+            <div class="relative h-48 w-full bg-surface-container overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                   data-alt="A sophisticated mobile application interface shown on a premium smartphone mockup. The app has a clean, minimalist white and cream aesthetic with elegant typography, depicting a seamless user booking experience." 
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaf2YxFLhbi275luPaThFg_42xLXAlDqnpavX9DrL55ZLw388Wdpjxh-OTg-5NcOciyCQnlWc3J5nWRhMgNtXx5nc4JIbpjHpDzOSuiKZJnybotsyyvgTqc-dnUNF_AbmYbgqR832LgSQhydaHoeK-jFtLks2Q_FUbeRoCfNfOWZMa2UDQMAWYoll7ECAiY40mq5KSKgSMPSc_MW3Sd9fSch4DHMLZys4Qm9bp2L2iQyCTQLWi8hIeKg" 
+                   alt="Luxe Concierge App" />
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-[#E5E2DA]">
+                <span class="text-[10px] font-bold text-primary font-label-uppercase">Mobile Experience</span>
+              </div>
+            </div>
+
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="font-body-lg text-body-lg font-bold text-primary mb-2">Luxe Concierge App</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">
+                  Cross-platform Flutter application for premium lifestyle management, white-glove booking, and end-to-end encrypted messaging.
+                </p>
+              </div>
+
+              <div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+                <div class="flex gap-2">
+                  <span class="text-[12px] font-data-mono text-on-surface-variant bg-surface-container-low px-2 py-1 rounded border border-[#E5E2DA]">Flutter</span>
+                  <span class="text-[12px] font-data-mono text-on-surface-variant bg-surface-container-low px-2 py-1 rounded border border-[#E5E2DA]">Firebase</span>
+                </div>
+                <a href="project-detail.html" class="text-xs text-secondary hover:text-primary font-semibold flex items-center gap-1">
+                  <span>View Details</span> &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Standard Project 2: Distributed Caching System -->
+          <div class="lux-card atmospheric-shadow overflow-hidden group flex flex-col project-card" data-category="backend">
+            <div class="relative h-48 w-full bg-surface-container overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                   data-alt="An abstract visualization of cloud architecture. Glowing interconnected nodes and data streams in subtle shades of grey, white, and a hint of gold, representing robust, scalable backend infrastructure." 
+                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuB20edgB1PNzSO-XZKimMnZV7pTFt5t3jDA6iDlHA_yoh99Ov4EbVfd91L--OQo6GA8GOANIjfi7pR8X_z3OToEqaoapWZA25ZOBeoqFb7viXHORsVGIToe48cORKVmhfW19hYkXLVShM2ANs5lxu0cE0OnJczcblBTUWaFksbQHwa4ePqUtI09OS6c9ie7uxbtssA0S8xuVsyQWsu_O2wV4pTMudf2rJ0-PWXo7qxTjHZTHFqN_q5adg" 
+                   alt="Distributed Caching System" />
+              <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full border border-[#E5E2DA]">
+                <span class="text-[10px] font-bold text-primary font-label-uppercase">Systems Engineering</span>
+              </div>
+            </div>
+
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div>
+                <h3 class="font-body-lg text-body-lg font-bold text-primary mb-2">Distributed Caching System</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">
+                  Open-source distributed caching layer optimized for read-heavy microservices with Raft consensus and zero memory leak benchmarks.
+                </p>
+              </div>
+
+              <div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+                <div class="flex gap-2">
+                  <span class="text-[12px] font-data-mono text-on-surface-variant bg-surface-container-low px-2 py-1 rounded border border-[#E5E2DA]">Go</span>
+                  <span class="text-[12px] font-data-mono text-on-surface-variant bg-surface-container-low px-2 py-1 rounded border border-[#E5E2DA]">gRPC</span>
+                </div>
+                <a href="project-detail.html" class="text-xs text-secondary hover:text-primary font-semibold flex items-center gap-1">
+                  <span>View Details</span> &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Verified Client Testimonials -->
+        <div class="lux-card atmospheric-shadow p-6 md:p-8">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <span class="font-label-uppercase text-label-uppercase text-secondary tracking-widest uppercase block mb-1">Peer Endorsements</span>
+              <h3 class="font-headline-sm text-xl font-bold text-primary">Enterprise Client Reviews</h3>
+            </div>
+            <div class="flex items-center gap-1 text-[#C9A227]">
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+              <p class="font-body-sm text-body-sm text-on-surface italic mb-3">
+                &ldquo;Alexander re-architected our transaction ingestion engine in 6 weeks. Platform latency dropped 72% and zero defects were reported in our SOC 2 Type II audit. An exceptional engineer.&rdquo;
+              </p>
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-primary">Marcus Sterling &bull; VP of Infrastructure, FinTech Alpha</span>
+                <span class="text-on-surface-variant">Verified Project Escrow #9182</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/20">
+              <p class="font-body-sm text-body-sm text-on-surface italic mb-3">
+                &ldquo;Flawless communication, immaculate commit histories, and rigorous code comments. Alexander delivers architectural quality that feels like private banking.&rdquo;
+              </p>
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-primary">Sarah Jenkins &bull; Product Director, Nexus Financial</span>
+                <span class="text-on-surface-variant">Verified Project Escrow #8824</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Engagement Banner -->
+        <div class="bg-primary text-on-primary rounded-2xl p-8 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 atmospheric-shadow relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-secondary/20 rounded-full blur-2xl pointer-events-none"></div>
+          <div>
+            <span class="font-label-uppercase text-secondary-fixed uppercase tracking-widest text-xs font-bold block mb-2">Direct Engagement</span>
+            <h3 class="font-display-lg text-2xl font-bold text-white mb-2">Engage Alexander for Your Next Sprint</h3>
+            <p class="text-on-primary-container text-body-sm max-w-xl">
+              Available for technical consultations, backend architectural audits, and high-impact distributed systems development.
+            </p>
+          </div>
+          <div class="shrink-0">
+            <a href="engage-developer.html" class="bg-[#C9A227] hover:bg-[#b5901e] text-white px-7 py-3 rounded-lg font-medium text-body-sm inline-flex items-center gap-2 shadow-sm transition-all">
+              <span>Initiate Inquiry</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-lowest w-full py-section-gap border-t border-outline-variant px-margin-mobile md:px-margin-desktop mt-auto transition-opacity duration-200">
+    <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex flex-col items-center md:items-start gap-2">
+        <a href="index.html" class="font-display-lg text-headline-sm font-bold text-primary">ProjectHub</a>
+        <div class="font-body-sm text-body-sm text-on-surface-variant">&copy; 2024 ProjectHub Enterprise. All rights reserved.</div>
+      </div>
+      <div class="flex flex-wrap gap-6 justify-center font-body-sm text-body-sm">
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="about.html">About The Standard</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="case-studies.html">Case Studies</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">Contact Sales</a>
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="auth/login.html">Sign In</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile Drawer Toggle
+      const mobileToggle = document.getElementById('mobileMenuToggle');
+      const mobileDrawer = document.getElementById('mobileNavDrawer');
+      const menuIcon = document.getElementById('menuIcon');
+
+      if (mobileToggle && mobileDrawer) {
+        mobileToggle.addEventListener('click', () => {
+          const isHidden = mobileDrawer.classList.contains('hidden');
+          if (isHidden) {
+            mobileDrawer.classList.remove('hidden');
+            if (menuIcon) menuIcon.textContent = 'close';
+          } else {
+            mobileDrawer.classList.add('hidden');
+            if (menuIcon) menuIcon.textContent = 'menu';
+          }
+        });
+      }
+
+      // Bookmark Toggle
+      const bookmarkBtn = document.getElementById('bookmarkBtn');
+      const bookmarkIcon = document.getElementById('bookmarkIcon');
+      let isBookmarked = localStorage.getItem('ph_bookmarked_alexander') === 'true';
+
+      function updateBookmarkUI() {
+        if (isBookmarked) {
+          bookmarkIcon.textContent = 'bookmark';
+          bookmarkIcon.style.fontVariationSettings = "'FILL' 1";
+          bookmarkIcon.classList.add('text-[#C9A227]');
+          bookmarkBtn.title = 'Saved to Shortlist';
+        } else {
+          bookmarkIcon.textContent = 'bookmark_border';
+          bookmarkIcon.style.fontVariationSettings = "'FILL' 0";
+          bookmarkIcon.classList.remove('text-[#C9A227]');
+          bookmarkBtn.title = 'Save to Shortlist';
+        }
+      }
+      updateBookmarkUI();
+
+      if (bookmarkBtn) {
+        bookmarkBtn.addEventListener('click', () => {
+          isBookmarked = !isBookmarked;
+          localStorage.setItem('ph_bookmarked_alexander', isBookmarked);
+          updateBookmarkUI();
+        });
+      }
+
+      // Category Filter Tabs
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const cat = tab.dataset.category;
+          filterTabs.forEach(t => t.classList.remove('active', 'bg-[#111111]', 'text-white'));
+          tab.classList.add('active', 'bg-[#111111]', 'text-white');
+
+          projectCards.forEach(card => {
+            if (cat === 'all' || card.dataset.category === cat) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
